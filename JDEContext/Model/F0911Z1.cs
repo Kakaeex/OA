@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using DBContextHelper;
 
 namespace JDEContext
 {
-    public partial class F0911Z1
+    public partial class F0911Z1 : ModelBase
     {
         public string VNEDUS { get; set; }
         public string VNEDTY { get; set; }
