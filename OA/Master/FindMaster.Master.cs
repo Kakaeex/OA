@@ -12,6 +12,13 @@ namespace OA.Master
 {
     public partial class FindMaster : System.Web.UI.MasterPage
     {
+        public DateTime now;
+        public TimeSpan time;
+        public string progammeID;
+        public string userID;
+        public string kcoo;
+        public string role;
+        public IUserAuthorization _UserAuthorization { get; set; }
         #region Page
 
         /// <summary>
@@ -39,6 +46,17 @@ namespace OA.Master
 
             SetToolBar();
             SetGridPageItems();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            now = DateTime.Now;
+            time = DateTime.Now.TimeOfDay;
+            progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
+            userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
+            kcoo = _UserAuthorization.GetUserKcoo(userID);
+            role = System.Web.HttpContext.Current.Session["role"] as string;
+            _UserAuthorization.ApplicationAuthorization(kcoo, role, progammeID, Page.Toolbar);
         }
 
         private void SetGridPageItems()
