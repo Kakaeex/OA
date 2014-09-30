@@ -6,6 +6,56 @@ namespace OAContext
 {
     public partial class C_F0902 : ModelBase
     {
+        public  C_F0902 ()
+        {}
+
+        public  C_F0902 (int i)
+        {
+                    GBAID =  " " ;
+                GBCTRY = 0 ;
+                GBFY = 0 ;
+                GBFQ =  " " ;
+                GBLT =  " " ;
+                GBSBL =  " " ;
+                GBCO =  " " ;
+                GBAPYC = 0 ;
+                GBAN01 = 0 ;
+                GBAN02 = 0 ;
+                GBAN03 = 0 ;
+                GBAN04 = 0 ;
+                GBAN05 = 0 ;
+                GBAN06 = 0 ;
+                GBAN07 = 0 ;
+                GBAN08 = 0 ;
+                GBAN09 = 0 ;
+                GBAN10 = 0 ;
+                GBAN11 = 0 ;
+                GBAN12 = 0 ;
+                GBAN13 = 0 ;
+                GBAN14 = 0 ;
+                GBQ00 = 0 ;
+                GBQ01 = 0 ;
+                GBQ02 = 0 ;
+                GBQ03 = 0 ;
+                GBQ04 = 0 ;
+                GBQ05 = 0 ;
+                GBAPYN = 0 ;
+                GBAWTD = 0 ;
+                GBBORG = 0 ;
+                GBPOU = 0 ;
+                GBPC = 0 ;
+                GBTKER = 0 ;
+                GBBREQ = 0 ;
+                GBBAPR = 0 ;
+                GBMCU =  " " ;
+                GBOBJ =  " " ;
+                GBSUB =  " " ;
+                GBUSER =  " " ;
+                GBPID =  " " ;
+                GBDATE = System.DateTime.Now ;
+                GBTIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string GBAID { get; set; }
         public int GBCTRY { get; set; }
         public int GBFY { get; set; }

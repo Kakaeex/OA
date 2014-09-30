@@ -6,6 +6,32 @@ namespace OAContext
 {
     public partial class C_F40203 : ModelBase
     {
+        public  C_F40203 ()
+        {}
+
+        public  C_F40203 (int i)
+        {
+                    FSDCTO =  " " ;
+                FSTRTY =  " " ;
+                FSDEL1 =  " " ;
+                FSDEL2 =  " " ;
+                FSLNTY =  " " ;
+                FSLNDS =  " " ;
+                FSLND2 =  " " ;
+                FSNXTR =  " " ;
+                FSA1TR =  " " ;
+                FSA2TR =  " " ;
+                FSA3TR =  " " ;
+                FSA4TR =  " " ;
+                FSA5TR =  " " ;
+                FSWRTH =  " " ;
+                FSORNN = 0 ;
+                FSUSER =  " " ;
+                FSPID =  " " ;
+                FSDATE = System.DateTime.Now ;
+                FSTIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string FSDCTO { get; set; }
         public string FSTRTY { get; set; }
         public string FSDEL1 { get; set; }

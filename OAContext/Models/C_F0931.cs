@@ -6,6 +6,58 @@ namespace OAContext
 {
     public partial class C_F0931 : ModelBase
     {
+        public  C_F0931 ()
+        {}
+
+        public  C_F0931 (int i)
+        {
+                    CDKCOO =  " " ;
+                CDDOCO = 0 ;
+                CDDCTO =  " " ;
+                CDDLNID = 0 ;
+                CDDOC = 0 ;
+                CDDCT =  " " ;
+                CDDSC1 =  " " ;
+                CDDSC2 =  " " ;
+                CDMAID =  " " ;
+                CDMMCU =  " " ;
+                CDMOBJ =  " " ;
+                CDMSUB =  " " ;
+                CDDEL1 =  " " ;
+                CDFAID =  " " ;
+                CDFMCU =  " " ;
+                CDFOBJ =  " " ;
+                CDFSUB =  " " ;
+                CDDEL2 =  " " ;
+                CDTRDJ = System.DateTime.Now ;
+                CDDRQJ = System.DateTime.Now ;
+                CDPDDJ = System.DateTime.Now ;
+                CDADDJ = System.DateTime.Now ;
+                CDCNDJ = System.DateTime.Now ;
+                CDUPRC = 0 ;
+                CDAEXP = 0 ;
+                CDUNCS = 0 ;
+                CDECST = 0 ;
+                CDSOQS = 0 ;
+                CDUORG = 0 ;
+                CDVR01 =  " " ;
+                CDVR02 =  " " ;
+                CDSRP1 =  " " ;
+                CDSRP2 =  " " ;
+                CDSRP3 =  " " ;
+                CDSRP4 =  " " ;
+                CDSRP5 =  " " ;
+                CDPRP1 = 0 ;
+                CDPRP2 = 0 ;
+                CDPRP3 = 0 ;
+                CDPRP4 = 0 ;
+                CDPRP5 = 0 ;
+                CDUSER =  " " ;
+                CDPID =  " " ;
+                CDDATE = System.DateTime.Now ;
+                CDTIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string CDKCOO { get; set; }
         public int CDDOCO { get; set; }
         public string CDDCTO { get; set; }

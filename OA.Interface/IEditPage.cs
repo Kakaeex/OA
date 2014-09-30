@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FineUI;
+using DBContextHelper;
 
 namespace OA.Interface
 {
-    public interface IFindPage
+    public interface IEditPage
     {
         /// <summary>
         /// 主工具栏
@@ -30,21 +31,23 @@ namespace OA.Interface
         void BindGrid();
 
         /// <summary>
-        /// 删除选中的行数据
+        /// 重新绑定其它数据
         /// </summary>
-        void DeleteSelectedRows();
+        void Bind();
 
         /// <summary>
-        /// 获取新增地址
+        /// 删除选中的行
         /// </summary>
-        /// <returns></returns>
-        string GetNewUrl();
+        void DeleteRow();
+
+        dynamic GetGridRowData(Dictionary<string, string> rowDict = null, string[] values = null);
 
         /// <summary>
-        /// 获取编辑地址
+        /// 保存数据
         /// </summary>
         /// <returns></returns>
-        string GetEditUrl();
+        void Save();
+
 
         /// <summary>
         /// 获取编辑地址

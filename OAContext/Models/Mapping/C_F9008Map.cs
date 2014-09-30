@@ -8,7 +8,7 @@ namespace OAContext
         public C_F9008Map()
         {
             // Primary Key
-            this.HasKey(t => new { t.AUKCOO, t.AUMCU, t.AURUID });
+            this.HasKey(t => new { t.AUKCOO, t.AUMCU, t.AUAN8 });
 
             // Properties
             this.Property(t => t.AUKCOO)
@@ -19,9 +19,8 @@ namespace OAContext
                 .IsRequired()
                 .HasMaxLength(12);
 
-            this.Property(t => t.AURUID)
-                .IsRequired()
-                .HasMaxLength(20);
+            this.Property(t => t.AUAN8)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
             this.Property(t => t.AUDEL1)
                 .IsRequired()
@@ -63,7 +62,7 @@ namespace OAContext
             this.ToTable("C_F9008");
             this.Property(t => t.AUKCOO).HasColumnName("AUKCOO");
             this.Property(t => t.AUMCU).HasColumnName("AUMCU");
-            this.Property(t => t.AURUID).HasColumnName("AURUID");
+            this.Property(t => t.AUAN8).HasColumnName("AUAN8");
             this.Property(t => t.AUDEL1).HasColumnName("AUDEL1");
             this.Property(t => t.AUDEL2).HasColumnName("AUDEL2");
             this.Property(t => t.AUSRP1).HasColumnName("AUSRP1");

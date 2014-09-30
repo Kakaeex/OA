@@ -7,10 +7,11 @@ using DBContextHelper;
 using OA.Service;
 using OA.Interface;
 using FineUI;
+using Newtonsoft.Json;
 
 namespace OA.Master
 {
-    public partial class FindMaster : System.Web.UI.MasterPage
+    public partial class EditMaster : System.Web.UI.MasterPage
     {
         public DateTime now;
         public TimeSpan time;
@@ -21,16 +22,17 @@ namespace OA.Master
         public IDataRepository _DBHelper { get; set; }
         public IUserAuthorization _UserAuthorization { get; set; }
         public IValueManage _vm { get; set; }
+
         #region Page
 
         /// <summary>
         /// 重写Page属性
         /// </summary>
-        private new IFindPage Page
+        private new IEditPage Page
         {
             get
             {
-                return (IFindPage)base.Page;
+                return (IEditPage)base.Page;
             }
         }
 
@@ -61,6 +63,7 @@ namespace OA.Master
                 kcoo = _UserAuthorization.GetUserKcoo(userID);
                 role = System.Web.HttpContext.Current.Session["role"] as string;
                 _UserAuthorization.ApplicationAuthorization(kcoo, role, progammeID, Page.Toolbar);
+                Page.Bind();
                 Page.BindGrid();
             }
         }
@@ -152,32 +155,14 @@ namespace OA.Master
         #region Events
 
         /// <summary>
-        /// 表格每页显示项数改变
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlGridPageSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Page.Grid.PageSize = System.Convert.ToInt32(((DropDownList)sender).SelectedValue);
-
-            Page.BindGrid();
-        }
-
-        /// <summary>
         /// 点击新增按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void New_Click(object sender, EventArgs e)
         {
-            if (Page.GetFromMode() == "Windows")
-            {
-                PageContext.RegisterStartupScript(Window1.GetShowReference(Page.GetNewUrl(), "新增"));
-            }
-            else if (Page.GetFromMode() == "Tab")
-            {
-                PageContext.RegisterStartupScript(string.Format("AddActiveTab('{0}');", Page.GetNewUrl()));
-            }
+            Newtonsoft.Json.Linq.JObject deserializeObject = (Newtonsoft.Json.Linq.JObject)JsonConvert.DeserializeObject(JsonConvert.SerializeObject(Page.GetGridRowData()));
+            Page.Grid.AddNewRecord(deserializeObject);
         }
 
         /// <summary>
@@ -187,7 +172,7 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void Save_Click(object sender, EventArgs e)
         {
-
+            Page.Save();
         }
 
         /// <summary>
@@ -207,19 +192,7 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void Select_Click(object sender, EventArgs e)
         {
-            if (Page.Grid.SelectedRowIndexArray.Length == 0)
-            {
-                Alert.ShowInTop("请至少选择一条记录！");
-                return;
-            }
-            if (Page.GetFromMode() == "Windows")
-            {
-                PageContext.RegisterStartupScript(Window1.GetShowReference(Page.GetEditUrl(), "编辑"));
-            }
-            else if (Page.GetFromMode() == "Tab")
-            {
-                PageContext.RegisterStartupScript(string.Format("AddActiveTab('{0}');", Page.GetEditUrl()));
-            }
+
         }
 
         /// <summary>
@@ -235,7 +208,7 @@ namespace OA.Master
                 return;
             }
 
-            Page.DeleteSelectedRows();
+            Page.DeleteRow();
         }
 
         /// <summary>
@@ -245,7 +218,7 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void Close_Click(object sender, EventArgs e)
         {
-            PageContext.RegisterStartupScript("closeActiveTab();"); 
+            PageContext.RegisterStartupScript("closeActiveTab();");
         }
 
         /// <summary>
@@ -303,27 +276,20 @@ namespace OA.Master
             Page.BindGrid();
         }
 
+        /// <summary>
+        /// 表格每页显示项数改变
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlGridPageSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Page.Grid.PageSize = System.Convert.ToInt32(((DropDownList)sender).SelectedValue);
+
+            Page.BindGrid();
+        }
         #endregion
 
         #region Methods
-
-        public void SetBtnInsertVisible(bool bVisible)
-        {
-            Toolbar tbToolBar = Page.Grid.Toolbars[0];
-            tbToolBar.FindControl("btnInsert").Visible = bVisible;
-        }
-
-        public void SetBtnEditVisible(bool bVisible)
-        {
-            Toolbar tbToolBar = Page.Grid.Toolbars[0];
-            tbToolBar.FindControl("btnEdit").Visible = bVisible;
-        }
-
-        public void SetBtnDeleteVisible(bool bVisible)
-        {
-            Toolbar tbToolBar = Page.Grid.Toolbars[0];
-            tbToolBar.FindControl("btnDelete").Visible = bVisible;
-        }
 
 
         #endregion

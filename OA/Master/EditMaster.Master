@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FindMaster.master.cs" Inherits="OA.Master.FindMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EditMaster.master.cs" Inherits="OA.Master.EditMaster" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel1" runat="server" ShowBorder="true" ShowHeader="true" Title="查找"
+        <f:Panel ID="Panel1" runat="server" ShowBorder="true" ShowHeader="true" Title="编辑"
             Layout="VBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start"
             Width="850px" Height="400px">
             <Items>

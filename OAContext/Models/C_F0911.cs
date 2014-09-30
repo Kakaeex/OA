@@ -6,6 +6,72 @@ namespace OAContext
 {
     public partial class C_F0911 : ModelBase
     {
+        public  C_F0911 ()
+        {}
+
+        public  C_F0911 (int i)
+        {
+                    GLKCO =  " " ;
+                GLDCT =  " " ;
+                GLDOC = 0 ;
+                GLDGJ = System.DateTime.Now ;
+                GLLIND = 0 ;
+                GLEXTL =  " " ;
+                GLPOST =  " " ;
+                GLICU = 0 ;
+                GLICUT =  " " ;
+                GLCO =  " " ;
+                GLANI =  " " ;
+                GLAM =  " " ;
+                GLAID =  " " ;
+                GLMCU =  " " ;
+                GLOBJ =  " " ;
+                GLSUB =  " " ;
+                GLSBL =  " " ;
+                GLSBLT =  " " ;
+                GLLT =  " " ;
+                GLPN = 0 ;
+                GLCTRY = 0 ;
+                GLFY = 0 ;
+                GLFQ =  " " ;
+                GLCRCD =  " " ;
+                GLCRR = 0 ;
+                GLHCRR = 0 ;
+                GLHDGJ = System.DateTime.Now ;
+                GLAA = 0 ;
+                GLU = 0 ;
+                GLUM =  " " ;
+                GLRE =  " " ;
+                GLEXA =  " " ;
+                GLEXR =  " " ;
+                GLAN8 = 0 ;
+                GLIVD = System.DateTime.Now ;
+                GLSRP1 =  " " ;
+                GLSRP2 =  " " ;
+                GLSRP3 =  " " ;
+                GLSRP4 =  " " ;
+                GLSRP5 =  " " ;
+                GLSRP6 =  " " ;
+                GLSRP7 =  " " ;
+                GLSRP8 =  " " ;
+                GLSRP9 =  " " ;
+                GLSRP0 =  " " ;
+                GLCLASS01 = 0 ;
+                GLCLASS02 = 0 ;
+                GLCLASS03 = 0 ;
+                GLCLASS04 = 0 ;
+                GLCLASS05 = 0 ;
+                GLCLASS06 = 0 ;
+                GLCLASS07 = 0 ;
+                GLCLASS08 = 0 ;
+                GLCLASS09 = 0 ;
+                GLCLASS10 = 0 ;
+                GLUSER =  " " ;
+                GLPID =  " " ;
+                GLDATE = System.DateTime.Now ;
+                GLTIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string GLKCO { get; set; }
         public string GLDCT { get; set; }
         public int GLDOC { get; set; }

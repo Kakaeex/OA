@@ -6,6 +6,32 @@ namespace OAContext
 {
     public partial class C_F9006 : ModelBase
     {
+        public  C_F9006 ()
+        {}
+
+        public  C_F9006 (int i)
+        {
+                    RAKCOO =  " " ;
+                RAAN8 = 0 ;
+                RAID =  " " ;
+                RADEL1 =  " " ;
+                RADEL2 =  " " ;
+                RASRP1 =  " " ;
+                RASRP2 =  " " ;
+                RASRP3 =  " " ;
+                RASRP4 =  " " ;
+                RASRP5 =  " " ;
+                RAPRP1 = 0 ;
+                RAPRP2 = 0 ;
+                RAPRP3 = 0 ;
+                RAPRP4 = 0 ;
+                RAPRP5 = 0 ;
+                RAUSER =  " " ;
+                RAPID =  " " ;
+                RADATE = System.DateTime.Now ;
+                RATIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string RAKCOO { get; set; }
         public int RAAN8 { get; set; }
         public string RAID { get; set; }

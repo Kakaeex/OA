@@ -6,6 +6,43 @@ namespace OAContext
 {
     public partial class C_F0006 : ModelBase
     {
+        public  C_F0006 ()
+        {}
+
+        public  C_F0006 (int i)
+        {
+                    MCKCOO =  " " ;
+                MCMCU =  " " ;
+                MCSTYL =  " " ;
+                MCDC =  " " ;
+                MCLDM = 0 ;
+                MCCO =  " " ;
+                MCPMCU =  " " ;
+                MCAN8 = 0 ;
+                MCAN8O = 0 ;
+                MCCNTY =  " " ;
+                MCADDS =  " " ;
+                MCFMOD =  " " ;
+                MCDL01 =  " " ;
+                MCDL02 =  " " ;
+                MCDL03 =  " " ;
+                MCDL04 =  " " ;
+                MCSRP1 =  " " ;
+                MCSRP2 =  " " ;
+                MCSRP3 =  " " ;
+                MCSRP4 =  " " ;
+                MCSRP5 =  " " ;
+                MCPRP1 = 0 ;
+                MCPRP2 = 0 ;
+                MCPRP3 = 0 ;
+                MCPRP4 = 0 ;
+                MCPRP5 = 0 ;
+                MCUSER =  " " ;
+                MCPID =  " " ;
+                MCDATE = System.DateTime.Now ;
+                MCTIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string MCKCOO { get; set; }
         public string MCMCU { get; set; }
         public string MCSTYL { get; set; }

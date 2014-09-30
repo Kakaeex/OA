@@ -4,12 +4,12 @@ using DBContextHelper;
 
 namespace OAContext
 {
-    public partial class C_F0101 : ModelBase
+    public partial class V_F0101A : ModelBase
     {
-        public  C_F0101 ()
+        public  V_F0101A ()
         {}
 
-        public  C_F0101 (int i)
+        public  V_F0101A (int i)
         {
                     ABKCOO =  " " ;
                 ABAN8 = 0 ;
@@ -46,6 +46,9 @@ namespace OAContext
                 ABPID =  " " ;
                 ABDATE = System.DateTime.Now ;
                 ABTIME = DateTime.Now.TimeOfDay ;
+                UserName =  " " ;
+                LastActivityDate = System.DateTime.Now ;
+                IsAnonymous = true ;
         }
 
         public string ABKCOO { get; set; }
@@ -83,5 +86,8 @@ namespace OAContext
         public string ABPID { get; set; }
         public System.DateTime ABDATE { get; set; }
         public System.TimeSpan ABTIME { get; set; }
+        public string UserName { get; set; }
+        public System.DateTime LastActivityDate { get; set; }
+        public bool IsAnonymous { get; set; }
     }
 }

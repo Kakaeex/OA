@@ -324,19 +324,21 @@ namespace OA.Service
         //    }
         //}
 
-        //public string GetApplication(string kcoo, string App)
-        //{
-        //    List<C_F9005> obj = CacheHelper.Get<List<C_F9005>>(string.Format("{0}_SY_ApplicationList", kcoo), () =>
-        //    {
-        //        using (var entitis = new DataManagementContext())
-        //        {
-        //            List<C_F9005> f9005 = entitis.FindAll<C_F9005, int>(p => p.APKCOO == kcoo, p => p.APID);
-        //            return f9005;
-        //        }
-        //    });
+        public string GetApplication(string kcoo, string App)
+        {
+            //List<C_F9005> obj = CacheHelper.Get<List<C_F9005>>(string.Format("{0}_SY_ApplicationList", kcoo), () =>
+            //{
+            //    using (var entitis = new DataManagementContext())
+            //    {
+            //        List<C_F9005> f9005 = entitis.FindAll<C_F9005, int>(p => p.APKCOO == kcoo, p => p.APID);
+            //        return f9005;
+            //    }
+            //});
 
-        //    return obj.Find(delegate(C_F9005 p) { return p.APDEL2 == App; }).APURL;
-        //}
+            //return obj.Find(delegate(C_F9005 p) { return p.APDEL2 == App; }).APURL;
+
+            return "";
+        }
 
         //public string GetCurrentRole()
         //{

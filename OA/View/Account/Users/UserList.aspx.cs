@@ -3,23 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using OA.Interface;
-using FineUI;
 using OAContext;
 using DBContextHelper;
+using FineUI;
+using OA.Interface;
 
-namespace OA.View.Setting.P0005
+namespace OA.View.Account.Users
 {
-    public partial class P0005H : PagedBase, IFindPage
+    public partial class UserList : System.Web.UI.Page
     {
-        public IDataRepository DBHelper { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                BindGrid();
-            }
+
         }
 
         #region BindGrid
@@ -29,8 +24,7 @@ namespace OA.View.Setting.P0005
         /// </summary>
         public void BindGrid()
         {
-            PagedList<C_F0005> list = DBHelper.FindAllByPage<C_F0005, string>
-                (null, p => p.DRSY, Grid1.PageSize, Grid1.PageIndex);
+            PagedList<V_F0101A> list = Master._DBHelper.FindAllByPage<V_F0101A, int>(null, p => p.ABAN8, Grid1.PageSize, Grid1.PageIndex);
             Grid1.RecordCount = list.TotalItemCount;
             Grid1.DataSource = list;
             Grid1.DataBind();
@@ -66,7 +60,7 @@ namespace OA.View.Setting.P0005
             }
         }
 
-        public Toolbar Toolbar 
+        public Toolbar Toolbar
         {
             get
             {
@@ -80,7 +74,7 @@ namespace OA.View.Setting.P0005
         /// <returns></returns>
         public string GetNewUrl()
         {
-            return "~/grid/grid_iframe_window.aspx";
+            return Master._UserAuthorization.GetApplication(Master.kcoo, "");
         }
 
         /// <summary>
@@ -90,7 +84,8 @@ namespace OA.View.Setting.P0005
         public string GetEditUrl()
         {
             object[] keys = Grid1.DataKeys[Grid1.SelectedRowIndex];
-            return String.Format("~/grid/grid_iframe_window.aspx?id={0}&name={1}", keys[0], HttpUtility.UrlEncode(keys[1].ToString()));
+
+            return String.Format(Master._UserAuthorization.GetApplication(Master.kcoo, ""), keys[0], HttpUtility.UrlEncode(keys[1].ToString()));
         }
 
         public string GetFromMode()

@@ -6,6 +6,52 @@ namespace OAContext
 {
     public partial class C_F0920 : ModelBase
     {
+        public  C_F0920 ()
+        {}
+
+        public  C_F0920 (int i)
+        {
+                    FHDOCO = 0 ;
+                FHDCTO =  " " ;
+                FHMCU =  " " ;
+                FHYAER = 0 ;
+                FHEFTJ = System.DateTime.Now ;
+                FHEDXJ = System.DateTime.Now ;
+                FHNAME =  " " ;
+                FHDSC1 =  " " ;
+                FHDSC2 =  " " ;
+                FHUPRC = 0 ;
+                FHAPYN = 0 ;
+                FHAWTD = 0 ;
+                FHLTTR =  " " ;
+                FHNXTR =  " " ;
+                FHSRP1 =  " " ;
+                FHSRP2 =  " " ;
+                FHSRP3 =  " " ;
+                FHSRP4 =  " " ;
+                FHSRP5 =  " " ;
+                FHSRP6 =  " " ;
+                FHSRP7 =  " " ;
+                FHSRP8 =  " " ;
+                FHSRP9 =  " " ;
+                FHSRP0 =  " " ;
+                FHPRP1 = 0 ;
+                FHPRP2 = 0 ;
+                FHPRP3 = 0 ;
+                FHPRP4 = 0 ;
+                FHPRP5 = 0 ;
+                FHPRP6 = 0 ;
+                FHPRP7 = 0 ;
+                FHPRP8 = 0 ;
+                FHPRP9 = 0 ;
+                FHPRP0 = 0 ;
+                FHTROG =  " " ;
+                FHUSER =  " " ;
+                FHPID =  " " ;
+                FHDATE = System.DateTime.Now ;
+                FHTIME = System.DateTime.Now.TimeOfDay ;
+        }
+
         public int FHDOCO { get; set; }
         public string FHDCTO { get; set; }
         public string FHMCU { get; set; }

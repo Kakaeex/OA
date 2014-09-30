@@ -6,9 +6,35 @@ namespace OAContext
 {
     public partial class C_F9008 : ModelBase
     {
+        public  C_F9008 ()
+        {}
+
+        public  C_F9008 (int i)
+        {
+                 AUKCOO =  " " ;
+                AUMCU =  " " ;
+                AUAN8 = 0 ;
+                AUDEL1 =  " " ;
+                AUDEL2 =  " " ;
+                AUSRP1 =  " " ;
+                AUSRP2 =  " " ;
+                AUSRP3 =  " " ;
+                AUSRP4 =  " " ;
+                AUSRP5 =  " " ;
+                AUPRP1 = 0 ;
+                AUPRP2 = 0 ;
+                AUPRP3 = 0 ;
+                AUPRP4 = 0 ;
+                AUPRP5 = 0 ;
+                AUUSER =  " " ;
+                AUPID =  " " ;
+                AUDATE = System.DateTime.Now ;
+                AUTIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string AUKCOO { get; set; }
         public string AUMCU { get; set; }
-        public string AURUID { get; set; }
+        public int AUAN8 { get; set; }
         public string AUDEL1 { get; set; }
         public string AUDEL2 { get; set; }
         public string AUSRP1 { get; set; }

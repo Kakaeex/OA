@@ -6,6 +6,33 @@ namespace OAContext
 {
     public partial class C_F0035 : ModelBase
     {
+        public  C_F0035 ()
+        {}
+
+        public  C_F0035 (int i)
+        {
+                MSKCOO =  " " ;
+                MSDCTO =  " " ;
+                MSCODE =  " " ;
+                MSLNGP =  " " ;
+                MSDSC1 =  " " ;
+                MSDSC2 =  " " ;
+                MSSRP1 =  " " ;
+                MSSRP2 =  " " ;
+                MSSRP3 =  " " ;
+                MSSRP4 =  " " ;
+                MSSRP5 =  " " ;
+                MSPRP1 =  " " ;
+                MSPRP2 =  " " ;
+                MSPRP3 =  " " ;
+                MSPRP4 =  " " ;
+                MSPRP5 =  " " ;
+                MSUSER =  " " ;
+                MSPID =  " " ;
+                MSDATE = System.DateTime.Now ;
+                MSTIME = System.DateTime.Now.TimeOfDay;
+        }
+
         public string MSKCOO { get; set; }
         public string MSDCTO { get; set; }
         public string MSCODE { get; set; }

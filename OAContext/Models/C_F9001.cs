@@ -6,6 +6,31 @@ namespace OAContext
 {
     public partial class C_F9001 : ModelBase
     {
+        public  C_F9001 ()
+        {}
+
+        public  C_F9001 (int i)
+        {
+                    RUKCOO =  " " ;
+                RUID =  " " ;
+                RUDEL1 =  " " ;
+                RUDEL2 =  " " ;
+                RUSRP1 =  " " ;
+                RUSRP2 =  " " ;
+                RUSRP3 =  " " ;
+                RUSRP4 =  " " ;
+                RUSRP5 =  " " ;
+                RUPRP1 = 0 ;
+                RUPRP2 = 0 ;
+                RUPRP3 = 0 ;
+                RUPRP4 = 0 ;
+                RUPRP5 = 0 ;
+                RUUSER =  " " ;
+                RUPID =  " " ;
+                RUDATE = System.DateTime.Now ;
+                RUTIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string RUKCOO { get; set; }
         public string RUID { get; set; }
         public string RUDEL1 { get; set; }

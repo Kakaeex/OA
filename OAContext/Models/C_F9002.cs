@@ -6,6 +6,39 @@ namespace OAContext
 {
     public partial class C_F9002 : ModelBase
     {
+        public  C_F9002 ()
+        {}
+
+        public  C_F9002 (int i)
+        {
+                    RPKCOO =  " " ;
+                RPRUID =  " " ;
+                RPMENUID = 0 ;
+                RPPARENTID = 0 ;
+                RPAPID = 0 ;
+                RPBARNEW = 0 ;
+                RPBARSAVE = 0 ;
+                RPBARSELECT = 0 ;
+                RPBARDELETE = 0 ;
+                RPBARCLOSE = 0 ;
+                RPBARFIND = 0 ;
+                RPBARSAVEAS = 0 ;
+                RPSRP1 =  " " ;
+                RPSRP2 =  " " ;
+                RPSRP3 =  " " ;
+                RPSRP4 =  " " ;
+                RPSRP5 =  " " ;
+                RPPRP1 = 0 ;
+                RPPRP2 = 0 ;
+                RPPRP3 = 0 ;
+                RPPRP4 = 0 ;
+                RPPRP5 = 0 ;
+                RPUSER =  " " ;
+                RPPID =  " " ;
+                RPDATE = System.DateTime.Now ;
+                RPTIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string RPKCOO { get; set; }
         public string RPRUID { get; set; }
         public int RPMENUID { get; set; }

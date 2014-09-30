@@ -6,6 +6,46 @@ namespace OAContext
 {
     public partial class C_F2000 : ModelBase
     {
+        public  C_F2000 ()
+        {}
+
+        public  C_F2000 (int i)
+        {
+                    WHKCOO =  " " ;
+                WHDOCO = 0 ;
+                WHDCTO =  " " ;
+                WHDSC1 =  " " ;
+                WHDSC2 =  " " ;
+                WHDCT =  " " ;
+                WHTRDJ = System.DateTime.Now ;
+                WHDRQJ = System.DateTime.Now ;
+                WHPDDJ = System.DateTime.Now ;
+                WHADDJ = System.DateTime.Now ;
+                WHCNDJ = System.DateTime.Now ;
+                WHUPRC = 0 ;
+                WHAEXP = 0 ;
+                WHUNCS = 0 ;
+                WHECST = 0 ;
+                WHSOQS = 0 ;
+                WHUORG = 0 ;
+                WHVR01 =  " " ;
+                WHVR02 =  " " ;
+                WHSRP1 =  " " ;
+                WHSRP2 =  " " ;
+                WHSRP3 =  " " ;
+                WHSRP4 =  " " ;
+                WHSRP5 =  " " ;
+                WHPRP1 = 0 ;
+                WHPRP2 = 0 ;
+                WHPRP3 = 0 ;
+                WHPRP4 = 0 ;
+                WHPRP5 = 0 ;
+                WHUSER =  " " ;
+                WHPID =  " " ;
+                WHDATE = System.DateTime.Now ;
+                WHTIME = DateTime.Now.TimeOfDay ;
+        }
+
         public string WHKCOO { get; set; }
         public int WHDOCO { get; set; }
         public string WHDCTO { get; set; }

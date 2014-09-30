@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserAuthorization.cs" />
+    <Compile Include="ValueManage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBContextHelper\DBContextHelper\DBContextHelper.csproj">

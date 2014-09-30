@@ -7,37 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace OA.View.Setting.P0005 {
+namespace OA.Master {
     
     
-    public partial class P0005H {
-        
-        /// <summary>
-        /// mainPanel 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Panel mainPanel;
-        
-        /// <summary>
-        /// PageMessage 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Label PageMessage;
-        
-        /// <summary>
-        /// toolBar 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Toolbar toolBar;
+    public partial class EditMaster {
         
         /// <summary>
         /// form1 控件。
@@ -46,36 +19,42 @@ namespace OA.View.Setting.P0005 {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Form form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Grid1 控件。
+        /// PageManager1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Grid Grid1;
+        protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// windows 控件。
+        /// Panel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Window windows;
+        protected global::FineUI.Panel Panel1;
         
         /// <summary>
-        /// Master 属性。
+        /// findMainMaster 控件。
         /// </summary>
         /// <remarks>
-        /// 自动生成的属性。
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        public new OA.Master.FindMaster Master {
-            get {
-                return ((OA.Master.FindMaster)(base.Master));
-            }
-        }
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder findMainMaster;
+        
+        /// <summary>
+        /// Window1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.Window Window1;
     }
 }

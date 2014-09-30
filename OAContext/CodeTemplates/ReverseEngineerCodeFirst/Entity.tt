@@ -36,7 +36,46 @@ namespace OAContext
 
 <#
     }
-        
+#>
+        public  <#= efHost.EntityType.Name #> ()
+        {}
+
+        public  <#= efHost.EntityType.Name #> (int i)
+        {
+    <#      foreach (var property in efHost.EntityType.Properties)
+            {
+                var typeUsage = code.Escape(property.TypeUsage);
+
+                // Fix-up spatial types for EF6
+                if (efHost.EntityFrameworkVersion >= new Version(6, 0)&& typeUsage.StartsWith("System.Data.Spatial."))
+                {
+                    typeUsage = typeUsage.Replace(
+                "System.Data.Spatial.",
+                "System.Data.Entity.Spatial.");
+                }
+                var dataType = " \" \"";
+                if(typeUsage=="Nullable<decimal>" || typeUsage=="decimal" ||  typeUsage=="Nullable<int>" || typeUsage=="int" || typeUsage=="Nullable<long>" || typeUsage=="long" )
+                {
+                    dataType = "0" ;
+                }
+                if(typeUsage == "System.DateTime" ||typeUsage == "Nullable<System.DateTime>" )
+                {
+                    dataType = "System.DateTime.Now" ;
+                }
+                if(typeUsage == "System.TimeSpan" ||typeUsage == "System.TimeSpan?" )
+                {
+                    dataType = "DateTime.Now.TimeOfDay" ;
+                }
+                if(typeUsage == "bool"  )
+                {
+                    dataType = "true" ;
+                }
+#>
+                <#= code.Escape(property) #> = <#= dataType #> ;
+<#          } #>
+        }
+
+<#
     foreach (var property in efHost.EntityType.Properties)
     {
         var typeUsage = code.Escape(property.TypeUsage);

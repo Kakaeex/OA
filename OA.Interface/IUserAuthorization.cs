@@ -33,7 +33,7 @@ namespace OA.Interface
 
         //XmlDocument GetRoleMenu(string RoleName, string KCOO);
 
-        //string GetApplication(string kcoo, string App);
+        string GetApplication(string kcoo, string App);
 
         //string GetCurrentRole();
 
