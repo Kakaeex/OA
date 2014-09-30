@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{343AB3F1-1E84-4979-98BB-89C4E363322D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EPMContext</RootNamespace>
+    <AssemblyName>EPMContext</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2-beta1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ACCOUNT_ACTUAL_TEMP.cs" />
+    <Compile Include="Models\epmContext.cs" />
+    <Compile Include="Models\EXPENSE_ACTUAL_TEMP.cs" />
+    <Compile Include="Models\F0005.cs" />
+    <Compile Include="Models\F0005_TEMP.cs" />
+    <Compile Include="Models\F0911Z1_TEMP.cs" />
+    <Compile Include="Models\GLBALANCE_ACTUAL_TEMP.cs" />
+    <Compile Include="Models\GLBALANCE_JN_TEMP.cs" />
+    <Compile Include="Models\HP_ACCOUNT_MAP.cs" />
+    <Compile Include="Models\HP_DIMENSION_NON_MAP.cs" />
+    <Compile Include="Models\HP_ENTITY_MAP.cs" />
+    <Compile Include="Models\HP_ESS_ODS_BUDEXP_AIDMAP.cs" />
+    <Compile Include="Models\HP_ESS_ODS_BUDEXP_OA.cs" />
+    <Compile Include="Models\HP_ESS_ODS_EXPENSE_BUDGET.cs" />
+    <Compile Include="Models\HP_ESS_ODS_MODEL_BUDGET.cs" />
+    <Compile Include="Models\HP_MODEL_MAP.cs" />
+    <Compile Include="Models\HP_ODS_ESS_COST_ACTUAL.cs" />
+    <Compile Include="Models\HP_ODS_ESS_COST_ACTUAL_OUT.cs" />
+    <Compile Include="Models\HP_ODS_ESS_EXPENSE_ACTUAL.cs" />
+    <Compile Include="Models\HP_ODS_ESS_EXPENSE_ACTUAL_OUT.cs" />
+    <Compile Include="Models\HP_ODS_ESS_GLBALANCE_ACTUAL.cs" />
+    <Compile Include="Models\HP_ODS_ESS_GLBALANCE_ACT_OUT.cs" />
+    <Compile Include="Models\HP_ODS_ESS_LEND_ACTUAL.cs" />
+    <Compile Include="Models\HP_ODS_ESS_LEND_ACTUAL_OUT.cs" />
+    <Compile Include="Models\HP_ODS_ESS_PROD_ACTUAL.cs" />
+    <Compile Include="Models\HP_ODS_ESS_PROD_ACTUAL_OUT.cs" />
+    <Compile Include="Models\HP_ODS_ESS_PROD_MODEL.cs" />
+    <Compile Include="Models\HP_ODS_ESS_SALEVOL_ACTUAL.cs" />
+    <Compile Include="Models\HP_ODS_ESS_SALEVOL_MODEL.cs" />
+    <Compile Include="Models\HP_OY_ODS_ACCOUNT_ACTUAL.cs" />
+    <Compile Include="Models\HP_OY_ODS_EXPENSE_ACTUAL.cs" />
+    <Compile Include="Models\HP_OY_ODS_GLBALANCE_ACTUAL.cs" />
+    <Compile Include="Models\HP_OY_ODS_GLBALANCE_JN.cs" />
+    <Compile Include="Models\HP_OY_ODS_LEND_ACTUAL.cs" />
+    <Compile Include="Models\HP_OY_ODS_PRODDETAIL_ACTUAL.cs" />
+    <Compile Include="Models\HP_OY_ODS_PRODUCT_ACTUAL.cs" />
+    <Compile Include="Models\HP_OY_ODS_SALEDETAIL_ACTUAL.cs" />
+    <Compile Include="Models\HP_OY_ODS_UNITCOST_ACTUAL.cs" />
+    <Compile Include="Models\HP_PERIOD_MAP.cs" />
+    <Compile Include="Models\HP_PLN_ODS_MODEL_TEXT.cs" />
+    <Compile Include="Models\HP_SPEC_MAP.cs" />
+    <Compile Include="Models\LEND_ACTUAL_TEMP.cs" />
+    <Compile Include="Models\Mapping\ACCOUNT_ACTUAL_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\EXPENSE_ACTUAL_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\F0005Map.cs" />
+    <Compile Include="Models\Mapping\F0005_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\F0911Z1_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\GLBALANCE_ACTUAL_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\GLBALANCE_JN_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\HP_ACCOUNT_MAPMap.cs" />
+    <Compile Include="Models\Mapping\HP_DIMENSION_NON_MAPMap.cs" />
+    <Compile Include="Models\Mapping\HP_ENTITY_MAPMap.cs" />
+    <Compile Include="Models\Mapping\HP_ESS_ODS_BUDEXP_AIDMAPMap.cs" />
+    <Compile Include="Models\Mapping\HP_ESS_ODS_BUDEXP_OAMap.cs" />
+    <Compile Include="Models\Mapping\HP_ESS_ODS_EXPENSE_BUDGETMap.cs" />
+    <Compile Include="Models\Mapping\HP_ESS_ODS_MODEL_BUDGETMap.cs" />
+    <Compile Include="Models\Mapping\HP_MODEL_MAPMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_COST_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_COST_ACTUAL_OUTMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_EXPENSE_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_EXPENSE_ACTUAL_OUTMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_GLBALANCE_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_GLBALANCE_ACT_OUTMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_LEND_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_LEND_ACTUAL_OUTMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_PROD_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_PROD_ACTUAL_OUTMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_PROD_MODELMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_SALEVOL_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_ODS_ESS_SALEVOL_MODELMap.cs" />
+    <Compile Include="Models\Mapping\HP_OY_ODS_ACCOUNT_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_OY_ODS_EXPENSE_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_OY_ODS_GLBALANCE_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_OY_ODS_GLBALANCE_JNMap.cs" />
+    <Compile Include="Models\Mapping\HP_OY_ODS_LEND_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_OY_ODS_PRODDETAIL_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_OY_ODS_PRODUCT_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_OY_ODS_SALEDETAIL_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_OY_ODS_UNITCOST_ACTUALMap.cs" />
+    <Compile Include="Models\Mapping\HP_PERIOD_MAPMap.cs" />
+    <Compile Include="Models\Mapping\HP_PLN_ODS_MODEL_TEXTMap.cs" />
+    <Compile Include="Models\Mapping\HP_SPEC_MAPMap.cs" />
+    <Compile Include="Models\Mapping\LEND_ACTUAL_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\PRODDETAIL_ACTUAL_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\PRODUCT_ACTUAL_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\SALEDETAIL_ACTUAL_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\UNITCOST_ACTUAL_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\V_BUDEXP_AID_NONMAPMap.cs" />
+    <Compile Include="Models\Mapping\V_F0911Z1_TEMPMap.cs" />
+    <Compile Include="Models\Mapping\V_HP_BUD_ACCOUNTMap.cs" />
+    <Compile Include="Models\Mapping\V_HP_BUD_ENTITYMap.cs" />
+    <Compile Include="Models\PRODDETAIL_ACTUAL_TEMP.cs" />
+    <Compile Include="Models\PRODUCT_ACTUAL_TEMP.cs" />
+    <Compile Include="Models\SALEDETAIL_ACTUAL_TEMP.cs" />
+    <Compile Include="Models\UNITCOST_ACTUAL_TEMP.cs" />
+    <Compile Include="Models\V_BUDEXP_AID_NONMAP.cs" />
+    <Compile Include="Models\V_F0911Z1_TEMP.cs" />
+    <Compile Include="Models\V_HP_BUD_ACCOUNT.cs" />
+    <Compile Include="Models\V_HP_BUD_ENTITY.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBContextHelper\DBContextHelper\DBContextHelper.csproj">
+      <Project>{26d30dfa-dd31-4c80-84f4-b3cab3d52666}</Project>
+      <Name>DBContextHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

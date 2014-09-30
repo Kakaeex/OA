@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5CD1AC35-382C-4D45-B99C-D8C3F4CAB30E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OAContext</RootNamespace>
+    <AssemblyName>OAContext</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\C_F00022.cs" />
+    <Compile Include="Models\C_F0005.cs" />
+    <Compile Include="Models\C_F0006.cs" />
+    <Compile Include="Models\C_F0035.cs" />
+    <Compile Include="Models\C_F0101.cs" />
+    <Compile Include="Models\C_F0901.cs" />
+    <Compile Include="Models\C_F0902.cs" />
+    <Compile Include="Models\C_F0911.cs" />
+    <Compile Include="Models\C_F0920.cs" />
+    <Compile Include="Models\C_F0921.cs" />
+    <Compile Include="Models\C_F0930.cs" />
+    <Compile Include="Models\C_F0931.cs" />
+    <Compile Include="Models\C_F2000.cs" />
+    <Compile Include="Models\C_F2001.cs" />
+    <Compile Include="Models\C_F40203.cs" />
+    <Compile Include="Models\C_F40205.cs" />
+    <Compile Include="Models\C_F9001.cs" />
+    <Compile Include="Models\C_F9002.cs" />
+    <Compile Include="Models\C_F9005.cs" />
+    <Compile Include="Models\C_F9006.cs" />
+    <Compile Include="Models\C_F9008.cs" />
+    <Compile Include="Models\Mapping\C_F00022Map.cs" />
+    <Compile Include="Models\Mapping\C_F0005Map.cs" />
+    <Compile Include="Models\Mapping\C_F0006Map.cs" />
+    <Compile Include="Models\Mapping\C_F0035Map.cs" />
+    <Compile Include="Models\Mapping\C_F0101Map.cs" />
+    <Compile Include="Models\Mapping\C_F0901Map.cs" />
+    <Compile Include="Models\Mapping\C_F0902Map.cs" />
+    <Compile Include="Models\Mapping\C_F0911Map.cs" />
+    <Compile Include="Models\Mapping\C_F0920Map.cs" />
+    <Compile Include="Models\Mapping\C_F0921Map.cs" />
+    <Compile Include="Models\Mapping\C_F0930Map.cs" />
+    <Compile Include="Models\Mapping\C_F0931Map.cs" />
+    <Compile Include="Models\Mapping\C_F2000Map.cs" />
+    <Compile Include="Models\Mapping\C_F2001Map.cs" />
+    <Compile Include="Models\Mapping\C_F40203Map.cs" />
+    <Compile Include="Models\Mapping\C_F40205Map.cs" />
+    <Compile Include="Models\Mapping\C_F9001Map.cs" />
+    <Compile Include="Models\Mapping\C_F9002Map.cs" />
+    <Compile Include="Models\Mapping\C_F9005Map.cs" />
+    <Compile Include="Models\Mapping\C_F9006Map.cs" />
+    <Compile Include="Models\Mapping\C_F9008Map.cs" />
+    <Compile Include="Models\OAContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBContextHelper\DBContextHelper\DBContextHelper.csproj">
+      <Project>{26d30dfa-dd31-4c80-84f4-b3cab3d52666}</Project>
+      <Name>DBContextHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
