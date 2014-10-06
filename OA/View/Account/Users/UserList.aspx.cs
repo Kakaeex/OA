@@ -10,7 +10,7 @@ using OA.Interface;
 
 namespace OA.View.Account.Users
 {
-    public partial class UserList : System.Web.UI.Page
+    public partial class UserList : PagedBase, IFindPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,13 @@ namespace OA.View.Account.Users
         }
 
         #endregion
-
+        protected void TriggerClick(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._IUDC.GetSelectionView(tBox.ID);
+            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
+            windows.Hidden = false;
+        }
 
         /// <summary>
         /// [ISingleGridPage]删除表格数据

@@ -34,6 +34,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,6 +51,7 @@
     <Compile Include="Models\C_F00022.cs" />
     <Compile Include="Models\C_F0005.cs" />
     <Compile Include="Models\C_F0006.cs" />
+    <Compile Include="Models\C_F0010.cs" />
     <Compile Include="Models\C_F0035.cs" />
     <Compile Include="Models\C_F0101.cs" />
     <Compile Include="Models\C_F0901.cs" />
@@ -69,6 +73,7 @@
     <Compile Include="Models\Mapping\C_F00022Map.cs" />
     <Compile Include="Models\Mapping\C_F0005Map.cs" />
     <Compile Include="Models\Mapping\C_F0006Map.cs" />
+    <Compile Include="Models\Mapping\C_F0010Map.cs" />
     <Compile Include="Models\Mapping\C_F0035Map.cs" />
     <Compile Include="Models\Mapping\C_F0101Map.cs" />
     <Compile Include="Models\Mapping\C_F0901Map.cs" />

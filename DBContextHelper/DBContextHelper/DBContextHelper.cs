@@ -42,11 +42,11 @@ namespace DBContextHelper
             return this.SaveChanges();
         }
 
-        public int AddorUpdate<T>(Expression<Func<T, Object>> conditions, T entity) where T : ModelBase
+        public int AddorUpdate<T>(T entity) where T : ModelBase
         {
             DbSet<T> dbset = this.Set<T>();
             //dbset.Attach(entity);
-            dbset.AddOrUpdate<T>(conditions, entity);
+            dbset.AddOrUpdate<T>(entity);
             return this.SaveChanges();
         }
 
@@ -103,6 +103,53 @@ namespace DBContextHelper
             return result;
         }
 
+
+        public int UpdateList<T>(List<T> entity) where T : ModelBase
+        {
+            this.Configuration.AutoDetectChangesEnabled = false;
+            this.Configuration.ValidateOnSaveEnabled = false;
+            var set = this.Set<T>();
+            foreach (var t in entity)
+            {
+                set.Attach(t);
+                this.Entry<T>(t).State = EntityState.Modified;
+            }
+            return this.SaveChanges();
+        }
+        public int InsertList<T>(List<T> entity) where T : ModelBase
+        {
+            this.Configuration.AutoDetectChangesEnabled = false;
+            this.Configuration.ValidateOnSaveEnabled = false;
+            var set = this.Set<T>();
+            foreach (var t in entity)
+            {
+                set.Add(t);
+            }
+            return this.SaveChanges();
+
+        }
+        public int DeleteList<T>(List<T> entity) where T : ModelBase
+        {
+            this.Configuration.AutoDetectChangesEnabled = false;
+            this.Configuration.ValidateOnSaveEnabled = false;
+            foreach (var t in entity)
+            {
+                this.Entry<T>(t).State = EntityState.Deleted;
+            }
+            return this.SaveChanges();
+        }
+
+        public int AddorUpdateList<T>(List<T> entity) where T : ModelBase
+        {
+            this.Configuration.AutoDetectChangesEnabled = false;
+            this.Configuration.ValidateOnSaveEnabled = false;
+            DbSet<T> dbset = this.Set<T>();
+            foreach (var t in entity)
+            {
+                dbset.AddOrUpdate<T>(t);
+            }
+            return this.SaveChanges();
+        }
         internal void WriteAuditLog()
         {/*
             if (this.AuditLogger == null)

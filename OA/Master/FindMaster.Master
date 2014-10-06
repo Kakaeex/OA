@@ -10,9 +10,8 @@
 <body>
     <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Panel ID="Panel1" runat="server" ShowBorder="true" ShowHeader="true" Title="查找"
-            Layout="VBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start"
-            Width="850px" Height="400px">
+        <f:Panel ID="Panel1" runat="server" BodyPadding="3px" ShowBorder="True" ShowHeader="false"
+        Layout="Anchor" AnchorValue="100%">
             <Items>
                 <f:CPHConnector runat="server">
                     <asp:ContentPlaceHolder ID="findMainMaster" runat="server">

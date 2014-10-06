@@ -40,7 +40,7 @@ namespace OA.Interface
         /// </summary>
         void DeleteRow();
 
-        dynamic GetGridRowData(Dictionary<string, string> rowDict = null, string[] values = null);
+        dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0);
 
         /// <summary>
         /// 保存数据

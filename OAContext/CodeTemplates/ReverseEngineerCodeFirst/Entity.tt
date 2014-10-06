@@ -53,7 +53,7 @@ namespace OAContext
                 "System.Data.Spatial.",
                 "System.Data.Entity.Spatial.");
                 }
-                var dataType = " \" \"";
+                var dataType = "\"\"";
                 if(typeUsage=="Nullable<decimal>" || typeUsage=="decimal" ||  typeUsage=="Nullable<int>" || typeUsage=="int" || typeUsage=="Nullable<long>" || typeUsage=="long" )
                 {
                     dataType = "0" ;
@@ -62,7 +62,7 @@ namespace OAContext
                 {
                     dataType = "System.DateTime.Now" ;
                 }
-                if(typeUsage == "System.TimeSpan" ||typeUsage == "System.TimeSpan?" )
+                if(typeUsage == "System.TimeSpan" || typeUsage == "System.TimeSpan? " )
                 {
                     dataType = "DateTime.Now.TimeOfDay" ;
                 }

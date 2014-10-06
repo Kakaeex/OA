@@ -18,14 +18,17 @@
                 <Rows>
                     <f:FormRow>
                         <Items>
+                             <f:TextBox runat="server" ID="DRSY" Label="系统码"></f:TextBox>
+                             <f:TextBox runat="server" ID="DRRT" Label="分类码"></f:TextBox>
+                             <f:TextBox runat="server" ID="DRDEL1" Label="备注1"></f:TextBox>
                         </Items>
                     </f:FormRow>
                 </Rows>
             </f:Form>
         </Items>
         <Items>
-            <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="DRSY,DRRT,DRKY" AllowCellEditing="true" ClicksToEdit="1"
-                IsDatabasePaging="true" AllowPaging="true" PageSize="30" EnableAfterEditEvent="true" AutoScroll="true" Height="500px">
+            <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="DRKCOO,DRLNGP,DRSY,DRRT,DRKY" AllowCellEditing="false"
+                IsDatabasePaging="true" AllowPaging="true" AutoScroll="true" Height="500px">
                 <Columns>
                     <f:BoundField Width="100px" DataField="DRKCOO" DataFormatString="{0}" HeaderText="公司" />
                     <f:BoundField Width="100px" DataField="DRLNGP" DataFormatString="{0}" HeaderText="语言" />

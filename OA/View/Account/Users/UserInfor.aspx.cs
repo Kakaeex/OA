@@ -3,114 +3,92 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using FineUI;
+using Newtonsoft.Json;
+using OA.Interface;
+using OA.Common;
 using OAContext;
 using DBContextHelper;
-using FineUI;
-using OA.Interface;
-using Newtonsoft.Json;
+
 
 namespace OA.View.Account.Users
 {
-    public partial class UserInfor : System.Web.UI.Page
+    public partial class UserInfor : PagedBase, IEditPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-             
+
         }
 
-        #region BindGrid
 
         public void BindGrid()
         {
-            int an8 = Master._vm.toInt(ABAN8);
-            PagedList<C_F9008> list = Master._DBHelper.FindAllByPage<C_F9008, string>(p => p.AUAN8 == an8, p => p.AUMCU, Grid1.PageSize, Grid1.PageIndex);
-            Grid1.RecordCount = list.TotalItemCount;
-            Grid1.DataSource = list;
-            Grid1.DataBind();
+            if (ABAN8.Text == "") return;
+            int an8 = ValueConvert.toInt(ABAN8);
+            Master.bind<C_F9008, string>(p => p.AUAN8 == an8, p => p.AUMCU);
         }
 
         public void Bind()
         {
-            int an8 = Master._vm.toInt(ABAN8);
+            if (ABAN8.Text == "") return;
+            int an8 = ValueConvert.toInt(ABAN8);
             V_F0101A obj = Master._DBHelper.Find<V_F0101A>(p => p.ABAN8 == an8);
             if (obj == null) return;
             ABALPH.Text = obj.ABALPH;
         }
 
-        #endregion
 
-
-        public void DeleteRow()
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0)
         {
-            Alert.ShowInTop("删除选中的 " + Grid1.SelectedRowIndexArray.Length + " 项纪录！");
-        }
-
-        protected C_F9008 GetGridRowData(Dictionary<string, object> rowDict = null, string[] values = null)
-        {
+            C_F9008 obj = new C_F9008(1);
             if (rowDict != null)
             {
-                C_F9008 obj = new C_F9008(1);
+                #region 新增
                 obj.AUKCOO = Master.kcoo;
-                obj.AUMCU = rowDict["AUMCU"];
-                obj.AUAN8 = Master._vm.toInt(ABAN8);
-                obj.AUDEL1 = rowDict["AUDEL1"];
-                obj.AUDEL2 = rowDict["AUDEL2"];
-                obj.AUSRP1 = rowDict["AUSRP1"];
+                obj.AUMCU = rowDict["AUMCU"].ToString();
+                obj.AUAN8 = ValueConvert.toInt(ABAN8);
+                obj.AUDEL1 = rowDict["AUDEL1"].ToString();
+                obj.AUDEL2 = rowDict["AUDEL2"].ToString();
+                obj.AUSRP1 = rowDict["AUSRP1"].ToString();
                 obj.AUUSER = Master.userID;
                 obj.AUPID = Master.progammeID;
                 obj.AUDATE = Master.now;
                 obj.AUTIME = Master.time;
-
                 return obj;
+                #endregion
             }
             else if (values != null)
             {
-                C_F9008 obj = new C_F9008(1);
+                #region 修改
                 obj.AUKCOO = Master.kcoo;
-                obj.AUMCU = values[1];
-                obj.AUAN8 = Master._vm.toInt(ABAN8);
-                obj.AUDEL1 = values[2];
-                obj.AUDEL2 = values[3];
-                obj.AUSRP1 = values[4];
+                obj.AUMCU = values[1].ToString();
+                obj.AUAN8 = ValueConvert.toInt(ABAN8);
+                obj.AUDEL1 = values[2].ToString();
+                obj.AUDEL2 = values[3].ToString();
+                obj.AUSRP1 = values[4].ToString();
                 obj.AUUSER = Master.userID;
                 obj.AUPID = Master.progammeID;
                 obj.AUDATE = Master.now;
                 obj.AUTIME = Master.time;
-
                 return obj;
+                #endregion
+            }
+            else if (deletedRows >0)
+            {
+                #region 删除
+                string SY = Grid1.DataKeys[deletedRows][0].ToString();
+                obj = Master._DBHelper.Find<C_F9008>(p => p.AUKCOO == "" & p.AUMCU == "" & p.AUAN8 == 0);
+                return obj;
+                #endregion
             }
             else
             {
-                return new C_F9008(1);
+                return obj;
             }
         }
         public void Save()
         {
-            // 删除现有数据
-            List<int> deletedRows = Grid1.GetDeletedList();
-            foreach (int rowIndex in deletedRows)
-            {
-                int rowID = Master._vm.toInt(Grid1.DataKeys[rowIndex][0].ToString());
-                var obj = Master._DBHelper.Find<C_F9008>(p => p.AUKCOO == Master.kcoo & p.APID == rowID);
-                if (obj != null)
-                {
-                    Master._DBHelper.Delete<C_F9008>(obj);
-                }
-            }
-
-            // 修改的现有数据
-            Dictionary<int, Dictionary<string, object>> modifiedDict = Grid1.GetModifiedDict();
-            foreach (int rowIndex in modifiedDict.Keys)
-            {
-                Master._DBHelper.Update<C_F9008>(GetGridRowData(null, Grid1.Rows[rowIndex].Values));
-            }
-
-            // 新增数据
-            List<Dictionary<string, object>> newAddedList = Grid1.GetNewAddedList();
-            for (int i = newAddedList.Count - 1; i >= 0; i--)
-            {
-                Master._DBHelper.Insert<C_F9008>(GetGridRowData(newAddedList[i]));
-            }
+            Master.SaveRecord<C_F9008>(Grid1.GetDeletedList(), Grid1.GetModifiedDict(), Grid1.GetNewAddedList(), GetGridRowData);
         }
 
         public string GetFromMode()
@@ -119,7 +97,19 @@ namespace OA.View.Account.Users
             //return "Tab";
         }
 
-        #region 实例
+        #region 
+        protected void TriggerClick(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._UDC.GetSelectionView(tBox.ID);
+            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
+            windows.Hidden = false;
+        }
+
+        public void DeleteRow()
+        {
+
+        }
 
         public Grid Grid
         {
@@ -145,5 +135,7 @@ namespace OA.View.Account.Users
             }
         }
         #endregion
+
+
     }
 }

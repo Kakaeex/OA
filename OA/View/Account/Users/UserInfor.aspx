@@ -20,7 +20,7 @@
                     <f:FormRow>
                         <Items>
                             <f:TriggerBox ID="ABAN8" EnableEdit="false" Text="" Width="300px" Label="用户"
-                                TriggerIcon="Search" runat="server" OnTriggerClick="TriggerClick" OnBlur="ABAN8_Blur">
+                                TriggerIcon="Search" runat="server" OnTriggerClick="TriggerClick">
                             </f:TriggerBox>
                         </Items>
                     </f:FormRow>
@@ -44,7 +44,7 @@
         </Items>
         <Items>
             <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="AUMCU" AllowCellEditing="true" ClicksToEdit="1" EnableMultiSelect="true" EnableCheckBoxSelect="true"
-                IsDatabasePaging="true" AllowPaging="true" PageSize="30" EnableAfterEditEvent="true" AutoScroll="true" Height="500px">
+                IsDatabasePaging="true" AllowPaging="false"  EnableAfterEditEvent="true" AutoScroll="true" Height="500px">
                 <Columns>
                     <f:RenderField Width="100px" DataField="AUMCU" ColumnID="AUMCU" FieldType="String"
                         HeaderText="部门">

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OA.Interface;
 using FineUI;
 
-namespace OA.Service
+namespace OA.Common
 {
-    public class ValueManage : IValueManage
+    public class ValueConvert
     {
-        public int toInt(object obj)
+        public static int toInt(object obj)
         {
             switch (obj.GetType().ToString())
             {

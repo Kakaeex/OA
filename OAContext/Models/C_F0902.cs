@@ -11,13 +11,13 @@ namespace OAContext
 
         public  C_F0902 (int i)
         {
-                    GBAID =  " " ;
+                    GBAID = "" ;
                 GBCTRY = 0 ;
                 GBFY = 0 ;
-                GBFQ =  " " ;
-                GBLT =  " " ;
-                GBSBL =  " " ;
-                GBCO =  " " ;
+                GBFQ = "" ;
+                GBLT = "" ;
+                GBSBL = "" ;
+                GBCO = "" ;
                 GBAPYC = 0 ;
                 GBAN01 = 0 ;
                 GBAN02 = 0 ;
@@ -47,11 +47,11 @@ namespace OAContext
                 GBTKER = 0 ;
                 GBBREQ = 0 ;
                 GBBAPR = 0 ;
-                GBMCU =  " " ;
-                GBOBJ =  " " ;
-                GBSUB =  " " ;
-                GBUSER =  " " ;
-                GBPID =  " " ;
+                GBMCU = "" ;
+                GBOBJ = "" ;
+                GBSUB = "" ;
+                GBUSER = "" ;
+                GBPID = "" ;
                 GBDATE = System.DateTime.Now ;
                 GBTIME = DateTime.Now.TimeOfDay ;
         }

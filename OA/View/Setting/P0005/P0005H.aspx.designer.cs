@@ -49,6 +49,33 @@ namespace OA.View.Setting.P0005 {
         protected global::FineUI.Form form1;
         
         /// <summary>
+        /// DRSY 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextBox DRSY;
+        
+        /// <summary>
+        /// DRRT 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextBox DRRT;
+        
+        /// <summary>
+        /// DRDEL1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::FineUI.TextBox DRDEL1;
+        
+        /// <summary>
         /// Grid1 控件。
         /// </summary>
         /// <remarks>

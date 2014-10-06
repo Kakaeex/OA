@@ -11,27 +11,27 @@ namespace OAContext
 
         public  V_F0101A (int i)
         {
-                    ABKCOO =  " " ;
+                    ABKCOO = "" ;
                 ABAN8 = 0 ;
-                ABALKY =  " " ;
-                ABTAX =  " " ;
-                ABALPH =  " " ;
-                ABDC =  " " ;
-                ABMCU =  " " ;
-                ABSIC =  " " ;
-                ABLNGP =  " " ;
-                ABAT1 =  " " ;
-                ABCM =  " " ;
-                ABCLASS01 =  " " ;
-                ABCLASS02 =  " " ;
-                ABCLASS03 =  " " ;
-                ABCLASS04 =  " " ;
-                ABCLASS05 =  " " ;
-                ABCLASS06 =  " " ;
-                ABCLASS07 =  " " ;
-                ABCLASS08 =  " " ;
-                ABCLASS09 =  " " ;
-                ABCLASS10 =  " " ;
+                ABALKY = "" ;
+                ABTAX = "" ;
+                ABALPH = "" ;
+                ABDC = "" ;
+                ABMCU = "" ;
+                ABSIC = "" ;
+                ABLNGP = "" ;
+                ABAT1 = "" ;
+                ABCM = "" ;
+                ABCLASS01 = "" ;
+                ABCLASS02 = "" ;
+                ABCLASS03 = "" ;
+                ABCLASS04 = "" ;
+                ABCLASS05 = "" ;
+                ABCLASS06 = "" ;
+                ABCLASS07 = "" ;
+                ABCLASS08 = "" ;
+                ABCLASS09 = "" ;
+                ABCLASS10 = "" ;
                 ABPRP1 = 0 ;
                 ABPRP2 = 0 ;
                 ABPRP3 = 0 ;
@@ -42,11 +42,11 @@ namespace OAContext
                 ABPRP8 = 0 ;
                 ABPRP9 = 0 ;
                 ABPRP0 = 0 ;
-                ABUSER =  " " ;
-                ABPID =  " " ;
+                ABUSER = "" ;
+                ABPID = "" ;
                 ABDATE = System.DateTime.Now ;
                 ABTIME = DateTime.Now.TimeOfDay ;
-                UserName =  " " ;
+                UserName = "" ;
                 LastActivityDate = System.DateTime.Now ;
                 IsAnonymous = true ;
         }

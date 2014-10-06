@@ -11,23 +11,23 @@ namespace OAContext
 
         public  C_F9006 (int i)
         {
-                    RAKCOO =  " " ;
+                    RAKCOO = "" ;
                 RAAN8 = 0 ;
-                RAID =  " " ;
-                RADEL1 =  " " ;
-                RADEL2 =  " " ;
-                RASRP1 =  " " ;
-                RASRP2 =  " " ;
-                RASRP3 =  " " ;
-                RASRP4 =  " " ;
-                RASRP5 =  " " ;
+                RAID = "" ;
+                RADEL1 = "" ;
+                RADEL2 = "" ;
+                RASRP1 = "" ;
+                RASRP2 = "" ;
+                RASRP3 = "" ;
+                RASRP4 = "" ;
+                RASRP5 = "" ;
                 RAPRP1 = 0 ;
                 RAPRP2 = 0 ;
                 RAPRP3 = 0 ;
                 RAPRP4 = 0 ;
                 RAPRP5 = 0 ;
-                RAUSER =  " " ;
-                RAPID =  " " ;
+                RAUSER = "" ;
+                RAPID = "" ;
                 RADATE = System.DateTime.Now ;
                 RATIME = DateTime.Now.TimeOfDay ;
         }

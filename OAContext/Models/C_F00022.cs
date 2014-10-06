@@ -11,10 +11,10 @@ namespace OAContext
 
         public  C_F00022 (int i)
         {
-                    UKKCOO =  " " ;
+                    UKKCOO = "" ;
                 UKDOCO = 0 ;
-                UKDCTO =  " " ;
-                UKNAME =  " " ;
+                UKDCTO = "" ;
+                UKNAME = "" ;
                 UKFROM = 0 ;
                 UKADD = 0 ;
         }

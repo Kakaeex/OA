@@ -18,9 +18,15 @@ namespace DBContextHelper
         int Update<T>(T entity) where T : ModelBase;
         int Insert<T>(T entity) where T : ModelBase;
         int Delete<T>(T entity) where T : ModelBase;
+        int AddorUpdate<T>(T entity) where T : ModelBase;
         T FindByKey<T>(params object[] keyValues) where T : ModelBase;
         T Find<T>(Expression<Func<T, bool>> conditions) where T : ModelBase;
         List<T> FindAll<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy) where T : ModelBase;
         PagedList<T> FindAllByPage<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) where T : ModelBase;
+
+        int UpdateList<T>(List<T> entity) where T : ModelBase;
+        int InsertList<T>(List<T> entity) where T : ModelBase;
+        int DeleteList<T>(List<T> entity) where T : ModelBase;
+        int AddorUpdateList<T>(List<T> entity) where T : ModelBase;
     }
 }

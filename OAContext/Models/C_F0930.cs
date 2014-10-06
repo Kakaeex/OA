@@ -11,14 +11,14 @@ namespace OAContext
 
         public  C_F0930 (int i)
         {
-                    CHKCOO =  " " ;
+                    CHKCOO = "" ;
                 CHDOCO = 0 ;
-                CHDCTO =  " " ;
+                CHDCTO = "" ;
                 CHDOC = 0 ;
-                CHDCT =  " " ;
-                CHDSC1 =  " " ;
-                CHDSC2 =  " " ;
-                CHMCU =  " " ;
+                CHDCT = "" ;
+                CHDSC1 = "" ;
+                CHDSC2 = "" ;
+                CHMCU = "" ;
                 CHTRDJ = System.DateTime.Now ;
                 CHDRQJ = System.DateTime.Now ;
                 CHPDDJ = System.DateTime.Now ;
@@ -30,20 +30,20 @@ namespace OAContext
                 CHECST = 0 ;
                 CHSOQS = 0 ;
                 CHUORG = 0 ;
-                CHVR01 =  " " ;
-                CHVR02 =  " " ;
-                CHSRP1 =  " " ;
-                CHSRP2 =  " " ;
-                CHSRP3 =  " " ;
-                CHSRP4 =  " " ;
-                CHSRP5 =  " " ;
+                CHVR01 = "" ;
+                CHVR02 = "" ;
+                CHSRP1 = "" ;
+                CHSRP2 = "" ;
+                CHSRP3 = "" ;
+                CHSRP4 = "" ;
+                CHSRP5 = "" ;
                 CHPRP1 = 0 ;
                 CHPRP2 = 0 ;
                 CHPRP3 = 0 ;
                 CHPRP4 = 0 ;
                 CHPRP5 = 0 ;
-                CHUSER =  " " ;
-                CHPID =  " " ;
+                CHUSER = "" ;
+                CHPID = "" ;
                 CHDATE = System.DateTime.Now ;
                 CHTIME = DateTime.Now.TimeOfDay ;
         }

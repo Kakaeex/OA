@@ -11,13 +11,13 @@ namespace OAContext
 
         public  C_F2001 (int i)
         {
-                    WDKCOO =  " " ;
+                    WDKCOO = "" ;
                 WDDOCO = 0 ;
-                WDDCTO =  " " ;
+                WDDCTO = "" ;
                 WDLIND = 0 ;
-                WDDSC1 =  " " ;
-                WDDSC2 =  " " ;
-                WDDCT =  " " ;
+                WDDSC1 = "" ;
+                WDDSC2 = "" ;
+                WDDCT = "" ;
                 WDTRDJ = System.DateTime.Now ;
                 WDDRQJ = System.DateTime.Now ;
                 WDPDDJ = System.DateTime.Now ;
@@ -29,20 +29,20 @@ namespace OAContext
                 WDECST = 0 ;
                 WDSOQS = 0 ;
                 WDUORG = 0 ;
-                WDVR01 =  " " ;
-                WDVR02 =  " " ;
-                WDSRP1 =  " " ;
-                WDSRP2 =  " " ;
-                WDSRP3 =  " " ;
-                WDSRP4 =  " " ;
-                WDSRP5 =  " " ;
+                WDVR01 = "" ;
+                WDVR02 = "" ;
+                WDSRP1 = "" ;
+                WDSRP2 = "" ;
+                WDSRP3 = "" ;
+                WDSRP4 = "" ;
+                WDSRP5 = "" ;
                 WDPRP1 = 0 ;
                 WDPRP2 = 0 ;
                 WDPRP3 = 0 ;
                 WDPRP4 = 0 ;
                 WDPRP5 = 0 ;
-                WDUSER =  " " ;
-                WDPID =  " " ;
+                WDUSER = "" ;
+                WDPID = "" ;
                 WDDATE = System.DateTime.Now ;
                 WDTIME = DateTime.Now.TimeOfDay ;
         }

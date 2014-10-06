@@ -12,8 +12,6 @@ namespace OA.View.Setting.P0005
 {
     public partial class P0005H : PagedBase, IFindPage
     {
-        public IDataRepository DBHelper { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,7 +27,7 @@ namespace OA.View.Setting.P0005
         /// </summary>
         public void BindGrid()
         {
-            PagedList<C_F0005> list = DBHelper.FindAllByPage<C_F0005, string>
+            PagedList<C_F0005> list = Master._DBHelper.FindAllByPage<C_F0005, string>
                 (null, p => p.DRSY, Grid1.PageSize, Grid1.PageIndex);
             Grid1.RecordCount = list.TotalItemCount;
             Grid1.DataSource = list;
@@ -38,13 +36,19 @@ namespace OA.View.Setting.P0005
 
         #endregion
 
-
+        protected void TriggerClick(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._IUDC.GetSelectionView(tBox.ID);
+            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
+            windows.Hidden = false;
+        }
         /// <summary>
         /// [ISingleGridPage]删除表格数据
         /// </summary>
         public void DeleteSelectedRows()
         {
-            Alert.ShowInTop("删除选中的 " + Grid1.SelectedRowIndexArray.Length + " 项纪录！");
+            
         }
 
         /// <summary>

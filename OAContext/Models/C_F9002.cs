@@ -11,8 +11,8 @@ namespace OAContext
 
         public  C_F9002 (int i)
         {
-                    RPKCOO =  " " ;
-                RPRUID =  " " ;
+                    RPKCOO = "" ;
+                RPRUID = "" ;
                 RPMENUID = 0 ;
                 RPPARENTID = 0 ;
                 RPAPID = 0 ;
@@ -23,18 +23,18 @@ namespace OAContext
                 RPBARCLOSE = 0 ;
                 RPBARFIND = 0 ;
                 RPBARSAVEAS = 0 ;
-                RPSRP1 =  " " ;
-                RPSRP2 =  " " ;
-                RPSRP3 =  " " ;
-                RPSRP4 =  " " ;
-                RPSRP5 =  " " ;
+                RPSRP1 = "" ;
+                RPSRP2 = "" ;
+                RPSRP3 = "" ;
+                RPSRP4 = "" ;
+                RPSRP5 = "" ;
                 RPPRP1 = 0 ;
                 RPPRP2 = 0 ;
                 RPPRP3 = 0 ;
                 RPPRP4 = 0 ;
                 RPPRP5 = 0 ;
-                RPUSER =  " " ;
-                RPPID =  " " ;
+                RPUSER = "" ;
+                RPPID = "" ;
                 RPDATE = System.DateTime.Now ;
                 RPTIME = DateTime.Now.TimeOfDay ;
         }

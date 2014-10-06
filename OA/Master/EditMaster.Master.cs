@@ -8,6 +8,7 @@ using OA.Service;
 using OA.Interface;
 using FineUI;
 using Newtonsoft.Json;
+using System.Linq.Expressions;
 
 namespace OA.Master
 {
@@ -21,7 +22,8 @@ namespace OA.Master
         public string role;
         public IDataRepository _DBHelper { get; set; }
         public IUserAuthorization _UserAuthorization { get; set; }
-        public IValueManage _vm { get; set; }
+        public IUserDefineCode _UDC { get; set; }
+        public IOrder _Order { get; set; }
 
         #region Page
 
@@ -42,26 +44,21 @@ namespace OA.Master
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            Page.Grid.EnableRowDoubleClickEvent = true;
-            Page.Grid.RowDoubleClick += grid_RowDoubleClick;
+            //Page.Grid.EnableRowDoubleClickEvent = true;
+            //Page.Grid.RowDoubleClick += grid_RowDoubleClick;
 
             Page.Grid.PageIndexChange += grid_PageIndexChange;
             Page.Grid.Sort += grid_Sort;
 
             SetToolBar();
-            SetGridPageItems();
+            //SetGridPageItems();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                now = DateTime.Now;
-                time = DateTime.Now.TimeOfDay;
-                progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
-                userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
-                kcoo = _UserAuthorization.GetUserKcoo(userID);
-                role = System.Web.HttpContext.Current.Session["role"] as string;
+                getInfor();
                 _UserAuthorization.ApplicationAuthorization(kcoo, role, progammeID, Page.Toolbar);
                 Page.Bind();
                 Page.BindGrid();
@@ -137,7 +134,8 @@ namespace OA.Master
             toolSave.Click += Save_Click;
             toolSaveAndClose.Click += SaveAndClose_Click;
             toolBarSelect.Click += Select_Click;
-            toolBarDelete.Click += Delete_Click;
+            toolBarDelete.OnClientClick += Page.Grid.GetNoSelectionAlertReference("请至少选择一项！") +
+                Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Page.Grid.GetDeleteSelectedReference(), String.Empty);
             toolBarClose.Click += Close_Click;
             toolBarFind.Click += Find_Click;
 
@@ -161,8 +159,9 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void New_Click(object sender, EventArgs e)
         {
-            Newtonsoft.Json.Linq.JObject deserializeObject = (Newtonsoft.Json.Linq.JObject)JsonConvert.DeserializeObject(JsonConvert.SerializeObject(Page.GetGridRowData()));
-            Page.Grid.AddNewRecord(deserializeObject);
+            //Newtonsoft.Json.Linq.JObject jObject = (Newtonsoft.Json.Linq.JObject)JsonConvert.DeserializeObject(JsonConvert.SerializeObject(Page.GetGridRowData()));
+            Newtonsoft.Json.Linq.JObject jObject = Newtonsoft.Json.Linq.JObject.FromObject(Page.GetGridRowData());
+            Page.Grid.AddNewRecord(jObject);
         }
 
         /// <summary>
@@ -172,6 +171,7 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void Save_Click(object sender, EventArgs e)
         {
+            getInfor();
             Page.Save();
         }
 
@@ -202,13 +202,7 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void Delete_Click(object sender, EventArgs e)
         {
-            if (Page.Grid.SelectedRowIndexArray.Length == 0)
-            {
-                Alert.ShowInTop("请至少选择一条记录！");
-                return;
-            }
 
-            Page.DeleteRow();
         }
 
         /// <summary>
@@ -291,7 +285,58 @@ namespace OA.Master
 
         #region Methods
 
+        protected void getInfor()
+        {
+            now = DateTime.Now;
+            time = DateTime.Now.TimeOfDay;
+            progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
+            userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
+            kcoo = "";//_UserAuthorization.GetUserKcoo(userID);
+            role = "";//System.Web.HttpContext.Current.Session["role"] as string;
+        }
 
+        public dynamic SaveRecord<T>(List<int> deletedRows, Dictionary<int, Dictionary<string, object>> modifiedDict,
+            List<Dictionary<string, object>> newAddedList, Func<Dictionary<string, object>, object[], int, dynamic> GetGridRowData) where T : ModelBase
+        {
+            // 删除的现有数据
+            List<T> lobj = new List<T>();
+            foreach (int rowIndex in deletedRows)
+            {
+                lobj.Add(GetGridRowData(null, null, rowIndex));
+            }
+            if (lobj.Count > 0)
+            {
+                _DBHelper.DeleteList<T>(lobj);
+            }
+
+            // 修改的现有数据
+            lobj = new List<T>();
+            foreach (int rowIndex in modifiedDict.Keys)
+            {
+                lobj.Add(GetGridRowData(null, Page.Grid.Rows[rowIndex].Values, 0));
+            }
+
+            // 新增数据
+            for (int i = newAddedList.Count - 1; i >= 0; i--)
+            {
+                lobj.Add(GetGridRowData(newAddedList[i], null, 0));
+            }
+
+            if (lobj.Count > 0)
+            {
+                _DBHelper.AddorUpdateList<T>(lobj);
+            }
+
+            return lobj;
+        }
+
+        public void bind<T, F>(Expression<Func<T, bool>> findConditions, Expression<Func<T, F>> orderBy) where T : ModelBase
+        {
+            PagedList<T> list = _DBHelper.FindAllByPage<T, F>(findConditions, orderBy, Page.Grid.PageSize, Page.Grid.PageIndex);
+            Page.Grid.RecordCount = list.TotalItemCount;
+            Page.Grid.DataSource = list;
+            Page.Grid.DataBind();
+        }
         #endregion
     }
 }

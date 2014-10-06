@@ -33,8 +33,9 @@
     <Reference Include="FineUI">
       <HintPath>..\packages\FineUI.4.1.4\lib\FineUI.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,10 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CacheHelper.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserAuthorization.cs" />
-    <Compile Include="ValueManage.cs" />
+    <Compile Include="UserDefineCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBContextHelper\DBContextHelper\DBContextHelper.csproj">
@@ -63,6 +64,10 @@
     <ProjectReference Include="..\JDEContext\JDEContext.csproj">
       <Project>{f4e18ab2-ac3a-411a-baf7-56531d971a04}</Project>
       <Name>JDEContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OA.Common\OA.Common.csproj">
+      <Project>{5322f6fa-7596-495a-b872-4df14996b9df}</Project>
+      <Name>OA.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\OA.Interface\OA.Interface.csproj">
       <Project>{71d93e98-8871-4b07-a490-350582bdb5e7}</Project>

@@ -11,29 +11,29 @@ namespace OAContext
 
         public  C_F40205 (int i)
         {
-                    LFLNTY =  " " ;
-                LFLNDS =  " " ;
-                LFLND2 =  " " ;
-                LFSRP1 =  " " ;
-                LFSRP2 =  " " ;
-                LFSRP3 =  " " ;
-                LFSRP4 =  " " ;
-                LFSRP5 =  " " ;
-                LFSRP6 =  " " ;
-                LFSRP7 =  " " ;
-                LFSRP8 =  " " ;
-                LFSRP9 =  " " ;
-                LFSRP0 =  " " ;
-                LFCLASS01 =  " " ;
-                LFCLASS02 =  " " ;
-                LFCLASS03 =  " " ;
-                LFCLASS04 =  " " ;
-                LFCLASS05 =  " " ;
-                LFCLASS06 =  " " ;
-                LFCLASS07 =  " " ;
-                LFCLASS08 =  " " ;
-                LFCLASS09 =  " " ;
-                LFCLASS10 =  " " ;
+                    LFLNTY = "" ;
+                LFLNDS = "" ;
+                LFLND2 = "" ;
+                LFSRP1 = "" ;
+                LFSRP2 = "" ;
+                LFSRP3 = "" ;
+                LFSRP4 = "" ;
+                LFSRP5 = "" ;
+                LFSRP6 = "" ;
+                LFSRP7 = "" ;
+                LFSRP8 = "" ;
+                LFSRP9 = "" ;
+                LFSRP0 = "" ;
+                LFCLASS01 = "" ;
+                LFCLASS02 = "" ;
+                LFCLASS03 = "" ;
+                LFCLASS04 = "" ;
+                LFCLASS05 = "" ;
+                LFCLASS06 = "" ;
+                LFCLASS07 = "" ;
+                LFCLASS08 = "" ;
+                LFCLASS09 = "" ;
+                LFCLASS10 = "" ;
                 LFPRP1 = 0 ;
                 LFPRP2 = 0 ;
                 LFPRP3 = 0 ;
@@ -44,8 +44,8 @@ namespace OAContext
                 LFPRP8 = 0 ;
                 LFPRP9 = 0 ;
                 LFPRP0 = 0 ;
-                LFUSER =  " " ;
-                LFPID =  " " ;
+                LFUSER = "" ;
+                LFPID = "" ;
                 LFDATE = System.DateTime.Now ;
                 LFTIME = DateTime.Now.TimeOfDay ;
         }

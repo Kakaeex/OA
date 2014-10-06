@@ -11,25 +11,25 @@ namespace OAContext
 
         public  C_F0005 (int i)
         {
-                    DRKCOO =  " " ;
-                DRLNGP =  " " ;
-                DRSY =  " " ;
-                DRRT =  " " ;
-                DRKY =  " " ;
-                DRDEL1 =  " " ;
-                DRDEL2 =  " " ;
-                DRSRP1 =  " " ;
-                DRSRP2 =  " " ;
-                DRSRP3 =  " " ;
-                DRSRP4 =  " " ;
-                DRSRP5 =  " " ;
+                    DRKCOO = "" ;
+                DRLNGP = "" ;
+                DRSY = "" ;
+                DRRT = "" ;
+                DRKY = "" ;
+                DRDEL1 = "" ;
+                DRDEL2 = "" ;
+                DRSRP1 = "" ;
+                DRSRP2 = "" ;
+                DRSRP3 = "" ;
+                DRSRP4 = "" ;
+                DRSRP5 = "" ;
                 DRPRP1 = 0 ;
                 DRPRP2 = 0 ;
                 DRPRP3 = 0 ;
                 DRPRP4 = 0 ;
                 DRPRP5 = 0 ;
-                DRUSER =  " " ;
-                DRPID =  " " ;
+                DRUSER = "" ;
+                DRPID = "" ;
                 DRDATE = System.DateTime.Now ;
                 DRTIME = DateTime.Now.TimeOfDay ;
         }

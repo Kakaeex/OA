@@ -11,23 +11,23 @@ namespace OAContext
 
         public  C_F9008 (int i)
         {
-                 AUKCOO =  " " ;
-                AUMCU =  " " ;
+                    AUKCOO = "" ;
+                AUMCU = "" ;
                 AUAN8 = 0 ;
-                AUDEL1 =  " " ;
-                AUDEL2 =  " " ;
-                AUSRP1 =  " " ;
-                AUSRP2 =  " " ;
-                AUSRP3 =  " " ;
-                AUSRP4 =  " " ;
-                AUSRP5 =  " " ;
+                AUDEL1 = "" ;
+                AUDEL2 = "" ;
+                AUSRP1 = "" ;
+                AUSRP2 = "" ;
+                AUSRP3 = "" ;
+                AUSRP4 = "" ;
+                AUSRP5 = "" ;
                 AUPRP1 = 0 ;
                 AUPRP2 = 0 ;
                 AUPRP3 = 0 ;
                 AUPRP4 = 0 ;
                 AUPRP5 = 0 ;
-                AUUSER =  " " ;
-                AUPID =  " " ;
+                AUUSER = "" ;
+                AUPID = "" ;
                 AUDATE = System.DateTime.Now ;
                 AUTIME = DateTime.Now.TimeOfDay ;
         }

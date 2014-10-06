@@ -11,23 +11,23 @@ namespace OAContext
 
         public  C_F9005 (int i)
         {
-                    APKCOO =  " " ;
+                    APKCOO = "" ;
                 APID = 0 ;
-                APDEL1 =  " " ;
-                APDEL2 =  " " ;
-                APURL =  " " ;
-                APSRP1 =  " " ;
-                APSRP2 =  " " ;
-                APSRP3 =  " " ;
-                APSRP4 =  " " ;
-                APSRP5 =  " " ;
+                APDEL1 = "" ;
+                APDEL2 = "" ;
+                APURL = "" ;
+                APSRP1 = "" ;
+                APSRP2 = "" ;
+                APSRP3 = "" ;
+                APSRP4 = "" ;
+                APSRP5 = "" ;
                 APPRP1 = 0 ;
                 APPRP2 = 0 ;
                 APPRP3 = 0 ;
                 APPRP4 = 0 ;
                 APPRP5 = 0 ;
-                APUSER =  " " ;
-                APPID =  " " ;
+                APUSER = "" ;
+                APPID = "" ;
                 APDATE = System.DateTime.Now ;
                 APTIME = DateTime.Now.TimeOfDay ;
         }

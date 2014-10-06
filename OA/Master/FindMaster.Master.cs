@@ -7,6 +7,7 @@ using DBContextHelper;
 using OA.Service;
 using OA.Interface;
 using FineUI;
+using System.Linq.Expressions;
 
 namespace OA.Master
 {
@@ -20,7 +21,7 @@ namespace OA.Master
         public string role;
         public IDataRepository _DBHelper { get; set; }
         public IUserAuthorization _UserAuthorization { get; set; }
-        public IValueManage _vm { get; set; }
+        public IUserDefineCode _IUDC { get; set; }
         #region Page
 
         /// <summary>
@@ -54,12 +55,7 @@ namespace OA.Master
         {
             if (!IsPostBack)
             {
-                now = DateTime.Now;
-                time = DateTime.Now.TimeOfDay;
-                progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
-                userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
-                kcoo = _UserAuthorization.GetUserKcoo(userID);
-                role = System.Web.HttpContext.Current.Session["role"] as string;
+                getInfor();
                 _UserAuthorization.ApplicationAuthorization(kcoo, role, progammeID, Page.Toolbar);
                 Page.BindGrid();
             }
@@ -75,10 +71,10 @@ namespace OA.Master
 
             FineUI.DropDownList ddlGridPageSize = new FineUI.DropDownList();
             ddlGridPageSize.AutoPostBack = true;
-            ddlGridPageSize.Items.Add(new FineUI.ListItem("5", "5"));
-            ddlGridPageSize.Items.Add(new FineUI.ListItem("10", "10"));
-            ddlGridPageSize.Items.Add(new FineUI.ListItem("15", "15"));
             ddlGridPageSize.Items.Add(new FineUI.ListItem("20", "20"));
+            ddlGridPageSize.Items.Add(new FineUI.ListItem("50", "50"));
+            ddlGridPageSize.Items.Add(new FineUI.ListItem("100", "100"));
+            ddlGridPageSize.Items.Add(new FineUI.ListItem("200", "200"));
             ddlGridPageSize.Width = 80;
             ddlGridPageSize.SelectedIndexChanged += ddlGridPageSize_SelectedIndexChanged;
             // 初始化选中值
@@ -116,7 +112,7 @@ namespace OA.Master
             toolBarDelete.ID = "toolBarDelete";
             toolBarDelete.Text = "删除";
             toolBarDelete.Icon = Icon.Delete;
-            toolBarDelete.EnablePostBack = true;
+            toolBarDelete.EnablePostBack = false;
 
             Button toolBarClose = new Button();
             toolBarClose.ID = "toolBarClose";
@@ -134,7 +130,8 @@ namespace OA.Master
             toolSave.Click += Save_Click;
             toolSaveAndClose.Click += SaveAndClose_Click;
             toolBarSelect.Click += Select_Click;
-            toolBarDelete.Click += Delete_Click;
+            toolBarDelete.OnClientClick += Page.Grid.GetNoSelectionAlertReference("请至少选择一项！") + 
+                Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Page.Grid.GetDeleteSelectedReference(), String.Empty);
             toolBarClose.Click += Close_Click;
             toolBarFind.Click += Find_Click;
 
@@ -306,25 +303,23 @@ namespace OA.Master
         #endregion
 
         #region Methods
-
-        public void SetBtnInsertVisible(bool bVisible)
+        protected void getInfor()
         {
-            Toolbar tbToolBar = Page.Grid.Toolbars[0];
-            tbToolBar.FindControl("btnInsert").Visible = bVisible;
+            now = DateTime.Now;
+            time = DateTime.Now.TimeOfDay;
+            progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
+            userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
+            kcoo = "";//_UserAuthorization.GetUserKcoo(userID);
+            role = "";//System.Web.HttpContext.Current.Session["role"] as string;
         }
 
-        public void SetBtnEditVisible(bool bVisible)
+        public void bind<T, F>(Expression<Func<T, bool>> findConditions, Expression<Func<T, F>> orderBy) where T : ModelBase
         {
-            Toolbar tbToolBar = Page.Grid.Toolbars[0];
-            tbToolBar.FindControl("btnEdit").Visible = bVisible;
+            PagedList<T> list = _DBHelper.FindAllByPage<T, F>(findConditions, orderBy, Page.Grid.PageSize, Page.Grid.PageIndex);
+            Page.Grid.RecordCount = list.TotalItemCount;
+            Page.Grid.DataSource = list;
+            Page.Grid.DataBind();
         }
-
-        public void SetBtnDeleteVisible(bool bVisible)
-        {
-            Toolbar tbToolBar = Page.Grid.Toolbars[0];
-            tbToolBar.FindControl("btnDelete").Visible = bVisible;
-        }
-
 
         #endregion
     }

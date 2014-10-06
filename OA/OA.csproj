@@ -3650,9 +3650,19 @@
     <Content Include="res\icon\zoom.png" />
     <Content Include="res\icon\zoom_in.png" />
     <Content Include="res\icon\zoom_out.png" />
+    <Content Include="View\Account\P9001\P9001E.aspx" />
+    <Content Include="View\Account\P9001\P9002E.aspx" />
+    <Content Include="View\Account\P9001\P9006E.aspx" />
+    <Content Include="View\Account\P9005\P9005E.aspx" />
+    <Content Include="View\Account\Users\P9008E.aspx" />
     <Content Include="View\Account\Users\UserInfor.aspx" />
     <Content Include="View\Account\Users\UserList.aspx" />
+    <Content Include="View\BaseInfor\P0101\P0101E.aspx" />
+    <Content Include="View\Setting\P0005\P0005E.aspx" />
     <Content Include="View\Setting\P0005\P0005H.aspx" />
+    <Content Include="View\Setting\P0006\P0006E.aspx" />
+    <Content Include="View\Setting\P0010\P0010E.aspx" />
+    <Content Include="View\Setting\P0035\P0035E.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -3693,6 +3703,41 @@
       <DependentUpon>FindMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Account\P9001\P9001E.aspx.cs">
+      <DependentUpon>P9001E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Account\P9001\P9001E.aspx.designer.cs">
+      <DependentUpon>P9001E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Account\P9001\P9002E.aspx.cs">
+      <DependentUpon>P9002E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Account\P9001\P9002E.aspx.designer.cs">
+      <DependentUpon>P9002E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Account\P9001\P9006E.aspx.cs">
+      <DependentUpon>P9006E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Account\P9001\P9006E.aspx.designer.cs">
+      <DependentUpon>P9006E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Account\P9005\P9005E.aspx.cs">
+      <DependentUpon>P9005E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Account\P9005\P9005E.aspx.designer.cs">
+      <DependentUpon>P9005E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Account\Users\P9008E.aspx.cs">
+      <DependentUpon>P9008E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Account\Users\P9008E.aspx.designer.cs">
+      <DependentUpon>P9008E.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Account\Users\UserInfor.aspx.cs">
       <DependentUpon>UserInfor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3707,6 +3752,20 @@
     <Compile Include="View\Account\Users\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\BaseInfor\P0101\P0101E.aspx.cs">
+      <DependentUpon>P0101E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\BaseInfor\P0101\P0101E.aspx.designer.cs">
+      <DependentUpon>P0101E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Setting\P0005\P0005E.aspx.cs">
+      <DependentUpon>P0005E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Setting\P0005\P0005E.aspx.designer.cs">
+      <DependentUpon>P0005E.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Setting\P0005\P0005H.aspx.cs">
       <DependentUpon>P0005H.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3714,21 +3773,36 @@
     <Compile Include="View\Setting\P0005\P0005H.aspx.designer.cs">
       <DependentUpon>P0005H.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Setting\P0006\P0006E.aspx.cs">
+      <DependentUpon>P0006E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Setting\P0006\P0006E.aspx.designer.cs">
+      <DependentUpon>P0006E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Setting\P0010\P0010E.aspx.cs">
+      <DependentUpon>P0010E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Setting\P0010\P0010E.aspx.designer.cs">
+      <DependentUpon>P0010E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Setting\P0035\P0035E.aspx.cs">
+      <DependentUpon>P0035E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Setting\P0035\P0035E.aspx.designer.cs">
+      <DependentUpon>P0035E.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="extjs\src\" />
-    <Folder Include="View\Account\P9001\" />
-    <Folder Include="View\Account\P9005\" />
-    <Folder Include="View\BaseInfor\P0101\" />
     <Folder Include="View\Finance\P0901\" />
     <Folder Include="View\Finance\P0902\" />
     <Folder Include="View\Finance\P0911\" />
     <Folder Include="View\Finance\P0920\" />
     <Folder Include="View\Finance\P0930\" />
-    <Folder Include="View\Setting\P0006\" />
-    <Folder Include="View\Setting\P0010\" />
-    <Folder Include="View\Setting\P0035\" />
     <Folder Include="View\Setting\P40203\" />
     <Folder Include="View\Workflow\P2000\" />
     <Folder Include="View\Workflow\P2010\" />
@@ -3745,6 +3819,10 @@
     <ProjectReference Include="..\JDEContext\JDEContext.csproj">
       <Project>{f4e18ab2-ac3a-411a-baf7-56531d971a04}</Project>
       <Name>JDEContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OA.Common\OA.Common.csproj">
+      <Project>{5322f6fa-7596-495a-b872-4df14996b9df}</Project>
+      <Name>OA.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\OA.Interface\OA.Interface.csproj">
       <Project>{71d93e98-8871-4b07-a490-350582bdb5e7}</Project>

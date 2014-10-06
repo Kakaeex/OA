@@ -6,11 +6,22 @@ using System.Threading.Tasks;
 using OA.Interface;
 using OAContext;
 using FineUI;
+using DBContextHelper;
 
 namespace OA.Service
 {
     public class UserAuthorization : IUserAuthorization
     {
+        public IDataRepository _DBHelper { get; set; }
+
+        public UserAuthorization()
+        { }
+
+        public UserAuthorization(IDataRepository DBHelper)
+        {
+            _DBHelper = DBHelper;
+        }
+
         //public C_F0101 GetUserInfo(string UserID)
         //{
         //    int userID = 0;
@@ -393,6 +404,7 @@ namespace OA.Service
             //    }
             //    FineUI.PageContext.Redirect(GetApplication(kcoo, "Login.aspx"));
             //}
+            _DBHelper.Find<C_F0005>(p => p.DRKCOO == "234");
         }
     }
 }

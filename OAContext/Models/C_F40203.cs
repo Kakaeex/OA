@@ -11,23 +11,23 @@ namespace OAContext
 
         public  C_F40203 (int i)
         {
-                    FSDCTO =  " " ;
-                FSTRTY =  " " ;
-                FSDEL1 =  " " ;
-                FSDEL2 =  " " ;
-                FSLNTY =  " " ;
-                FSLNDS =  " " ;
-                FSLND2 =  " " ;
-                FSNXTR =  " " ;
-                FSA1TR =  " " ;
-                FSA2TR =  " " ;
-                FSA3TR =  " " ;
-                FSA4TR =  " " ;
-                FSA5TR =  " " ;
-                FSWRTH =  " " ;
+                    FSDCTO = "" ;
+                FSTRTY = "" ;
+                FSDEL1 = "" ;
+                FSDEL2 = "" ;
+                FSLNTY = "" ;
+                FSLNDS = "" ;
+                FSLND2 = "" ;
+                FSNXTR = "" ;
+                FSA1TR = "" ;
+                FSA2TR = "" ;
+                FSA3TR = "" ;
+                FSA4TR = "" ;
+                FSA5TR = "" ;
+                FSWRTH = "" ;
                 FSORNN = 0 ;
-                FSUSER =  " " ;
-                FSPID =  " " ;
+                FSUSER = "" ;
+                FSPID = "" ;
                 FSDATE = System.DateTime.Now ;
                 FSTIME = DateTime.Now.TimeOfDay ;
         }
