@@ -50,6 +50,7 @@
     <Compile Include="IEditPage.cs" />
     <Compile Include="IFindPage.cs" />
     <Compile Include="IOrder.cs" />
+    <Compile Include="ISelectionPage.cs" />
     <Compile Include="IUserAuthorization.cs" />
     <Compile Include="IUserDefineCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

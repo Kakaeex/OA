@@ -11,13 +11,20 @@ namespace OA.Common
     {
         public static int toInt(object obj)
         {
-            switch (obj.GetType().ToString())
+            try
             {
-                case "TriggerBox": return Convert.ToInt32((obj as FineUI.TriggerBox).Text);
-                case "TextBox": return Convert.ToInt32((obj as FineUI.TextBox).Text);
-                default: return Convert.ToInt32(obj);
-            }
 
+                switch (obj.GetType().ToString())
+                {
+                    case "TriggerBox": return Convert.ToInt32((obj as FineUI.TriggerBox).Text);
+                    case "TextBox": return Convert.ToInt32((obj as FineUI.TextBox).Text);
+                    default: return Convert.ToInt32(obj);
+                }
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }

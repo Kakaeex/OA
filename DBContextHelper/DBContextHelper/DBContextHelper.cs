@@ -150,6 +150,12 @@ namespace DBContextHelper
             }
             return this.SaveChanges();
         }
+
+        public IQueryable<T> GetQueryable<T>(Expression<Func<T, bool>> conditions) where T : ModelBase
+        {
+            var queryList = conditions == null ? this.Set<T>() : this.Set<T>().Where(conditions) as IQueryable<T>;
+            return queryList;
+        }
         internal void WriteAuditLog()
         {/*
             if (this.AuditLogger == null)

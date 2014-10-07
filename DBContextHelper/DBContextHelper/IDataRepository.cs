@@ -23,10 +23,12 @@ namespace DBContextHelper
         T Find<T>(Expression<Func<T, bool>> conditions) where T : ModelBase;
         List<T> FindAll<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy) where T : ModelBase;
         PagedList<T> FindAllByPage<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) where T : ModelBase;
-
+        PagedList<T> FindQueryByPage<T, S>(IQueryable<T> conditions, Expression<Func<T, S>> orderBy, int pageSize = 30, int pageIndex = 1) where T : ModelBase;
         int UpdateList<T>(List<T> entity) where T : ModelBase;
         int InsertList<T>(List<T> entity) where T : ModelBase;
         int DeleteList<T>(List<T> entity) where T : ModelBase;
         int AddorUpdateList<T>(List<T> entity) where T : ModelBase;
+
+        IQueryable<T> GetQueryable<T>(Expression<Func<T, bool>> conditions) where T : ModelBase;
     }
 }

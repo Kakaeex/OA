@@ -32,9 +32,9 @@ namespace OA.Service
             return _DBHelper.Find<C_F0005>(p => p.DRSY == sy & p.DRRT == rt & p.DRKY == ky);
         }
 
-        public string GetSelectionView(string ky, string sy = "", string rt = "")
+        public string GetSelectionView(string ky, string sy = "SY", string rt = "DD")
         {
-            return _DBHelper.Find<C_F0005>(p => p.DRSY == sy & p.DRRT == rt & p.DRKY == ky).DRDEL1;
+            return _DBHelper.Find<C_F0005>(p => p.DRSY == sy & p.DRRT == rt & p.DRKY == ky).DRDEL2;
         }
     }
 }

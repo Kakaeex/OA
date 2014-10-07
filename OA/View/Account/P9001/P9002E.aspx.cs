@@ -21,7 +21,9 @@ namespace OA.View.Account.P9001
 
         public void BindGrid()
         {
-            Master.bind<C_F9002, string>(null, p => p.RPRUID);
+            var query = Master._DBHelper.GetQueryable<C_F9002>(p => 1 == 1);
+            int id = ValueConvert.toInt(RPPARENTID.Text);
+            Master.bind<C_F9002, int>(p => p.RPRUID == RPRUID.Text & p.RPPARENTID == id, p => p.RPMENUID);
         }
 
         public void Bind()
@@ -35,10 +37,10 @@ namespace OA.View.Account.P9001
             if (rowDict != null)
             {
                 #region 新增
-                obj.RPKCOO = rowDict["RPKCOO"].ToString();
-                obj.RPRUID = rowDict["RPRUID"].ToString();
+                obj.RPKCOO = "";
+                obj.RPRUID = RPRUID.Text;
                 obj.RPMENUID = ValueConvert.toInt(rowDict["RPMENUID"]);
-                obj.RPPARENTID = ValueConvert.toInt(rowDict["RPPARENTID"]);
+                obj.RPPARENTID = ValueConvert.toInt(RPPARENTID.Text);
                 obj.RPAPID = ValueConvert.toInt(rowDict["RPAPID"]);
                 obj.RPBARNEW = ValueConvert.toInt(rowDict["RPBARNEW"]);
                 obj.RPBARSAVE = ValueConvert.toInt(rowDict["RPBARSAVE"]);
@@ -51,7 +53,7 @@ namespace OA.View.Account.P9001
                 obj.RPSRP2 = rowDict["RPSRP2"].ToString();
                 obj.RPSRP3 = rowDict["RPSRP3"].ToString();
                 obj.RPSRP4 = rowDict["RPSRP4"].ToString();
-                obj.RPSRP5 = rowDict["RPSRP5"].ToString();
+                obj.RPSRP5 = Master._DBHelper.Find<C_F9005>(p => p.APID == obj.RPAPID).APDEL1;//rowDict["RPSRP5"].ToString();
                 obj.RPPRP1 = ValueConvert.toInt(rowDict["RPPRP1"]);
                 obj.RPPRP2 = ValueConvert.toInt(rowDict["RPPRP2"]);
                 obj.RPPRP3 = ValueConvert.toInt(rowDict["RPPRP3"]);
@@ -67,28 +69,28 @@ namespace OA.View.Account.P9001
             else if (values != null)
             {
                 #region 修改
-                obj.RPKCOO = values[0].ToString();
-                obj.RPRUID = values[1].ToString();
-                obj.RPMENUID = ValueConvert.toInt(values[2]);
-                obj.RPPARENTID = ValueConvert.toInt(values[3]);
-                obj.RPAPID = ValueConvert.toInt(values[4]);
-                obj.RPBARNEW = ValueConvert.toInt(values[5]);
-                obj.RPBARSAVE = ValueConvert.toInt(values[6]);
-                obj.RPBARSELECT = ValueConvert.toInt(values[7]);
-                obj.RPBARDELETE = ValueConvert.toInt(values[8]);
-                obj.RPBARCLOSE = ValueConvert.toInt(values[9]);
-                obj.RPBARFIND = ValueConvert.toInt(values[10]);
-                obj.RPBARSAVEAS = ValueConvert.toInt(values[11]);
-                obj.RPSRP1 = values[12].ToString();
-                obj.RPSRP2 = values[13].ToString();
-                obj.RPSRP3 = values[14].ToString();
-                obj.RPSRP4 = values[15].ToString();
-                obj.RPSRP5 = values[16].ToString();
-                obj.RPPRP1 = ValueConvert.toInt(values[17]);
-                obj.RPPRP2 = ValueConvert.toInt(values[18]);
-                obj.RPPRP3 = ValueConvert.toInt(values[19]);
-                obj.RPPRP4 = ValueConvert.toInt(values[20]);
-                obj.RPPRP5 = ValueConvert.toInt(values[21]);
+                obj.RPKCOO = "";
+                obj.RPRUID = RPRUID.Text;
+                obj.RPMENUID = ValueConvert.toInt(values[0]);
+                obj.RPPARENTID = ValueConvert.toInt(RPPARENTID.Text);
+                obj.RPAPID = ValueConvert.toInt(values[1]);
+                obj.RPBARNEW = ValueConvert.toInt(values[2]);
+                obj.RPBARSAVE = ValueConvert.toInt(values[3]);
+                obj.RPBARSELECT = ValueConvert.toInt(values[4]);
+                obj.RPBARDELETE = ValueConvert.toInt(values[5]);
+                obj.RPBARCLOSE = ValueConvert.toInt(values[6]);
+                obj.RPBARFIND = ValueConvert.toInt(values[7]);
+                obj.RPBARSAVEAS = ValueConvert.toInt(values[8]);
+                obj.RPSRP1 = values[9].ToString();
+                obj.RPSRP2 = values[10].ToString();
+                obj.RPSRP3 = values[11].ToString();
+                obj.RPSRP4 = values[12].ToString();
+                obj.RPSRP5 = values[13].ToString();
+                obj.RPPRP1 = ValueConvert.toInt(values[14]);
+                obj.RPPRP2 = ValueConvert.toInt(values[15]);
+                obj.RPPRP3 = ValueConvert.toInt(values[16]);
+                obj.RPPRP4 = ValueConvert.toInt(values[17]);
+                obj.RPPRP5 = ValueConvert.toInt(values[18]);
                 obj.RPUSER = Master.userID;
                 obj.RPPID = Master.progammeID;
                 obj.RPDATE = Master.now;
@@ -99,13 +101,14 @@ namespace OA.View.Account.P9001
             else if (deletedRows > 0)
             {
                 #region 删除
-                string SY = Grid1.DataKeys[deletedRows][0].ToString();
-                obj = Master._DBHelper.Find<C_F9002>(p => p.RPKCOO == "" & p.RPRUID == "" & p.RPMENUID == 0);
+                string key1 = Grid1.DataKeys[deletedRows][0].ToString();
+                obj = Master._DBHelper.Find<C_F9002>(p => p.RPMENUID == ValueConvert.toInt(key1));
                 return obj;
                 #endregion
             }
             else
             {
+                obj.RPMENUID = Master._Order.GetNextNumber("Mu", "00068", "Menu");
                 return obj;
             }
         }
@@ -127,6 +130,12 @@ namespace OA.View.Account.P9001
             string URL = Master._UDC.GetSelectionView(tBox.ID);
             PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
             windows.Hidden = false;
+        }
+
+        protected void Trigger_Blur(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._UDC.GetSelectionView(tBox.ID);
         }
 
         public void DeleteRow()

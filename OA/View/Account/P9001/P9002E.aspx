@@ -18,19 +18,26 @@
                 <Rows>
                     <f:FormRow>
                         <Items>
-                            <f:TextBox runat="server" ID="DRSY" Label="系统码"></f:TextBox>
-                            <f:TextBox runat="server" ID="DRRT" Label="分类码"></f:TextBox>
-                            <f:TextBox runat="server" ID="DRDEL1" Label="备注1"></f:TextBox>
+                            <f:TriggerBox ID="RPRUID" EnableEdit="false" Text="" Width="300px" Label="角色"
+                                TriggerIcon="Search" runat="server" OnTriggerClick="TriggerClick" OnBlur="Trigger_Blur">
+                            </f:TriggerBox>
+                        </Items>
+                    </f:FormRow>
+                    <f:FormRow>
+                        <Items>
+                            <f:TriggerBox ID="RPPARENTID" EnableEdit="false" Text="" Width="300px" Label="父项菜单ID"
+                                TriggerIcon="Search" runat="server" OnTriggerClick="TriggerClick" OnBlur="Trigger_Blur">
+                            </f:TriggerBox>
                         </Items>
                     </f:FormRow>
                 </Rows>
             </f:Form>
         </Items>
         <Items>
-            <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="RUKCOO,RUID" AllowCellEditing="true" ClicksToEdit="1" EnableMultiSelect="true" EnableCheckBoxSelect="false"
+            <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="RPMENUID" AllowCellEditing="true" ClicksToEdit="1" EnableMultiSelect="true" EnableCheckBoxSelect="false"
                 IsDatabasePaging="true" AllowPaging="false" EnableAfterEditEvent="true" AutoScroll="true" Height="500px">
                 <Columns>
-                    <f:RenderField Width="100px" DataField="RPKCOO" ColumnID="RPKCOO" FieldType="String"
+                    <%--<f:RenderField Width="100px" DataField="RPKCOO" ColumnID="RPKCOO" FieldType="String"
                         HeaderText="公司">
 
                         <Editor>
@@ -40,34 +47,32 @@
                     </f:RenderField>
                     <f:RenderField Width="100px" DataField="RPRUID" ColumnID="RPRUID" FieldType="String"
                         HeaderText="角色ID">
-
                         <Editor>
                             <f:TextBox ID="RPRUID" Required="true" runat="server">
                             </f:TextBox>
                         </Editor>
-                    </f:RenderField>
+                    </f:RenderField>--%>
                     <f:RenderField Width="100px" DataField="RPMENUID" ColumnID="RPMENUID" FieldType="Int"
-                        HeaderText="菜单ID（程序ID）">
-
-                        <Editor>
-                            <f:TextBox ID="RPMENUID" Required="true" runat="server">
+                        HeaderText="菜单ID">
+                         <Editor>
+                            <f:TextBox ID="RPMENUID" Required="true" runat="server" Readonly="true">
                             </f:TextBox>
                         </Editor>
                     </f:RenderField>
-                    <f:RenderField Width="100px" DataField="RPPARENTID" ColumnID="RPPARENTID" FieldType="Int"
+                    <%--<f:RenderField Width="100px" DataField="RPPARENTID" ColumnID="RPPARENTID" FieldType="Int"
                         HeaderText="父项菜单ID">
 
                         <Editor>
                             <f:TextBox ID="RPPARENTID" Required="true" runat="server">
                             </f:TextBox>
                         </Editor>
-                    </f:RenderField>
+                    </f:RenderField>--%>
                     <f:RenderField Width="100px" DataField="RPAPID" ColumnID="RPAPID" FieldType="Int"
                         HeaderText="程序ID">
-
                         <Editor>
-                            <f:TextBox ID="RPAPID" Required="true" runat="server">
-                            </f:TextBox>
+                            <f:TriggerBox ID="RPAPID" EnableEdit="false" Text="" Width="300px" 
+                                TriggerIcon="Search" runat="server" OnTriggerClick="TriggerClick" OnBlur="Trigger_Blur">
+                            </f:TriggerBox>
                         </Editor>
                     </f:RenderField>
                     <f:RenderField Width="100px" DataField="RPBARNEW" ColumnID="RPBARNEW" FieldType="Int"

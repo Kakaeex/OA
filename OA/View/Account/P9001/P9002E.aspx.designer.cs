@@ -49,31 +49,22 @@ namespace OA.View.Account.P9001 {
         protected global::FineUI.Form form1;
         
         /// <summary>
-        /// DRSY 控件。
+        /// RPRUID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox DRSY;
+        protected global::FineUI.TriggerBox RPRUID;
         
         /// <summary>
-        /// DRRT 控件。
+        /// RPPARENTID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox DRRT;
-        
-        /// <summary>
-        /// DRDEL1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox DRDEL1;
+        protected global::FineUI.TriggerBox RPPARENTID;
         
         /// <summary>
         /// Grid1 控件。
@@ -85,24 +76,6 @@ namespace OA.View.Account.P9001 {
         protected global::FineUI.Grid Grid1;
         
         /// <summary>
-        /// RPKCOO 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox RPKCOO;
-        
-        /// <summary>
-        /// RPRUID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox RPRUID;
-        
-        /// <summary>
         /// RPMENUID 控件。
         /// </summary>
         /// <remarks>
@@ -112,22 +85,13 @@ namespace OA.View.Account.P9001 {
         protected global::FineUI.TextBox RPMENUID;
         
         /// <summary>
-        /// RPPARENTID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox RPPARENTID;
-        
-        /// <summary>
         /// RPAPID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox RPAPID;
+        protected global::FineUI.TriggerBox RPAPID;
         
         /// <summary>
         /// RPBARNEW 控件。

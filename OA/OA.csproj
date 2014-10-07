@@ -1922,6 +1922,7 @@
     <Content Include="Master\FindMaster.Master" />
     <Content Include="Master\BlankMaster.Master" />
     <Content Include="Master\EditMaster.Master" />
+    <Content Include="Master\SelectionMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3658,6 +3659,10 @@
     <Content Include="View\Account\Users\UserInfor.aspx" />
     <Content Include="View\Account\Users\UserList.aspx" />
     <Content Include="View\BaseInfor\P0101\P0101E.aspx" />
+    <Content Include="View\Selection\SelectAN8.aspx" />
+    <Content Include="View\Selection\SelectApplication.aspx" />
+    <Content Include="View\Selection\SelectRoles.aspx" />
+    <Content Include="View\Selection\SelectUDC.aspx" />
     <Content Include="View\Setting\P0005\P0005E.aspx" />
     <Content Include="View\Setting\P0005\P0005H.aspx" />
     <Content Include="View\Setting\P0006\P0006E.aspx" />
@@ -3701,6 +3706,13 @@
     </Compile>
     <Compile Include="Master\FindMaster.Master.designer.cs">
       <DependentUpon>FindMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\SelectionMaster.Master.cs">
+      <DependentUpon>SelectionMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\SelectionMaster.Master.designer.cs">
+      <DependentUpon>SelectionMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Account\P9001\P9001E.aspx.cs">
@@ -3758,6 +3770,34 @@
     </Compile>
     <Compile Include="View\BaseInfor\P0101\P0101E.aspx.designer.cs">
       <DependentUpon>P0101E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selection\SelectAN8.aspx.cs">
+      <DependentUpon>SelectAN8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Selection\SelectAN8.aspx.designer.cs">
+      <DependentUpon>SelectAN8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selection\SelectApplication.aspx.cs">
+      <DependentUpon>SelectApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Selection\SelectApplication.aspx.designer.cs">
+      <DependentUpon>SelectApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selection\SelectRoles.aspx.cs">
+      <DependentUpon>SelectRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Selection\SelectRoles.aspx.designer.cs">
+      <DependentUpon>SelectRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selection\SelectUDC.aspx.cs">
+      <DependentUpon>SelectUDC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Selection\SelectUDC.aspx.designer.cs">
+      <DependentUpon>SelectUDC.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Setting\P0005\P0005E.aspx.cs">
       <DependentUpon>P0005E.aspx</DependentUpon>
