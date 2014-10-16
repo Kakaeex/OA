@@ -9,7 +9,7 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="FORM1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Panel ID="Panel1" runat="server" BodyPadding="3px" ShowBorder="True" ShowHeader="false"
         Layout="Anchor" AnchorValue="100%">

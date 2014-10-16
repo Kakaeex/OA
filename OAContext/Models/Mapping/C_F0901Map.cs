@@ -16,7 +16,10 @@ namespace OAContext
 
             this.Property(t => t.GMAID)
                 .IsRequired()
-                .HasMaxLength(8);
+                .HasMaxLength(20);
+
+            this.Property(t => t.GMPAID)
+                .HasMaxLength(20);
 
             this.Property(t => t.GMMCU)
                 .HasMaxLength(12);
@@ -29,9 +32,6 @@ namespace OAContext
 
             this.Property(t => t.GMANS)
                 .HasMaxLength(25);
-
-            this.Property(t => t.GMDL01)
-                .HasMaxLength(30);
 
             this.Property(t => t.GMLDA)
                 .HasMaxLength(1);
@@ -159,11 +159,13 @@ namespace OAContext
             this.ToTable("C_F0901");
             this.Property(t => t.GMCO).HasColumnName("GMCO");
             this.Property(t => t.GMAID).HasColumnName("GMAID");
+            this.Property(t => t.GMPAID).HasColumnName("GMPAID");
             this.Property(t => t.GMMCU).HasColumnName("GMMCU");
             this.Property(t => t.GMOBJ).HasColumnName("GMOBJ");
             this.Property(t => t.GMSUB).HasColumnName("GMSUB");
             this.Property(t => t.GMANS).HasColumnName("GMANS");
             this.Property(t => t.GMDL01).HasColumnName("GMDL01");
+            this.Property(t => t.GMDL02).HasColumnName("GMDL02");
             this.Property(t => t.GMLDA).HasColumnName("GMLDA");
             this.Property(t => t.GMBPC).HasColumnName("GMBPC");
             this.Property(t => t.GMPEC).HasColumnName("GMPEC");

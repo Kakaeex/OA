@@ -24,10 +24,8 @@ namespace OA.View.Account.Users
         /// </summary>
         public void BindGrid()
         {
-            PagedList<V_F0101A> list = Master._DBHelper.FindAllByPage<V_F0101A, int>(null, p => p.ABAN8, Grid1.PageSize, Grid1.PageIndex);
-            Grid1.RecordCount = list.TotalItemCount;
-            Grid1.DataSource = list;
-            Grid1.DataBind();
+            var query = Master._DBHelper.GetQueryable<V_F0101A>(p => 1 == 1);
+            Master.bind<V_F0101A, int>(query, p => p.ABAN8);
         }
 
         #endregion
@@ -80,7 +78,7 @@ namespace OA.View.Account.Users
         /// <returns></returns>
         public string GetNewUrl()
         {
-            return Master._UserAuthorization.GetApplication(Master.kcoo, "");
+            return Master._UserAuthorization.GetApplication(Master.kcoo, "USERINFOR").Replace("~/", "");
         }
 
         /// <summary>
@@ -91,13 +89,22 @@ namespace OA.View.Account.Users
         {
             object[] keys = Grid1.DataKeys[Grid1.SelectedRowIndex];
 
-            return String.Format(Master._UserAuthorization.GetApplication(Master.kcoo, ""), keys[0], HttpUtility.UrlEncode(keys[1].ToString()));
+            return String.Format
+                (Master._UserAuthorization.GetApplication(Master.kcoo, "USERINFOR").Replace("~/", "") + "?AN8={0}"  , keys[0]);
         }
 
         public string GetFromMode()
         {
-            return "Windows";
-            //return "Tab";
+            //return "Windows";
+            return "Tab";
+        }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms =  { FORM1.ID };
+                return _forms;
+            }
         }
     }
 }

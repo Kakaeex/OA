@@ -13,15 +13,45 @@ namespace OA.Master
 {
     public partial class FindMaster : System.Web.UI.MasterPage
     {
-        public DateTime now;
-        public TimeSpan time;
-        public string progammeID;
-        public string userID;
-        public string kcoo;
-        public string role;
-        public IDataRepository _DBHelper { get; set; }
+        #region 值
+        public DateTime now
+        {
+            get { return DateTime.Now; }
+        }
+        public TimeSpan time
+        {
+            get { return DateTime.Now.TimeOfDay; }
+        }
+        public string progammeID
+        {
+            get { return System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath).ToUpper().Replace(".ASPX", ""); }
+        }
+        public string userID
+        {
+            get { return base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???"; }
+        }
+        public string kcoo
+        {
+            get
+            {
+                return _UserAuthorization.GetUserKcoo(userID);
+            }
+        }
+        public string role
+        {
+            get
+            {
+                return _UserAuthorization.GetCurrentRole(base.Page.User.Identity.Name);
+            }
+        }
+        //public IDataRepository _DBHelper { get; set; }
+        public OAContext.OAContext _DBHelper { get; set; }
         public IUserAuthorization _UserAuthorization { get; set; }
         public IUserDefineCode _IUDC { get; set; }
+        public IWebHelper _WebHelper { get; set; }
+
+        #endregion
+
         #region Page
 
         /// <summary>
@@ -305,12 +335,12 @@ namespace OA.Master
         #region Methods
         protected void getInfor()
         {
-            now = DateTime.Now;
-            time = DateTime.Now.TimeOfDay;
-            progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
-            userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
-            kcoo = "";//_UserAuthorization.GetUserKcoo(userID);
-            role = "";//System.Web.HttpContext.Current.Session["role"] as string;
+            //now = DateTime.Now;
+            //time = DateTime.Now.TimeOfDay;
+            //progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
+            //userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
+            //kcoo = "";//_UserAuthorization.GetUserKcoo(userID);
+            //role = "";//System.Web.HttpContext.Current.Session["role"] as string;
         }
 
         public void bind<T, F>(Expression<Func<T, bool>> findConditions, Expression<Func<T, F>> orderBy) where T : ModelBase
@@ -320,7 +350,13 @@ namespace OA.Master
             Page.Grid.DataSource = list;
             Page.Grid.DataBind();
         }
-
+        public void bind<T, F>(IQueryable<T> findConditions, Expression<Func<T, F>> orderBy) where T : ModelBase
+        {
+            PagedList<T> list = _DBHelper.FindQueryByPage<T, F>(findConditions, orderBy, Page.Grid.PageSize, Page.Grid.PageIndex);
+            Page.Grid.RecordCount = list.TotalItemCount;
+            Page.Grid.DataSource = list;
+            Page.Grid.DataBind();
+        }
         #endregion
     }
 }

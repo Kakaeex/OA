@@ -102,5 +102,14 @@ namespace OA.View.Setting.P0005
             return "Windows";
             //return "Tab";
         }
+
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms =  { FORM1.ID };
+                return _forms;
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SelectionMaster.Master" AutoEventWireup="true" CodeBehind="SelectApplication.aspx.cs" Inherits="OA.View.Selection.SelectApplication" %>
+
 <%@ MasterType VirtualPath="~/Master/SelectionMaster.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="findMainMaster" runat="server">
     <f:Panel ID="mainPanel" runat="server" BodyPadding="3px" ShowBorder="True" ShowHeader="false"
@@ -28,7 +29,7 @@
         </Items>
         <Items>
             <f:Grid runat="server" ID="Grid1" ShowHeader="false" AllowPaging="true" PageSize="30" IsDatabasePaging="true" EnableCheckBoxSelect="true"
-                 EnableMultiSelect="false" AutoScroll="true" Height="300px">
+                EnableMultiSelect="false" AutoScroll="true" Height="300px">
                 <Columns>
                     <f:BoundField Width="100px" DataField="APID" DataFormatString="{0}" HeaderText="程序ID" ColumnID="APID" />
                     <f:BoundField Width="100px" DataField="APDEL1" DataFormatString="{0}" HeaderText="说明1" ColumnID="APDEL1" />
@@ -37,6 +38,7 @@
                     <f:BoundField Width="100px" DataField="APSRP1" DataFormatString="{0}" HeaderText="类别码1" ColumnID="APSRP1" />
                 </Columns>
             </f:Grid>
+            <f:HiddenField ID="mode" runat="server"></f:HiddenField>
         </Items>
     </f:Panel>
 </asp:Content>

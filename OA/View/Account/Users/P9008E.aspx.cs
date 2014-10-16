@@ -21,7 +21,8 @@ namespace OA.View.Account.Users
 
         public void BindGrid()
         {
-            Master.bind<C_F9008, int>(null, p => p.AUAN8);
+            int an8 = ValueConvert.toInt(AN8);
+            Master.bind<C_F9008, int>(p => p.AUAN8 == an8, p => p.AUAN8);
         }
 
         public void Bind()
@@ -29,15 +30,16 @@ namespace OA.View.Account.Users
 
         }
 
-        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0)
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F9008 obj = new C_F9008(1);
             if (rowDict != null)
             {
                 #region 新增
-                obj.AUKCOO = rowDict["AUKCOO"].ToString();
+                //obj.AUKCOO = rowDict["AUKCOO"].ToString();
                 obj.AUMCU = rowDict["AUMCU"].ToString();
-                obj.AUAN8 = ValueConvert.toInt(rowDict["AUAN8"]);
+                obj.AUKCOO = Master._DBHelper.Find<C_F0006>(p => p.MCMCU == obj.AUMCU).MCKCOO;
+                obj.AUAN8 = ValueConvert.toInt(AN8);
                 obj.AUDEL1 = rowDict["AUDEL1"].ToString();
                 obj.AUDEL2 = rowDict["AUDEL2"].ToString();
                 obj.AUSRP1 = rowDict["AUSRP1"].ToString();
@@ -60,21 +62,22 @@ namespace OA.View.Account.Users
             else if (values != null)
             {
                 #region 修改
-                obj.AUKCOO = values[0].ToString();
+                //obj.AUKCOO = values[0].ToString();
                 obj.AUMCU = values[1].ToString();
-                obj.AUAN8 = ValueConvert.toInt(values[2]);
-                obj.AUDEL1 = values[3].ToString();
-                obj.AUDEL2 = values[4].ToString();
-                obj.AUSRP1 = values[5].ToString();
-                obj.AUSRP2 = values[6].ToString();
-                obj.AUSRP3 = values[7].ToString();
-                obj.AUSRP4 = values[8].ToString();
-                obj.AUSRP5 = values[9].ToString();
-                obj.AUPRP1 = ValueConvert.toInt(values[10]);
-                obj.AUPRP2 = ValueConvert.toInt(values[11]);
-                obj.AUPRP3 = ValueConvert.toInt(values[12]);
-                obj.AUPRP4 = ValueConvert.toInt(values[13]);
-                obj.AUPRP5 = ValueConvert.toInt(values[14]);
+                obj.AUKCOO = Master._DBHelper.Find<C_F0006>(p => p.MCMCU == obj.AUMCU).MCKCOO;
+                obj.AUAN8 = ValueConvert.toInt(AN8);
+                obj.AUDEL1 = values[2].ToString();
+                obj.AUDEL2 = values[3].ToString();
+                obj.AUSRP1 = values[4].ToString();
+                obj.AUSRP2 = values[5].ToString();
+                obj.AUSRP3 = values[6].ToString();
+                obj.AUSRP4 = values[7].ToString();
+                obj.AUSRP5 = values[8].ToString();
+                obj.AUPRP1 = ValueConvert.toInt(values[9]);
+                obj.AUPRP2 = ValueConvert.toInt(values[10]);
+                obj.AUPRP3 = ValueConvert.toInt(values[11]);
+                obj.AUPRP4 = ValueConvert.toInt(values[12]);
+                obj.AUPRP5 = ValueConvert.toInt(values[13]);
                 obj.AUUSER = Master.userID;
                 obj.AUPID = Master.progammeID;
                 obj.AUDATE = Master.now;
@@ -82,11 +85,13 @@ namespace OA.View.Account.Users
                 return obj;
                 #endregion
             }
-            else if (deletedRows > 0)
+            else if (deletedRows >= 0)
             {
                 #region 删除
-                string SY = Grid1.DataKeys[deletedRows][0].ToString();
-                obj = Master._DBHelper.Find<C_F9008>(p => p.AUKCOO == "" & p.AUAN8 == 0 & p.AUMCU == "");
+                string CO = Grid1.DataKeys[deletedRows][0].ToString();
+                string SY = Grid1.DataKeys[deletedRows][1].ToString();
+                int an8 = ValueConvert.toInt(AN8);
+                obj = Master._DBHelper.Find<C_F9008>(p => p.AUKCOO == CO & p.AUAN8 == an8 & p.AUMCU == SY);
                 return obj;
                 #endregion
             }
@@ -115,6 +120,14 @@ namespace OA.View.Account.Users
             windows.Hidden = false;
         }
 
+        protected void Trigger_Blur(object sender, EventArgs e)
+        {
+            //TriggerBox tBox = sender as TriggerBox;
+        }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
+            //Grid1. Rows[e.RowIndex].Values[0] = "00068";
+        }
         public void DeleteRow()
         {
 
@@ -141,6 +154,14 @@ namespace OA.View.Account.Users
             get
             {
                 return toolBar;
+            }
+        }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms =  { FORM1.ID };
+                return _forms;
             }
         }
         #endregion

@@ -31,13 +31,13 @@ namespace OA.View.Account.P9001
 
         }
 
-        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0)
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F9002 obj = new C_F9002(1);
             if (rowDict != null)
             {
                 #region 新增
-                obj.RPKCOO = "";
+                obj.RPKCOO = Master.kcoo;
                 obj.RPRUID = RPRUID.Text;
                 obj.RPMENUID = ValueConvert.toInt(rowDict["RPMENUID"]);
                 obj.RPPARENTID = ValueConvert.toInt(RPPARENTID.Text);
@@ -69,7 +69,7 @@ namespace OA.View.Account.P9001
             else if (values != null)
             {
                 #region 修改
-                obj.RPKCOO = "";
+                obj.RPKCOO = Master.kcoo;
                 obj.RPRUID = RPRUID.Text;
                 obj.RPMENUID = ValueConvert.toInt(values[0]);
                 obj.RPPARENTID = ValueConvert.toInt(RPPARENTID.Text);
@@ -98,11 +98,11 @@ namespace OA.View.Account.P9001
                 return obj;
                 #endregion
             }
-            else if (deletedRows > 0)
+            else if (deletedRows >= 0)
             {
                 #region 删除
-                string key1 = Grid1.DataKeys[deletedRows][0].ToString();
-                obj = Master._DBHelper.Find<C_F9002>(p => p.RPMENUID == ValueConvert.toInt(key1));
+                int key1 = ValueConvert.toInt(Grid1.DataKeys[deletedRows][0]);
+                obj = Master._DBHelper.Find<C_F9002>(p => p.RPMENUID == key1);
                 return obj;
                 #endregion
             }
@@ -137,7 +137,10 @@ namespace OA.View.Account.P9001
             TriggerBox tBox = sender as TriggerBox;
             string URL = Master._UDC.GetSelectionView(tBox.ID);
         }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
 
+        }
         public void DeleteRow()
         {
 
@@ -147,6 +150,7 @@ namespace OA.View.Account.P9001
         {
             get
             {
+                Grid1.PageSize = 100000;
                 return Grid1;
             }
         }
@@ -164,6 +168,14 @@ namespace OA.View.Account.P9001
             get
             {
                 return toolBar;
+            }
+        }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms =  { FORM1.ID };
+                return _forms;
             }
         }
         #endregion

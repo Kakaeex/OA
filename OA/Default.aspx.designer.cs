@@ -22,13 +22,13 @@ namespace OA {
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// form1 控件。
+        /// FORM1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm FORM1;
         
         /// <summary>
         /// PageManager1 控件。
@@ -40,58 +40,40 @@ namespace OA {
         protected global::FineUI.PageManager PageManager1;
         
         /// <summary>
-        /// RegionPanel1 控件。
+        /// Panel1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.RegionPanel RegionPanel1;
+        protected global::FineUI.Panel Panel1;
         
         /// <summary>
-        /// Region1 控件。
+        /// A1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Region Region1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
         
         /// <summary>
-        /// ContentPanel1 控件。
+        /// LoginView1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.ContentPanel ContentPanel1;
+        protected global::System.Web.UI.WebControls.LoginView LoginView1;
         
         /// <summary>
-        /// TitleLink 控件。
+        /// Panel2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor TitleLink;
-        
-        /// <summary>
-        /// HeadLoginView 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
-        
-        /// <summary>
-        /// Region2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Region Region2;
+        protected global::FineUI.Panel Panel2;
         
         /// <summary>
         /// leftMenuTree 控件。
@@ -103,15 +85,6 @@ namespace OA {
         protected global::FineUI.Tree leftMenuTree;
         
         /// <summary>
-        /// mainRegion 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.Region mainRegion;
-        
-        /// <summary>
         /// mainTabStrip 控件。
         /// </summary>
         /// <remarks>
@@ -121,21 +94,21 @@ namespace OA {
         protected global::FineUI.TabStrip mainTabStrip;
         
         /// <summary>
-        /// Tab1 控件。
+        /// Tab2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Tab Tab1;
+        protected global::FineUI.Tab Tab2;
         
         /// <summary>
-        /// ContentPanel2 控件。
+        /// ContentPanel3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.ContentPanel ContentPanel2;
+        protected global::FineUI.ContentPanel ContentPanel3;
     }
 }

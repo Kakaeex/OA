@@ -16,14 +16,26 @@ namespace OA.View.Setting.P0005
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Master.QueryString.ContainsKey("SY") & Master.QueryString.ContainsKey("RT"))
+            {
+                DRSY.Text = Master.QueryString["SY"];
+                DRRT.Text = Master.QueryString["RT"];
+            }
+            else
+            {
 
+            }
         }
 
         #region BindGrid
 
         public void BindGrid()
         {
-            Master.bind<C_F0005, string>(null, p => p.DRSY);
+            var query = Master._DBHelper.GetQueryable<C_F0005>(p => 1 == 1);
+            query = DRSY.Text.Trim().Equals("") ? query : query.Where(c => c.DRSY == DRSY.Text.Trim());
+            query = DRRT.Text.Trim().Equals("") ? query : query.Where(c => c.DRRT == DRRT.Text.Trim());
+            query = DRDEL1.Text.Trim().Equals("") ? query : query.Where(c => c.DRDEL1.Contains(DRDEL1.Text.Trim()));
+            Master.bind<C_F0005, string>(query, p => p.DRSY);
         }
 
         public void Bind()
@@ -39,7 +51,7 @@ namespace OA.View.Setting.P0005
             
         }
 
-        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0)
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
              C_F0005 obj = new C_F0005(1);
             if (rowDict != null)
@@ -97,7 +109,7 @@ namespace OA.View.Setting.P0005
                 return obj;
                  #endregion
             }
-            else if (deletedRows > 0)
+            else if (deletedRows >= 0)
             {
                 #region 删除
                 string SY = Grid1.DataKeys[deletedRows][0].ToString();
@@ -122,7 +134,10 @@ namespace OA.View.Setting.P0005
         }
 
         #region 实例
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
 
+        }
         public Grid Grid
         {
             get
@@ -144,6 +159,14 @@ namespace OA.View.Setting.P0005
             get
             {
                 return toolBar;
+            }
+        }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms =  { FORM1.ID };
+                return _forms;
             }
         }
         #endregion

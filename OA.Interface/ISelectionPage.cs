@@ -28,5 +28,7 @@ namespace OA.Interface
         /// 重新绑定表格
         /// </summary>
         void BindGrid();
+
+        string[] GetValues();
     }
 }

@@ -35,6 +35,7 @@
                     <f:BoundField Width="100px" DataField="RUDEL2" DataFormatString="{0}" HeaderText="说明2" ColumnID="RUDEL2" />
                 </Columns>
             </f:Grid>
+            <f:HiddenField ID="mode" runat="server"></f:HiddenField>
         </Items>
     </f:Panel>
 </asp:Content>

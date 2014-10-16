@@ -41,7 +41,7 @@ namespace OA
 
             var services3 = Assembly.Load("OA");
             builder.RegisterAssemblyTypes(services3).Where(t => 1 == 1).AsImplementedInterfaces();
-            //builder.RegisterType<Log>().As<ILog>();
+            builder.RegisterType<OAContext.OAContext>().As<OAContext.OAContext>();
 
             // Once you're done registering things, set the container
             // provider up with your registrations.

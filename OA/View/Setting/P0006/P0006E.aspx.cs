@@ -23,7 +23,8 @@ namespace OA.View.Setting.P0006
 
         public void BindGrid()
         {
-            Master.bind<C_F0006, string>(null, p => p.MCMCU);
+            var query = Master._DBHelper.GetQueryable<C_F0006>(p => 1 == 1);
+            Master.bind<C_F0006, string>(query, p => p.MCMCU);
         }
 
         public void Bind()
@@ -39,7 +40,7 @@ namespace OA.View.Setting.P0006
 
         }
 
-        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0)
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F0006 obj = new C_F0006(1);
             if (rowDict != null)
@@ -112,7 +113,7 @@ namespace OA.View.Setting.P0006
                 return obj;
                 #endregion
             }
-            else if (deletedRows > 0)
+            else if (deletedRows >= 0)
             {
                 #region 删除
                 string SY = Grid1.DataKeys[deletedRows][0].ToString();
@@ -137,7 +138,10 @@ namespace OA.View.Setting.P0006
         }
 
         #region 实例
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
 
+        }
         public Grid Grid
         {
             get
@@ -159,6 +163,14 @@ namespace OA.View.Setting.P0006
             get
             {
                 return toolBar;
+            }
+        }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms =  { FORM1.ID };
+                return _forms;
             }
         }
         #endregion

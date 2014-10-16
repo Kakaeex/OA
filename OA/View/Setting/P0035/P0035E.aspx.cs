@@ -22,7 +22,8 @@ namespace OA.View.Setting.P0035
 
         public void BindGrid()
         {
-            Master.bind<C_F0035, string>(null, p => p.MSCODE);
+            var query = Master._DBHelper.GetQueryable<C_F0035>(p => 1 == 1);
+            Master.bind<C_F0035, string>(query, p => p.MSCODE);
         }
 
         public void Bind()
@@ -95,7 +96,7 @@ namespace OA.View.Setting.P0035
                 return obj;
                 #endregion
             }
-            else if (deletedRows > 0)
+            else if (deletedRows >= 0)
             {
                 #region 删除
                 string SY = Grid1.DataKeys[deletedRows][0].ToString();
@@ -120,7 +121,10 @@ namespace OA.View.Setting.P0035
         }
 
         #region 实例
-
+        public void AfterEdit(GridAfterEditEventArgs e)
+        { 
+        
+        }
         public Grid Grid
         {
             get
@@ -152,6 +156,14 @@ namespace OA.View.Setting.P0035
             string URL = Master._UDC.GetSelectionView(tBox.ID);
             PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
             windows.Hidden = false;
+        }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms =  { FORM1.ID };
+                return _forms;
+            }
         }
     }
 }

@@ -22,7 +22,8 @@ namespace OA.View.Account.P9001
 
         public void BindGrid()
         {
-            Master.bind<C_F9001, string>(null, p => p.RUID);
+            var query = Master._DBHelper.GetQueryable<C_F9001>(p => 1 == 1);
+            Master.bind<C_F9001, string>(query, p => p.RUID);
         }
 
         public void Bind()
@@ -30,7 +31,7 @@ namespace OA.View.Account.P9001
 
         }
 
-        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0)
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F9001 obj = new C_F9001(1);
             if (rowDict != null)
@@ -83,7 +84,7 @@ namespace OA.View.Account.P9001
                 return obj;
                 #endregion
             }
-            else if (deletedRows > 0)
+            else if (deletedRows >= 0)
             {
                 #region 删除
                 string SY = Grid1.DataKeys[deletedRows][0].ToString();
@@ -115,7 +116,10 @@ namespace OA.View.Account.P9001
             PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
             windows.Hidden = false;
         }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
 
+        }
         public void DeleteRow()
         {
 
@@ -142,6 +146,14 @@ namespace OA.View.Account.P9001
             get
             {
                 return toolBar;
+            }
+        }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms = { this.Form1.ID };
+                return _forms;
             }
         }
         #endregion

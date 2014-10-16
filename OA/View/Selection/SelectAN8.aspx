@@ -33,6 +33,7 @@
                     <f:BoundField Width="100px" DataField="ABALPH" DataFormatString="{0}" HeaderText="说明1" ColumnID="DRDEL1" />
                 </Columns>
             </f:Grid>
+            <f:HiddenField ID="mode" runat="server"></f:HiddenField>
         </Items>
     </f:Panel>
 </asp:Content>

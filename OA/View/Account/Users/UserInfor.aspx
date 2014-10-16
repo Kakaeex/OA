@@ -15,7 +15,7 @@
             </f:Toolbar>
         </Toolbars>
         <Items>
-            <f:Form ID="form1" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
+            <f:Form ID="FORM1" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
                 <Rows>
                     <f:FormRow>
                         <Items>

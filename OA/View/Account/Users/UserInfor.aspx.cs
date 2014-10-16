@@ -20,7 +20,6 @@ namespace OA.View.Account.Users
 
         }
 
-
         public void BindGrid()
         {
             if (ABAN8.Text == "") return;
@@ -37,8 +36,7 @@ namespace OA.View.Account.Users
             ABALPH.Text = obj.ABALPH;
         }
 
-
-        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0)
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F9008 obj = new C_F9008(1);
             if (rowDict != null)
@@ -86,8 +84,11 @@ namespace OA.View.Account.Users
                 return obj;
             }
         }
+
         public void Save()
         {
+            string password = NewPassword1.Text == NewPassword2.Text ? NewPassword1.Text : null;
+            Master._UserAuthorization.SaveUser(ABAN8.Text, password);
             Master.SaveRecord<C_F9008>(Grid1.GetDeletedList(), Grid1.GetModifiedDict(), Grid1.GetNewAddedList(), GetGridRowData);
         }
 
@@ -105,7 +106,10 @@ namespace OA.View.Account.Users
             PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
             windows.Hidden = false;
         }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
 
+        }
         public void DeleteRow()
         {
 
@@ -132,6 +136,14 @@ namespace OA.View.Account.Users
             get
             {
                 return toolBar;
+            }
+        }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms =  { FORM1.ID };
+                return _forms;
             }
         }
         #endregion

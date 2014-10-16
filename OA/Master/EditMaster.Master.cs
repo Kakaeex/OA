@@ -1,35 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using DBContextHelper;
-using OA.Service;
-using OA.Interface;
+﻿using DBContextHelper;
 using FineUI;
 using Newtonsoft.Json;
+using OA.Interface;
+using OA.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Text;
+using System.Web;
+using System.Web.UI;
 
 namespace OA.Master
 {
     public partial class EditMaster : System.Web.UI.MasterPage
     {
-        public DateTime now;
-        public TimeSpan time;
-        public string progammeID;
-        public string userID;
-        public string kcoo;
-        public string role;
-        public IDataRepository _DBHelper { get; set; }
-        public IUserAuthorization _UserAuthorization { get; set; }
-        public IUserDefineCode _UDC { get; set; }
-        public IOrder _Order { get; set; }
+        #region 值
+        public DateTime now
+        {
+            get { return DateTime.Now; }
+        }
+        public TimeSpan time
+        {
+            get { return DateTime.Now.TimeOfDay; }
+        }
+        public string progammeID
+        {
+            get { return System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath).ToUpper().Replace(".ASPX",""); }
+        }
+        public string userID
+        {
+            get { return base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???"; }
+        }
+        public string kcoo
+        {
+            get
+            {
+                return _UserAuthorization.GetUserKcoo(userID);
+            }
+        }
+        public string role
+        {
+            get
+            {
+                return _UserAuthorization.GetCurrentRole(base.Page.User.Identity.Name);
+            }
+        }
+        public Dictionary<string, string> QueryString
+        {
+            get
+            {
+                Dictionary<string, string> _QueryString = new Dictionary<string, string>();
+                foreach (string key in Request.QueryString.AllKeys)
+                {
+                    _QueryString.Add(key, Request.QueryString[key].ToString());
+                }
+                return _QueryString;
+            }
+        }
 
-        #region Page
-
-        /// <summary>
-        /// 重写Page属性
-        /// </summary>
         private new IEditPage Page
         {
             get
@@ -37,10 +66,16 @@ namespace OA.Master
                 return (IEditPage)base.Page;
             }
         }
-
         #endregion
 
-        #region Page_Init
+        //public IDataRepository _DBHelper { get; set; }
+        public OAContext.OAContext _DBHelper { get; set; }
+        public IUserAuthorization _UserAuthorization { get; set; }
+        public IUserDefineCode _UDC { get; set; }
+        public IOrder _Order { get; set; }
+        public IWebHelper _WebHelper { get; set; }
+
+        #region Page_Event
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -48,8 +83,8 @@ namespace OA.Master
             //Page.Grid.RowDoubleClick += grid_RowDoubleClick;
 
             Page.Grid.PageIndexChange += grid_PageIndexChange;
+            //Page.Grid.AfterEdit += grid_AfterEdit;
             Page.Grid.Sort += grid_Sort;
-
             SetToolBar();
             //SetGridPageItems();
         }
@@ -65,88 +100,9 @@ namespace OA.Master
             }
         }
 
-        private void SetGridPageItems()
+        protected void Page_PreRender(object sender, EventArgs e)
         {
-            Page.Grid.PageItems.Add(new ToolbarSeparator());
-
-            ToolbarText tbt = new ToolbarText();
-            tbt.Text = "每页记录数：";
-            Page.Grid.PageItems.Add(tbt);
-
-            FineUI.DropDownList ddlGridPageSize = new FineUI.DropDownList();
-            ddlGridPageSize.AutoPostBack = true;
-            ddlGridPageSize.Items.Add(new FineUI.ListItem("5", "5"));
-            ddlGridPageSize.Items.Add(new FineUI.ListItem("10", "10"));
-            ddlGridPageSize.Items.Add(new FineUI.ListItem("15", "15"));
-            ddlGridPageSize.Items.Add(new FineUI.ListItem("20", "20"));
-            ddlGridPageSize.Width = 80;
-            ddlGridPageSize.SelectedIndexChanged += ddlGridPageSize_SelectedIndexChanged;
-            // 初始化选中值
-            ddlGridPageSize.SelectedValue = Page.Grid.PageSize.ToString();
-            Page.Grid.PageItems.Add(ddlGridPageSize);
-        }
-
-        private void SetToolBar()
-        {
-            Button toolBarNew = new Button();
-            toolBarNew.ID = "toolBarNew";
-            toolBarNew.Text = "新增";
-            toolBarNew.Icon = Icon.Add;
-            toolBarNew.EnablePostBack = true;
-
-            Button toolSave = new Button();
-            toolSave.ID = "toolSave";
-            toolSave.Text = "保存";
-            toolSave.Icon = Icon.SystemSave;
-            toolSave.EnablePostBack = true;
-
-            Button toolSaveAndClose = new Button();
-            toolSaveAndClose.ID = "toolSaveAndClose";
-            toolSaveAndClose.Text = "保存并关闭";
-            toolSaveAndClose.Icon = Icon.SystemSaveClose;
-            toolSaveAndClose.EnablePostBack = true;
-
-            Button toolBarSelect = new Button();
-            toolBarSelect.ID = "toolBarSelect";
-            toolBarSelect.Text = "选择";
-            toolBarSelect.Icon = Icon.Accept;
-            toolBarSelect.EnablePostBack = true;
-
-            Button toolBarDelete = new Button();
-            toolBarDelete.ID = "toolBarDelete";
-            toolBarDelete.Text = "删除";
-            toolBarDelete.Icon = Icon.Delete;
-            toolBarDelete.EnablePostBack = true;
-
-            Button toolBarClose = new Button();
-            toolBarClose.ID = "toolBarClose";
-            toolBarClose.Text = "关闭";
-            toolBarClose.Icon = Icon.Cross;
-            toolBarClose.EnablePostBack = true;
-
-            Button toolBarFind = new Button();
-            toolBarFind.ID = "toolBarFind";
-            toolBarFind.Text = "查找";
-            toolBarFind.Icon = Icon.Magnifier;
-            toolBarFind.EnablePostBack = true;
-
-            toolBarNew.Click += New_Click;
-            toolSave.Click += Save_Click;
-            toolSaveAndClose.Click += SaveAndClose_Click;
-            toolBarSelect.Click += Select_Click;
-            toolBarDelete.OnClientClick += Page.Grid.GetNoSelectionAlertReference("请至少选择一项！") +
-                Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Page.Grid.GetDeleteSelectedReference(), String.Empty);
-            toolBarClose.Click += Close_Click;
-            toolBarFind.Click += Find_Click;
-
-            Page.Toolbar.Items.Insert(0, toolBarNew);
-            Page.Toolbar.Items.Insert(0, toolSave);
-            Page.Toolbar.Items.Insert(0, toolSaveAndClose);
-            Page.Toolbar.Items.Insert(0, toolBarSelect);
-            Page.Toolbar.Items.Insert(0, toolBarDelete);
-            Page.Toolbar.Items.Insert(0, toolBarClose);
-            Page.Toolbar.Items.Insert(0, toolBarFind);
-
+            Page.Label.Text = ViewState["Message"] == null ? "" : ViewState["Message"] as string;
         }
         #endregion
 
@@ -222,6 +178,8 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void Find_Click(object sender, EventArgs e)
         {
+            Page.Grid.GetResetReference();
+            Page.Bind();
             Page.BindGrid();
         }
 
@@ -257,6 +215,11 @@ namespace OA.Master
             Page.BindGrid();
         }
 
+        protected void grid_AfterEdit(object sender, GridAfterEditEventArgs e)
+        {
+            Page.AfterEdit(e);
+        }
+
         /// <summary>
         /// 表格排序事件
         /// </summary>
@@ -284,17 +247,94 @@ namespace OA.Master
         #endregion
 
         #region Methods
+        private void SetGridPageItems()
+        {
+            Page.Grid.PageItems.Add(new ToolbarSeparator());
 
+            ToolbarText tbt = new ToolbarText();
+            tbt.Text = "每页记录数：";
+            Page.Grid.PageItems.Add(tbt);
+
+            FineUI.DropDownList ddlGridPageSize = new FineUI.DropDownList();
+            ddlGridPageSize.AutoPostBack = true;
+            ddlGridPageSize.Items.Add(new FineUI.ListItem("5", "5"));
+            ddlGridPageSize.Items.Add(new FineUI.ListItem("10", "10"));
+            ddlGridPageSize.Items.Add(new FineUI.ListItem("15", "15"));
+            ddlGridPageSize.Items.Add(new FineUI.ListItem("20", "20"));
+            ddlGridPageSize.Width = 80;
+            ddlGridPageSize.SelectedIndexChanged += ddlGridPageSize_SelectedIndexChanged;
+            // 初始化选中值
+            ddlGridPageSize.SelectedValue = Page.Grid.PageSize.ToString();
+            Page.Grid.PageItems.Add(ddlGridPageSize);
+        }
+        private void SetToolBar()
+        {
+            Button toolBarNew = new Button();
+            toolBarNew.ID = "toolBarNew";
+            toolBarNew.Text = "新增";
+            toolBarNew.Icon = Icon.Add;
+            toolBarNew.EnablePostBack = true;
+
+            Button toolSave = new Button();
+            toolSave.ID = "toolSave";
+            toolSave.Text = "保存";
+            toolSave.Icon = Icon.SystemSave;
+            toolSave.EnablePostBack = true;
+            toolSave.ValidateForms = Page.Forms;
+
+            Button toolSaveAndClose = new Button();
+            toolSaveAndClose.ID = "toolSaveAndClose";
+            toolSaveAndClose.Text = "保存并关闭";
+            toolSaveAndClose.Icon = Icon.SystemSaveClose;
+            toolSaveAndClose.EnablePostBack = true;
+            toolSaveAndClose.ValidateForms = Page.Forms;
+
+            Button toolBarSelect = new Button();
+            toolBarSelect.ID = "toolBarSelect";
+            toolBarSelect.Text = "选择";
+            toolBarSelect.Icon = Icon.Accept;
+            toolBarSelect.EnablePostBack = true;
+
+            Button toolBarDelete = new Button();
+            toolBarDelete.ID = "toolBarDelete";
+            toolBarDelete.Text = "删除";
+            toolBarDelete.Icon = Icon.Delete;
+            toolBarDelete.EnablePostBack = true;
+
+            Button toolBarClose = new Button();
+            toolBarClose.ID = "toolBarClose";
+            toolBarClose.Text = "关闭";
+            toolBarClose.Icon = Icon.Cross;
+            toolBarClose.EnablePostBack = true;
+
+            Button toolBarFind = new Button();
+            toolBarFind.ID = "toolBarFind";
+            toolBarFind.Text = "查找";
+            toolBarFind.Icon = Icon.Magnifier;
+            toolBarFind.EnablePostBack = true;
+
+            toolBarNew.Click += New_Click;
+            toolSave.Click += Save_Click;
+            toolSaveAndClose.Click += SaveAndClose_Click;
+            toolBarSelect.Click += Select_Click;
+            toolBarDelete.OnClientClick += Page.Grid.GetNoSelectionAlertReference("请至少选择一项！") +
+                Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Page.Grid.GetDeleteSelectedReference(), String.Empty);
+            toolBarClose.Click += Close_Click;
+            toolBarFind.Click += Find_Click;
+
+            Page.Toolbar.Items.Insert(0, toolBarNew);
+            Page.Toolbar.Items.Insert(0, toolSave);
+            Page.Toolbar.Items.Insert(0, toolSaveAndClose);
+            Page.Toolbar.Items.Insert(0, toolBarSelect);
+            Page.Toolbar.Items.Insert(0, toolBarDelete);
+            Page.Toolbar.Items.Insert(0, toolBarClose);
+            Page.Toolbar.Items.Insert(0, toolBarFind);
+
+        }
         protected void getInfor()
         {
-            now = DateTime.Now;
-            time = DateTime.Now.TimeOfDay;
-            progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
-            userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
-            kcoo = "";//_UserAuthorization.GetUserKcoo(userID);
-            role = "";//System.Web.HttpContext.Current.Session["role"] as string;
+            
         }
-
         public dynamic SaveRecord<T>(List<int> deletedRows, Dictionary<int, Dictionary<string, object>> modifiedDict,
             List<Dictionary<string, object>> newAddedList, Func<Dictionary<string, object>, object[], int, dynamic> GetGridRowData) where T : ModelBase
         {
@@ -329,7 +369,6 @@ namespace OA.Master
 
             return lobj;
         }
-
         public void bind<T, F>(Expression<Func<T, bool>> findConditions, Expression<Func<T, F>> orderBy) where T : ModelBase
         {
             PagedList<T> list = _DBHelper.FindAllByPage<T, F>(findConditions, orderBy, Page.Grid.PageSize, Page.Grid.PageIndex);
@@ -337,6 +376,14 @@ namespace OA.Master
             Page.Grid.DataSource = list;
             Page.Grid.DataBind();
         }
+        public void bind<T, F>(IQueryable<T> findConditions, Expression<Func<T, F>> orderBy) where T : ModelBase
+        {
+            PagedList<T> list = _DBHelper.FindQueryByPage<T, F>(findConditions, orderBy, Page.Grid.PageSize, Page.Grid.PageIndex);
+            Page.Grid.RecordCount = list.TotalItemCount;
+            Page.Grid.DataSource = list;
+            Page.Grid.DataBind();
+        }
+
         #endregion
     }
 }

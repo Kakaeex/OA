@@ -26,7 +26,10 @@ namespace OA.View.Selection
             query = RUDEL2.Text.Trim().Equals("") ? query : query.Where(c => c.RUDEL1.Contains(RUDEL1.Text.Trim()));
             Master.bind<C_F9001, string>(query, p => p.RUID);
         }
-
+        public string[] GetValues()
+        {
+            return Master.GetSelected(mode.Text, 0);
+        }
         public Grid Grid
         {
             get

@@ -4,6 +4,7 @@ using DBContextHelper;
 
 namespace OAContext
 {
+    [Serializable]
     public partial class C_F9006 : ModelBase
     {
         public  C_F9006 ()

@@ -4,6 +4,7 @@ using DBContextHelper;
 
 namespace OAContext
 {
+    [Serializable]
     public partial class C_F0010 : ModelBase
     {
         public  C_F0010 ()
@@ -46,7 +47,7 @@ namespace OAContext
                 CCUSER = "" ;
                 CCPID = "" ;
                 CCDATE = System.DateTime.Now ;
-                CCTIME = System.DateTime.Now.TimeOfDay ;
+                CCTIME = DateTime.Now.TimeOfDay ;
         }
 
         public string CCCO { get; set; }
@@ -83,7 +84,7 @@ namespace OAContext
         public Nullable<int> CCPRP0 { get; set; }
         public string CCUSER { get; set; }
         public string CCPID { get; set; }
-        public Nullable<System.DateTime> CCDATE { get; set; }
-        public Nullable<System.TimeSpan> CCTIME { get; set; }
+        public System.DateTime CCDATE { get; set; }
+        public System.TimeSpan CCTIME { get; set; }
     }
 }

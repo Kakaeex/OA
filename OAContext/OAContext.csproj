@@ -93,8 +93,14 @@
     <Compile Include="Models\Mapping\C_F9006Map.cs" />
     <Compile Include="Models\Mapping\C_F9008Map.cs" />
     <Compile Include="Models\Mapping\V_F0101AMap.cs" />
+    <Compile Include="Models\Mapping\V_F0920Map.cs" />
+    <Compile Include="Models\Mapping\V_F9008AMap.cs" />
+    <Compile Include="Models\Mapping\Z_ODS_F0902Map.cs" />
     <Compile Include="Models\OAContext.cs" />
     <Compile Include="Models\V_F0101A.cs" />
+    <Compile Include="Models\V_F0920.cs" />
+    <Compile Include="Models\V_F9008A.cs" />
+    <Compile Include="Models\Z_ODS_F0902.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

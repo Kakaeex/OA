@@ -14,7 +14,7 @@
             </f:Toolbar>
         </Toolbars>
         <Items>
-            <f:Form ID="form1" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
+            <f:Form ID="FORM1" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
                 <Rows>
                     <f:FormRow>
                         <Items>
@@ -27,12 +27,11 @@
             </f:Form>
         </Items>
         <Items>
-            <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="RUKCOO,RUID" AllowCellEditing="true" ClicksToEdit="1" EnableMultiSelect="true" EnableCheckBoxSelect="false"
+            <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="APKCOO,APID" AllowCellEditing="true" ClicksToEdit="1" EnableMultiSelect="true" EnableCheckBoxSelect="false"
                 IsDatabasePaging="true" AllowPaging="false" EnableAfterEditEvent="true" AutoScroll="true" Height="500px">
                 <Columns>
                     <f:RenderField Width="100px" DataField="APKCOO" ColumnID="APKCOO" FieldType="String"
                         HeaderText="公司">
-
                         <Editor>
                             <f:TextBox ID="APKCOO" Required="true" runat="server">
                             </f:TextBox>

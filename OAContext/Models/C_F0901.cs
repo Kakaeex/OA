@@ -4,6 +4,7 @@ using DBContextHelper;
 
 namespace OAContext
 {
+    [Serializable]
     public partial class C_F0901 : ModelBase
     {
         public  C_F0901 ()
@@ -13,11 +14,13 @@ namespace OAContext
         {
                     GMCO = "" ;
                 GMAID = "" ;
+                GMPAID = "" ;
                 GMMCU = "" ;
                 GMOBJ = "" ;
                 GMSUB = "" ;
                 GMANS = "" ;
                 GMDL01 = "" ;
+                GMDL02 = "" ;
                 GMLDA = "" ;
                 GMBPC = "" ;
                 GMPEC = "" ;
@@ -64,11 +67,13 @@ namespace OAContext
 
         public string GMCO { get; set; }
         public string GMAID { get; set; }
+        public string GMPAID { get; set; }
         public string GMMCU { get; set; }
         public string GMOBJ { get; set; }
         public string GMSUB { get; set; }
         public string GMANS { get; set; }
         public string GMDL01 { get; set; }
+        public string GMDL02 { get; set; }
         public string GMLDA { get; set; }
         public string GMBPC { get; set; }
         public string GMPEC { get; set; }

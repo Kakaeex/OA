@@ -40,40 +40,22 @@ namespace OA.View.Account.Users {
         protected global::FineUI.Toolbar toolBar;
         
         /// <summary>
-        /// form1 控件。
+        /// FORM1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Form form1;
+        protected global::FineUI.Form FORM1;
         
         /// <summary>
-        /// DRSY 控件。
+        /// AN8 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox DRSY;
-        
-        /// <summary>
-        /// DRRT 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox DRRT;
-        
-        /// <summary>
-        /// DRDEL1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox DRDEL1;
+        protected global::FineUI.TriggerBox AN8;
         
         /// <summary>
         /// Grid1 控件。
@@ -85,31 +67,22 @@ namespace OA.View.Account.Users {
         protected global::FineUI.Grid Grid1;
         
         /// <summary>
-        /// AUKCOO 控件。
+        /// CO 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox AUKCOO;
+        protected global::FineUI.TriggerBox CO;
         
         /// <summary>
-        /// AUMCU 控件。
+        /// MCU 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.TextBox AUMCU;
-        
-        /// <summary>
-        /// AUAN8 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUI.TextBox AUAN8;
+        protected global::FineUI.TriggerBox MCU;
         
         /// <summary>
         /// AUDEL1 控件。

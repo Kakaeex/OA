@@ -4,6 +4,7 @@ using DBContextHelper;
 
 namespace OAContext
 {
+    [Serializable]
     public partial class C_F0902 : ModelBase
     {
         public  C_F0902 ()
@@ -11,13 +12,14 @@ namespace OAContext
 
         public  C_F0902 (int i)
         {
-                    GBAID = "" ;
+                    GBCO = "" ;
+                GBMCU = "" ;
+                GBAID = "" ;
                 GBCTRY = 0 ;
                 GBFY = 0 ;
-                GBFQ = "" ;
                 GBLT = "" ;
-                GBSBL = "" ;
-                GBCO = "" ;
+                GBOBJ = "" ;
+                GBSUB = "" ;
                 GBAPYC = 0 ;
                 GBAN01 = 0 ;
                 GBAN02 = 0 ;
@@ -47,22 +49,20 @@ namespace OAContext
                 GBTKER = 0 ;
                 GBBREQ = 0 ;
                 GBBAPR = 0 ;
-                GBMCU = "" ;
-                GBOBJ = "" ;
-                GBSUB = "" ;
                 GBUSER = "" ;
                 GBPID = "" ;
                 GBDATE = System.DateTime.Now ;
                 GBTIME = DateTime.Now.TimeOfDay ;
         }
 
+        public string GBCO { get; set; }
+        public string GBMCU { get; set; }
         public string GBAID { get; set; }
         public int GBCTRY { get; set; }
         public int GBFY { get; set; }
-        public string GBFQ { get; set; }
         public string GBLT { get; set; }
-        public string GBSBL { get; set; }
-        public string GBCO { get; set; }
+        public string GBOBJ { get; set; }
+        public string GBSUB { get; set; }
         public Nullable<decimal> GBAPYC { get; set; }
         public Nullable<decimal> GBAN01 { get; set; }
         public Nullable<decimal> GBAN02 { get; set; }
@@ -92,9 +92,6 @@ namespace OAContext
         public Nullable<decimal> GBTKER { get; set; }
         public Nullable<decimal> GBBREQ { get; set; }
         public Nullable<decimal> GBBAPR { get; set; }
-        public string GBMCU { get; set; }
-        public string GBOBJ { get; set; }
-        public string GBSUB { get; set; }
         public string GBUSER { get; set; }
         public string GBPID { get; set; }
         public System.DateTime GBDATE { get; set; }

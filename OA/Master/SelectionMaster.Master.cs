@@ -13,20 +13,45 @@ namespace OA.Master
 {
     public partial class SelectionMaster : System.Web.UI.MasterPage
     {
-        public DateTime now;
-        public TimeSpan time;
-        public string progammeID;
-        public string userID;
-        public string kcoo;
-        public string role;
-        public IDataRepository _DBHelper { get; set; }
-        public IUserAuthorization _UserAuthorization { get; set; }
+        #region 值
+        public DateTime now
+        {
+            get { return DateTime.Now; }
+        }
+        public TimeSpan time
+        {
+            get { return DateTime.Now.TimeOfDay; }
+        }
+        public string progammeID
+        {
+            get { return System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath); }
+        }
+        public string userID
+        {
+            get { return base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???"; }
+        }
+        public string kcoo
+        {
+            get
+            {
+                return _UserAuthorization.GetUserKcoo(userID);
+            }
+        }
+        public string role
+        {
+            get
+            {
+                return _UserAuthorization.GetCurrentRole(base.Page.User.Identity.Name);
+            }
+        }
+        public Dictionary<string, string> QueryString
+        {
+            get
+            {
+                return _WebHelper.GetQueryString(Request.QueryString);
+            }
+        }
 
-        #region Page
-
-        /// <summary>
-        /// 重写Page属性
-        /// </summary>
         private new ISelectionPage Page
         {
             get
@@ -35,7 +60,11 @@ namespace OA.Master
             }
         }
 
+        public OAContext.OAContext _DBHelper { get; set; }
+        public IUserAuthorization _UserAuthorization { get; set; }
+        public IWebHelper _WebHelper { get; set; }
         #endregion
+
 
         #region Page_Init
 
@@ -43,7 +72,7 @@ namespace OA.Master
         {
             Page.Grid.PageIndexChange += grid_PageIndexChange;
             Page.Grid.Sort += grid_Sort;
-            
+
             SetToolBar();
             SetGridPageItems();
         }
@@ -53,7 +82,7 @@ namespace OA.Master
             if (!IsPostBack)
             {
                 getInfor();
-                _UserAuthorization.ApplicationAuthorization(kcoo, role, progammeID, Page.Toolbar);
+                //_UserAuthorization.ApplicationAuthorization(kcoo, role, progammeID, Page.Toolbar);
                 Page.BindGrid();
             }
         }
@@ -131,7 +160,12 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void Select_Click(object sender, EventArgs e)
         {
-            PageContext.RegisterStartupScript(ActiveWindow.GetWriteBackValueReference(Page.Grid.Rows[Page.Grid.SelectedRowIndex].Values[0].ToString()) + ActiveWindow.GetHideReference());
+            //PageContext.RegisterStartupScript(
+            //    ActiveWindow.GetWriteBackValueReference(Page.Grid.Rows[Page.Grid.SelectedRowIndex].Values[0].ToString()) + 
+            //    ActiveWindow.GetHideReference());
+            PageContext.RegisterStartupScript(
+                ActiveWindow.GetWriteBackValueReference(Page.GetValues()) +
+                ActiveWindow.GetHideReference());
         }
 
         /// <summary>
@@ -141,7 +175,7 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void Close_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         /// <summary>
@@ -202,14 +236,62 @@ namespace OA.Master
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mode">1：一个选中值，2：一行多列，3：一列多行合并返回，4：一列多行</param>
+        /// <param name="cloumes"></param>
+        /// <returns></returns>
+        public string[] GetSelected(string mode, params int[] cloumes)
+        {
+            string[] _values = null;
+            int i;
+            switch (mode)
+            {
+                case "1": //x1
+                    _values = new string[1];
+                    _values[0] = Page.Grid.Rows[Page.Grid.SelectedRowIndex].Values[cloumes[0]].ToString();
+                    break;
+                case "2": //x1&x2
+                    _values = new string[1];
+                    foreach (int _i in cloumes)
+                        _values[0] += Page.Grid.Rows[Page.Grid.SelectedRowIndex].Values[cloumes[_i]].ToString() + ";";
+                    _values[0] = _values[0].ToString().TrimEnd(';');
+                    break;
+                case "3": //x1&y1
+                    _values = new string[1];
+                    foreach (int row in Page.Grid.SelectedRowIndexArray)
+                    {
+                        _values[0] += Page.Grid.Rows[row].Values[cloumes[0]].ToString() + ";";
+                    }
+                    _values[0] = _values[0].ToString().TrimEnd(';');
+                    break;
+                case "4": //x1,y1
+                    _values = new string[Page.Grid.SelectedRowIndexArray.Count()];
+                    i = 0;
+                    foreach (int row in Page.Grid.SelectedRowIndexArray)
+                    {
+                        _values[i] = Page.Grid.Rows[row].Values[cloumes[0]].ToString();
+                        i++;
+                    }
+                    break;
+                default:
+                    _values = new string[1];
+                    _values[0] = Page.Grid.Rows[Page.Grid.SelectedRowIndex].Values[cloumes[0]].ToString();
+                    break;
+            }
+            return _values;
+        }
+
         protected void getInfor()
         {
-            now = DateTime.Now;
-            time = DateTime.Now.TimeOfDay;
-            progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
-            userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
-            kcoo = "";//_UserAuthorization.GetUserKcoo(userID);
-            role = "";//System.Web.HttpContext.Current.Session["role"] as string;
+            //now = DateTime.Now;
+            //time = DateTime.Now.TimeOfDay;
+            //progammeID = System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath);
+            //userID = base.Page.User.Identity.Name != null ? base.Page.User.Identity.Name : "???";
+            //kcoo = "";//_UserAuthorization.GetUserKcoo(userID);
+            //role = "";//System.Web.HttpContext.Current.Session["role"] as string;
         }
 
         public void bind<T, F>(Expression<Func<T, bool>> findConditions, Expression<Func<T, F>> orderBy) where T : ModelBase

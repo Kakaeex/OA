@@ -27,7 +27,10 @@ namespace OA.View.Selection
             query = APSRP1.Text.Trim().Equals("") ? query : query.Where(c => c.APSRP1.Contains(APSRP1.Text.Trim()));
             Master.bind<C_F9005, int>(query, p => p.APID);
         }
-
+        public string[] GetValues()
+        {
+            return Master.GetSelected(mode.Text, 0);
+        }
         public Grid Grid
         {
             get

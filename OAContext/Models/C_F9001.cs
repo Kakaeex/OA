@@ -4,6 +4,7 @@ using DBContextHelper;
 
 namespace OAContext
 {
+    [Serializable]
     public partial class C_F9001 : ModelBase
     {
         public  C_F9001 ()
@@ -11,12 +12,12 @@ namespace OAContext
 
         public  C_F9001 (int i)
         {
-                RUKCOO = "" ;
+                    RUKCOO = "" ;
                 RUID = "" ;
                 RUDEL1 = "" ;
                 RUDEL2 = "" ;
-                RUSRP1 = "Y" ;
-                RUSRP2 = "Y" ;
+                RUSRP1 = "" ;
+                RUSRP2 = "" ;
                 RUSRP3 = "" ;
                 RUSRP4 = "" ;
                 RUSRP5 = "" ;

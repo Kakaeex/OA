@@ -14,7 +14,7 @@
             </f:Toolbar>
         </Toolbars>
         <Items>
-            <f:Form ID="form1" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
+            <f:Form ID="FORM1" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
                 <Rows>
                     <f:FormRow>
                         <Items>
@@ -24,7 +24,7 @@
             </f:Form>
         </Items>
         <Items>
-            <f:Grid ID="Grid1" runat="server" ShowHeader="false" Height="500px" AllowPaging="true" PageSize="30" DataKeyNames="RUID" EnableTextSelection="true"
+            <f:Grid ID="Grid1" runat="server" ShowHeader="false" Height="500px" AllowPaging="true" PageSize="30" DataKeyNames="UserName" EnableTextSelection="true"
                 EnableCheckBoxSelect="true" EnableMultiSelect="false" IsDatabasePaging="true" ExpandAllRowExpanders="True">
                 <Columns>
                     <f:BoundField Width="100px" DataField="UserName" DataFormatString="{0}" HeaderText="用户名" />
@@ -41,10 +41,12 @@
         </Items>
     </f:Panel>
     <script type="text/javascript">
+        var basePath = '<%= ResolveUrl("~/") %>';
         function closeActiveTab() {
             parent.removeActiveTab();
         }
-        function newActiveTab() {
-        };
+        function AddActiveTab(url) {
+            parent.newActiveTab.apply(null, ['', basePath + url, '用户修订', null, true]);
+        }
     </script>
 </asp:Content>

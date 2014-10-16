@@ -26,6 +26,11 @@ namespace OA.Interface
         Label Label { get; }
 
         /// <summary>
+        /// 输入面板
+        /// </summary>
+        string[] Forms { get; }
+
+        /// <summary>
         /// 重新绑定表格
         /// </summary>
         void BindGrid();
@@ -40,7 +45,7 @@ namespace OA.Interface
         /// </summary>
         void DeleteRow();
 
-        dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0);
+        dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1);
 
         /// <summary>
         /// 保存数据
@@ -54,5 +59,8 @@ namespace OA.Interface
         /// </summary>
         /// <returns></returns>
         string GetFromMode();
+
+        void AfterEdit(GridAfterEditEventArgs e);
+
     }
 }

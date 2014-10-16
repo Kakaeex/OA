@@ -16,12 +16,13 @@ namespace OA.View.Account.P9005
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public void BindGrid()
         {
-            Master.bind<C_F9005, int>(null, p => p.APID);
+            var query = Master._DBHelper.GetQueryable<C_F9005>(p => 1 == 1);
+            Master.bind<C_F9005, int>(query, p => p.APID);
         }
 
         public void Bind()
@@ -29,7 +30,7 @@ namespace OA.View.Account.P9005
 
         }
 
-        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = 0)
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F9005 obj = new C_F9005(1);
             if (rowDict != null)
@@ -84,11 +85,12 @@ namespace OA.View.Account.P9005
                 return obj;
                 #endregion
             }
-            else if (deletedRows > 0)
+            else if (deletedRows >= 0)
             {
                 #region 删除
-                string SY = Grid1.DataKeys[deletedRows][0].ToString();
-                obj = Master._DBHelper.Find<C_F9005>(p => p.APKCOO == "" & p.APID == 0);
+                string co = Grid1.DataKeys[deletedRows][0].ToString();
+                int id = ValueConvert.toInt(Grid1.DataKeys[deletedRows][1]);
+                obj = Master._DBHelper.Find<C_F9005>(p => p.APKCOO == co & p.APID == id);
                 return obj;
                 #endregion
             }
@@ -117,7 +119,10 @@ namespace OA.View.Account.P9005
             PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
             windows.Hidden = false;
         }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
 
+        }
         public void DeleteRow()
         {
 
@@ -127,6 +132,7 @@ namespace OA.View.Account.P9005
         {
             get
             {
+                Grid1.PageSize = 100000;
                 return Grid1;
             }
         }
@@ -144,6 +150,14 @@ namespace OA.View.Account.P9005
             get
             {
                 return toolBar;
+            }
+        }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms =  { FORM1.ID };
+                return _forms;
             }
         }
         #endregion

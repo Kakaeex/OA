@@ -7,6 +7,7 @@ using OA.Interface;
 using OAContext;
 using FineUI;
 using DBContextHelper;
+using OA.Common;
 
 namespace OA.Service
 {
@@ -24,17 +25,38 @@ namespace OA.Service
 
         public List<C_F0005> GetUDCList(string sy, string rt)
         {
-            return _DBHelper.FindAll<C_F0005, string>(p => p.DRSY == sy & p.DRRT == rt, p => p.DRSY);
+            List<C_F0005> obj = GetUDCCache();
+
+            return obj.FindAll(p => p.DRSY == sy & p.DRRT == rt);
         }
 
         public C_F0005 GetUDC(string sy, string rt, string ky)
         {
-            return _DBHelper.Find<C_F0005>(p => p.DRSY == sy & p.DRRT == rt & p.DRKY == ky);
+            List<C_F0005> obj = GetUDCCache();
+
+            return obj.Find(p => p.DRSY == sy & p.DRRT == rt & p.DRKY == ky);
+        }
+
+        public C_F0005 GetUDC(string dd, string ky)
+        {
+            List<C_F0005> obj = GetUDCCache();
+            var F0005 = obj.Find(p => p.DRSY == "SY" & p.DRRT == "DD" & p.DRKY == dd);
+            return GetUDC(F0005.DRSRP1, F0005.DRSRP2, ky);
         }
 
         public string GetSelectionView(string ky, string sy = "SY", string rt = "DD")
         {
-            return _DBHelper.Find<C_F0005>(p => p.DRSY == sy & p.DRRT == rt & p.DRKY == ky).DRDEL2;
+            List<C_F0005> obj = GetUDCCache();
+            return obj.Find(p => p.DRSY == sy & p.DRRT == rt & p.DRKY == ky).DRDEL2;
+        }
+
+        List<C_F0005> GetUDCCache()
+        {
+            return CacheHelper.Get<List<C_F0005>>("UDC", () =>
+            {
+                List<C_F0005> C_F0005 = _DBHelper.FindAll<C_F0005, string>(null, p => p.DRKY);
+                return C_F0005;
+            });
         }
     }
 }

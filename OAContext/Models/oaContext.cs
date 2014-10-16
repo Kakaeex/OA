@@ -15,7 +15,6 @@ namespace OAContext
             : base("Name=OAContext")
         {
         }
-
         public DbSet<C_F00022> C_F00022 { get; set; }
         public DbSet<C_F0005> C_F0005 { get; set; }
         public DbSet<C_F0006> C_F0006 { get; set; }
@@ -38,7 +37,10 @@ namespace OAContext
         public DbSet<C_F9005> C_F9005 { get; set; }
         public DbSet<C_F9006> C_F9006 { get; set; }
         public DbSet<C_F9008> C_F9008 { get; set; }
+        public DbSet<Z_ODS_F0902> Z_ODS_F0902 { get; set; }
         public DbSet<V_F0101A> V_F0101A { get; set; }
+        public DbSet<V_F0920> V_F0920 { get; set; }
+        public DbSet<V_F9008A> V_F9008A { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -64,7 +66,10 @@ namespace OAContext
             modelBuilder.Configurations.Add(new C_F9005Map());
             modelBuilder.Configurations.Add(new C_F9006Map());
             modelBuilder.Configurations.Add(new C_F9008Map());
+            modelBuilder.Configurations.Add(new Z_ODS_F0902Map());
             modelBuilder.Configurations.Add(new V_F0101AMap());
+            modelBuilder.Configurations.Add(new V_F0920Map());
+            modelBuilder.Configurations.Add(new V_F9008AMap());
         }
     }
 }

@@ -11,6 +11,7 @@ using DBContextHelper;
 
 namespace OAContext
 {
+    [Serializable]
     public partial class <#= efHost.EntityType.Name #> : ModelBase
     {
 <#
@@ -62,7 +63,7 @@ namespace OAContext
                 {
                     dataType = "System.DateTime.Now" ;
                 }
-                if(typeUsage == "System.TimeSpan" || typeUsage == "System.TimeSpan? " )
+                if(typeUsage == "System.TimeSpan" || typeUsage == "Nullable<System.TimeSpan>" )
                 {
                     dataType = "DateTime.Now.TimeOfDay" ;
                 }

@@ -1918,6 +1918,7 @@
     <Content Include="extjs\res\images\unchecked_disabled.gif" />
     <Content Include="extjs\res\s.gif" />
     <Content Include="extjs\version.txt" />
+    <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="Master\FindMaster.Master" />
     <Content Include="Master\BlankMaster.Master" />
@@ -3659,8 +3660,14 @@
     <Content Include="View\Account\Users\UserInfor.aspx" />
     <Content Include="View\Account\Users\UserList.aspx" />
     <Content Include="View\BaseInfor\P0101\P0101E.aspx" />
+    <Content Include="View\Finance\P0902\P0902E.aspx" />
+    <Content Include="View\Finance\P0902\P0902H.aspx" />
+    <Content Include="View\Finance\P0920\P0920E.aspx" />
+    <Content Include="View\Finance\P0920\P0920H.aspx" />
     <Content Include="View\Selection\SelectAN8.aspx" />
     <Content Include="View\Selection\SelectApplication.aspx" />
+    <Content Include="View\Selection\SelectCO.aspx" />
+    <Content Include="View\Selection\SelectMCU.aspx" />
     <Content Include="View\Selection\SelectRoles.aspx" />
     <Content Include="View\Selection\SelectUDC.aspx" />
     <Content Include="View\Setting\P0005\P0005E.aspx" />
@@ -3668,6 +3675,8 @@
     <Content Include="View\Setting\P0006\P0006E.aspx" />
     <Content Include="View\Setting\P0010\P0010E.aspx" />
     <Content Include="View\Setting\P0035\P0035E.aspx" />
+    <Content Include="View\Workflow\P2000\P2000E.aspx" />
+    <Content Include="View\Workflow\P2000\P2000H.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -3685,6 +3694,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master\BlankMaster.Master.cs">
       <DependentUpon>BlankMaster.Master</DependentUpon>
@@ -3771,6 +3787,34 @@
     <Compile Include="View\BaseInfor\P0101\P0101E.aspx.designer.cs">
       <DependentUpon>P0101E.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Finance\P0902\P0902E.aspx.cs">
+      <DependentUpon>P0902E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Finance\P0902\P0902E.aspx.designer.cs">
+      <DependentUpon>P0902E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Finance\P0902\P0902H.aspx.cs">
+      <DependentUpon>P0902H.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Finance\P0902\P0902H.aspx.designer.cs">
+      <DependentUpon>P0902H.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Finance\P0920\P0920E.aspx.cs">
+      <DependentUpon>P0920E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Finance\P0920\P0920E.aspx.designer.cs">
+      <DependentUpon>P0920E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Finance\P0920\P0920H.aspx.cs">
+      <DependentUpon>P0920H.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Finance\P0920\P0920H.aspx.designer.cs">
+      <DependentUpon>P0920H.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Selection\SelectAN8.aspx.cs">
       <DependentUpon>SelectAN8.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3784,6 +3828,20 @@
     </Compile>
     <Compile Include="View\Selection\SelectApplication.aspx.designer.cs">
       <DependentUpon>SelectApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selection\SelectCO.aspx.cs">
+      <DependentUpon>SelectCO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Selection\SelectCO.aspx.designer.cs">
+      <DependentUpon>SelectCO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selection\SelectMCU.aspx.cs">
+      <DependentUpon>SelectMCU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Selection\SelectMCU.aspx.designer.cs">
+      <DependentUpon>SelectMCU.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Selection\SelectRoles.aspx.cs">
       <DependentUpon>SelectRoles.aspx</DependentUpon>
@@ -3834,17 +3892,28 @@
     <Compile Include="View\Setting\P0035\P0035E.aspx.designer.cs">
       <DependentUpon>P0035E.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Workflow\P2000\P2000E.aspx.cs">
+      <DependentUpon>P2000E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Workflow\P2000\P2000E.aspx.designer.cs">
+      <DependentUpon>P2000E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Workflow\P2000\P2000H.aspx.cs">
+      <DependentUpon>P2000H.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Workflow\P2000\P2000H.aspx.designer.cs">
+      <DependentUpon>P2000H.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="extjs\src\" />
     <Folder Include="View\Finance\P0901\" />
-    <Folder Include="View\Finance\P0902\" />
     <Folder Include="View\Finance\P0911\" />
-    <Folder Include="View\Finance\P0920\" />
     <Folder Include="View\Finance\P0930\" />
     <Folder Include="View\Setting\P40203\" />
-    <Folder Include="View\Workflow\P2000\" />
     <Folder Include="View\Workflow\P2010\" />
   </ItemGroup>
   <ItemGroup>

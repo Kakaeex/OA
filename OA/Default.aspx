@@ -2,8 +2,6 @@
 
 <!DOCTYPE html>
 
-<!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -25,28 +23,29 @@
                 line-height: 50px;
                 margin-left: 10px;
             }
+            .float-right {
+    float: right;
+    margin-top: -30px;
+    margin-right: 1px;
+    font-size: 12px;
+}
     </style>
-    <link rel="stylesheet" type="text/css" href="Content/Site.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
-        <f:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
-            <Regions>
-                <f:Region ID="Region1" Margins="0 0 0 0" ShowBorder="false" Height="65px" ShowHeader="false"
-                    Position="Top" Layout="Fit" runat="server">
-                    <Items>
-                        <f:ContentPanel ShowBorder="false" ShowHeader="false" ID="ContentPanel1"
-                            runat="server">
-                            <div class="headerTop">
+    <form id="FORM1" runat="server">
+        <f:PageManager ID="PageManager1" AutoSizePanelID="Panel1" runat="server"></f:PageManager>
+        <f:Panel ID="Panel1" Layout="Region" ShowBorder="false" ShowHeader="false" runat="server">
+            <Items>
+                <f:ContentPanel RegionPosition="Top" ShowBorder="false" CssClass="jumbotron" ShowHeader="false" runat="server">
+                    <div class="headerTop">
                                 <div class="templateTitle">
-                                    <a id="TitleLink" href="~/" runat="server">
-                                        <img src="/Images/suibao.png" width="150" />
+                                    <a id="A1" href="~/" runat="server">
+                                        <img src="/res/icon/suibao.png" width="150" />
                                     </a>
                                 </div>
-                                <div class="float-right">
-                                    <section id="login">
-                                        <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                                <div>
+                                    <section id="login" class="float-right">
+                                        <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
                                             <AnonymousTemplate>
                                                 <a href="~/Account/Login.aspx" runat="server" id="loginLink">Log In</a>
                                             </AnonymousTemplate>
@@ -60,34 +59,29 @@
                                     </section>
                                 </div>
                             </div>
-                        </f:ContentPanel>
-                    </Items>
-                </f:Region>
-                <f:Region ID="Region2" Split="true" Width="200px" ShowHeader="true" Title="菜单"
-                    EnableCollapse="true" Layout="Fit" Position="Left" runat="server">
+                </f:ContentPanel>
+                <f:Panel ID="Panel2" RegionPosition="Left" RegionSplit="true" Width="200px" ShowHeader="true" Title="菜单" Icon="Outline"
+                    EnableCollapse="true" Layout="Fit" runat="server">
                     <Items>
-                        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" EnableArrows="true" EnableLines="true" ID="leftMenuTree" OnInit="leftMenuTree_Init">
+                        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" EnableArrows="true"
+                             EnableLines="true" ID="leftMenuTree" OnInit="leftMenuTree_Init">
                         </f:Tree>
                     </Items>
-                </f:Region>
-                <f:Region ID="mainRegion" ShowHeader="false" Layout="Fit" Margins="0 0 0 0" Position="Center"
-                    runat="server">
-                    <Items>
-                        <f:TabStrip ID="mainTabStrip" EnableTabCloseMenu="true" ShowBorder="false" runat="server">
-                            <Tabs>
-                                <f:Tab ID="Tab1" Title="首页" Layout="Fit" Icon="House" runat="server">
-                                    <Items>
-                                        <f:ContentPanel ID="ContentPanel2" ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
-                                            runat="server">
-                                        </f:ContentPanel>
-                                    </Items>
-                                </f:Tab>
-                            </Tabs>
-                        </f:TabStrip>
-                    </Items>
-                </f:Region>
-            </Regions>
-        </f:RegionPanel>
+                </f:Panel>
+                <f:TabStrip ID="mainTabStrip" RegionPosition="Center" EnableTabCloseMenu="true"  ShowBorder="true" runat="server">
+                    <Tabs>
+                        <f:Tab ID="Tab2" Title="首页" Layout="Fit" Icon="House" CssClass="maincontent" runat="server">
+                            <Items>
+                                <f:ContentPanel ID="ContentPanel3" ShowBorder="false" BodyPadding="10px" ShowHeader="false" AutoScroll="true"
+                                    runat="server">
+                                    首页内容
+                                </f:ContentPanel>
+                            </Items>
+                        </f:Tab>
+                    </Tabs>
+                </f:TabStrip>
+            </Items>
+        </f:Panel>
     </form>
     <script>
         var menuClientID = '<%= leftMenuTree.ClientID %>';

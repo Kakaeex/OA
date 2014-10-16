@@ -8,7 +8,7 @@ namespace OAContext
         public C_F2001Map()
         {
             // Primary Key
-            this.HasKey(t => new { t.WDKCOO, t.WDDOCO, t.WDDCTO });
+            this.HasKey(t => new { t.WDKCOO, t.WDDOCO, t.WDDCTO, t.WDLIND });
 
             // Properties
             this.Property(t => t.WDKCOO)
@@ -21,6 +21,9 @@ namespace OAContext
             this.Property(t => t.WDDCTO)
                 .IsRequired()
                 .HasMaxLength(10);
+
+            this.Property(t => t.WDLIND)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
             this.Property(t => t.WDDSC1)
                 .HasMaxLength(30);

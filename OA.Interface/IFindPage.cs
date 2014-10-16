@@ -25,6 +25,11 @@ namespace OA.Interface
         Label Label { get; }
 
         /// <summary>
+        /// 输入面板
+        /// </summary>
+        string[] Forms { get; }
+
+        /// <summary>
         /// 重新绑定表格
         /// </summary>
         void BindGrid();

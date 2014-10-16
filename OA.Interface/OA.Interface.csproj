@@ -47,12 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAccount.cs" />
     <Compile Include="IEditPage.cs" />
     <Compile Include="IFindPage.cs" />
+    <Compile Include="IMessage.cs" />
     <Compile Include="IOrder.cs" />
     <Compile Include="ISelectionPage.cs" />
     <Compile Include="IUserAuthorization.cs" />
     <Compile Include="IUserDefineCode.cs" />
+    <Compile Include="IWebHelper.cs" />
+    <Compile Include="IWorkflow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -14,44 +14,43 @@
             </f:Toolbar>
         </Toolbars>
         <Items>
-            <f:Form ID="form1" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
+            <f:Form ID="FORM1" runat="server" ShowBorder="True" BodyPadding="5px" ShowHeader="false" Title="表单">
                 <Rows>
                     <f:FormRow>
                         <Items>
-                            <f:TextBox runat="server" ID="DRSY" Label="系统码"></f:TextBox>
-                            <f:TextBox runat="server" ID="DRRT" Label="分类码"></f:TextBox>
-                            <f:TextBox runat="server" ID="DRDEL1" Label="备注1"></f:TextBox>
+                           <f:TriggerBox ID="AN8" EnableEdit="false" Text="" Width="300px" Label="地址号"
+                                TriggerIcon="Search" runat="server" OnTriggerClick="TriggerClick">
+                            </f:TriggerBox>
                         </Items>
                     </f:FormRow>
                 </Rows>
             </f:Form>
         </Items>
         <Items>
-            <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="RAKCOO,RAAN8,RAID" AllowCellEditing="true" ClicksToEdit="1" EnableMultiSelect="true" EnableCheckBoxSelect="false"
+            <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="RAKCOO,RAID" AllowCellEditing="true" ClicksToEdit="1" EnableMultiSelect="true" EnableCheckBoxSelect="false"
                 IsDatabasePaging="true" AllowPaging="false" EnableAfterEditEvent="true" AutoScroll="true" Height="500px">
                 <Columns>
-                    <f:RenderField Width="100px" DataField="RAKCOO" ColumnID="RAKCOO" FieldType="String"
+                   <f:RenderField Width="100px" DataField="RAKCOO" ColumnID="RAKCOO" FieldType="String" Hidden="true"
                         HeaderText="公司">
-
                         <Editor>
                             <f:TextBox ID="RAKCOO" Required="true" runat="server">
                             </f:TextBox>
                         </Editor>
                     </f:RenderField>
-                    <f:RenderField Width="100px" DataField="RAAN8" ColumnID="RAAN8" FieldType="Int"
+                    <%-- <f:RenderField Width="100px" DataField="RAAN8" ColumnID="RAAN8" FieldType="Int"
                         HeaderText="地址号">
 
                         <Editor>
                             <f:TextBox ID="RAAN8" Required="true" runat="server">
                             </f:TextBox>
                         </Editor>
-                    </f:RenderField>
+                    </f:RenderField>--%>
                     <f:RenderField Width="100px" DataField="RAID" ColumnID="RAID" FieldType="String"
                         HeaderText="角色ID">
-
                         <Editor>
-                            <f:TextBox ID="RAID" Required="true" runat="server">
-                            </f:TextBox>
+                          <f:TriggerBox ID="RUID" EnableEdit="false" Text="" Width="300px"
+                                TriggerIcon="Search" runat="server" OnTriggerClick="TriggerClick" OnBlur="Trigger_Blur">
+                            </f:TriggerBox>
                         </Editor>
                     </f:RenderField>
                     <f:RenderField Width="100px" DataField="RADEL1" ColumnID="RADEL1" FieldType="String"

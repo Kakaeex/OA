@@ -40,13 +40,13 @@ namespace OA.View.Account.P9001 {
         protected global::FineUI.Toolbar toolBar;
         
         /// <summary>
-        /// form1 控件。
+        /// Form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUI.Form form1;
+        protected global::FineUI.Form Form1;
         
         /// <summary>
         /// DRSY 控件。

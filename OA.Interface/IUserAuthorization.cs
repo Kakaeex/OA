@@ -19,7 +19,7 @@ namespace OA.Interface
 
         //List<C_F0101> GetUserList(string KCOO);
 
-        //bool SaveUser(C_F0101 f0101);
+        void SaveUser(string AN8, string Password);
 
         //void RemoveUserFromRole(string UserID, string Role);
 
@@ -31,14 +31,18 @@ namespace OA.Interface
 
         //void DeleteRole(List<int> ids);
 
-        //XmlDocument GetRoleMenu(string RoleName, string KCOO);
+        XmlDocument GetRoleMenu(string RoleName, string KCOO);
 
         string GetApplication(string kcoo, string App);
 
-        //string GetCurrentRole();
+        string GetCurrentRole(string id);
 
         string GetUserKcoo(string UserID);
 
         void ApplicationAuthorization(string kcoo, string Role, string App, FineUI.Toolbar toolbar);
+
+        C_F9001 GetRole(string ruid);
+
+        void DisableToolbar(FineUI.Toolbar toolbar);
     }
 }

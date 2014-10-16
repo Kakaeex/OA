@@ -45,6 +45,7 @@ namespace DBContextHelper
         public int AddorUpdate<T>(T entity) where T : ModelBase
         {
             DbSet<T> dbset = this.Set<T>();
+            
             //dbset.Attach(entity);
             dbset.AddOrUpdate<T>(entity);
             return this.SaveChanges();
@@ -70,19 +71,19 @@ namespace DBContextHelper
         {
             var queryList = conditions == null ? this.Set<T>() : this.Set<T>().Where(conditions) as IQueryable<T>;
 
-            return queryList.OrderByDescending(orderBy).ToList(); ;
+            return queryList.OrderBy(orderBy).ToList(); ;
         }
 
         public PagedList<T> FindAllByPage<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize = 30, int pageIndex = 1) where T : ModelBase
         {
             var queryList = conditions == null ? this.Set<T>() : this.Set<T>().Where(conditions) as IQueryable<T>;
 
-            return ToPagedList<T>(queryList.OrderByDescending(orderBy), pageIndex, pageSize);
+            return ToPagedList<T>(queryList.OrderBy(orderBy), pageIndex, pageSize);
         }
 
         public PagedList<T> FindQueryByPage<T, S>(IQueryable<T> conditions, Expression<Func<T, S>> orderBy, int pageSize = 30, int pageIndex = 1) where T : ModelBase
         {
-            return ToPagedList<T>(conditions.OrderByDescending(orderBy), pageIndex, pageSize);
+            return ToPagedList<T>(conditions.OrderBy(orderBy), pageIndex, pageSize);
         }
 
         PagedList<T> ToPagedList<T>(IQueryable<T> allItems, int pageIndex, int pageSize) where T : ModelBase

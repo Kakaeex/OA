@@ -4,6 +4,7 @@ using DBContextHelper;
 
 namespace OAContext
 {
+    [Serializable]
     public partial class C_F0921 : ModelBase
     {
         public  C_F0921 ()
@@ -43,7 +44,7 @@ namespace OAContext
                 FDUSER = "" ;
                 FDPID = "" ;
                 FDDATE = System.DateTime.Now ;
-                FDTIME = System.DateTime.Now.TimeOfDay;
+                FDTIME = DateTime.Now.TimeOfDay ;
         }
 
         public int FDDOCO { get; set; }
