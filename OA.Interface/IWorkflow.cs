@@ -8,9 +8,14 @@ using DBContextHelper;
 
 namespace OA.Interface
 {
-   public  interface IWorkflow
+    public interface IWorkflow
     {
-       dynamic AddOrUpdateWorkflow<T>(T F2000) where T : ModelBase;
+        string CreateCostWorkflow(int doco);
 
+        string ProccessCostWorkflow(int doco, string dcto, string an8, string argeement, string status, string user_id);
+         
+        int GetWorkflowOrderNumber(string kcoo, string dcto);
+        int GetNextStep(int doco, int step);
+        C_F2012 GetWorkflow(int doco, string dcto);
     }
 }

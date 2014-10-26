@@ -14,6 +14,7 @@ namespace OAContext
         {
                     FHDOCO = 0 ;
                 FHDCTO = "" ;
+                FHKCOO = "" ;
                 FHMCU = "" ;
                 FHYAER = 0 ;
                 FHEFTJ = System.DateTime.Now ;
@@ -55,16 +56,17 @@ namespace OAContext
 
         public int FHDOCO { get; set; }
         public string FHDCTO { get; set; }
+        public string FHKCOO { get; set; }
         public string FHMCU { get; set; }
-        public Nullable<int> FHYAER { get; set; }
-        public Nullable<System.DateTime> FHEFTJ { get; set; }
-        public Nullable<System.DateTime> FHEDXJ { get; set; }
+        public int FHYAER { get; set; }
+        public System.DateTime FHEFTJ { get; set; }
+        public System.DateTime FHEDXJ { get; set; }
         public string FHNAME { get; set; }
         public string FHDSC1 { get; set; }
         public string FHDSC2 { get; set; }
-        public Nullable<decimal> FHUPRC { get; set; }
-        public Nullable<decimal> FHAPYN { get; set; }
-        public Nullable<decimal> FHAWTD { get; set; }
+        public decimal FHUPRC { get; set; }
+        public decimal FHAPYN { get; set; }
+        public decimal FHAWTD { get; set; }
         public string FHLTTR { get; set; }
         public string FHNXTR { get; set; }
         public string FHSRP1 { get; set; }
@@ -77,20 +79,20 @@ namespace OAContext
         public string FHSRP8 { get; set; }
         public string FHSRP9 { get; set; }
         public string FHSRP0 { get; set; }
-        public Nullable<int> FHPRP1 { get; set; }
-        public Nullable<int> FHPRP2 { get; set; }
-        public Nullable<int> FHPRP3 { get; set; }
-        public Nullable<int> FHPRP4 { get; set; }
-        public Nullable<int> FHPRP5 { get; set; }
-        public Nullable<int> FHPRP6 { get; set; }
-        public Nullable<int> FHPRP7 { get; set; }
-        public Nullable<int> FHPRP8 { get; set; }
-        public Nullable<int> FHPRP9 { get; set; }
-        public Nullable<int> FHPRP0 { get; set; }
+        public int FHPRP1 { get; set; }
+        public int FHPRP2 { get; set; }
+        public int FHPRP3 { get; set; }
+        public int FHPRP4 { get; set; }
+        public int FHPRP5 { get; set; }
+        public int FHPRP6 { get; set; }
+        public int FHPRP7 { get; set; }
+        public int FHPRP8 { get; set; }
+        public int FHPRP9 { get; set; }
+        public int FHPRP0 { get; set; }
         public string FHTROG { get; set; }
         public string FHUSER { get; set; }
         public string FHPID { get; set; }
-        public Nullable<System.DateTime> FHDATE { get; set; }
-        public Nullable<System.TimeSpan> FHTIME { get; set; }
+        public System.DateTime FHDATE { get; set; }
+        public System.TimeSpan FHTIME { get; set; }
     }
 }

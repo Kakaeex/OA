@@ -20,9 +20,11 @@ namespace OAContext
                 .HasMaxLength(3);
 
             this.Property(t => t.FSDEL1)
+                .IsRequired()
                 .HasMaxLength(300);
 
             this.Property(t => t.FSDEL2)
+                .IsRequired()
                 .HasMaxLength(300);
 
             this.Property(t => t.FSLNTY)
@@ -30,30 +32,39 @@ namespace OAContext
                 .HasMaxLength(2);
 
             this.Property(t => t.FSLNDS)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.FSLND2)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.FSNXTR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FSA1TR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FSA2TR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FSA3TR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FSA4TR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FSA5TR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FSWRTH)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FSUSER)

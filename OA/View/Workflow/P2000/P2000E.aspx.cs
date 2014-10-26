@@ -14,20 +14,7 @@ namespace OA.View.Workflow.P2000
 {
     public partial class P2000E : PagedBase, IEditPage
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Master.QueryString.ContainsKey("KCOO") & Master.QueryString.ContainsKey("DOCO") & Master.QueryString.ContainsKey("DCTO"))
-            {
-                WHDOCO.Text = Master.QueryString["DOCO"];
-                WHDCTO.Text = Master.QueryString["DCTO"];
-                mode.Text = "edit";
-            }
-            else
-            {
-                mode.Text = "add";
-            }
-        }
-
+        #region Methods
         public void BindGrid()
         {
             if (mode.Text == "add") return;
@@ -44,7 +31,14 @@ namespace OA.View.Workflow.P2000
             WHDSC1.Text = Master._DBHelper.Find<C_F2000>(p => p.WHDOCO == doco 
                 & p.WHDCTO == WHDCTO.Text & p.WHKCOO == Master.kcoo).WHDSC1;
         }
+        public dynamic OnValidate<T>(string type, T obj) where T : ModelBase
+        {
+            return "Y";
+        }
+        public void DeleteRow()
+        {
 
+        }
         public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F2000 F2000 = ViewState["C_F2000"] as C_F2000;
@@ -181,8 +175,13 @@ namespace OA.View.Workflow.P2000
             //return "Windows";
             return "Tab";
         }
+        public void Print()
+        {
+            PageContext.RegisterStartupScript("Print();");
+        }
+        #endregion
 
-        #region
+        #region Event
         protected void TriggerClick(object sender, EventArgs e)
         {
             TriggerBox tBox = sender as TriggerBox;
@@ -199,11 +198,23 @@ namespace OA.View.Workflow.P2000
         {
             //Grid1. Rows[e.RowIndex].Values[0] = "00068";
         }
-        public void DeleteRow()
+        protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Master.QueryString.ContainsKey("KCOO") & Master.QueryString.ContainsKey("DOCO") & Master.QueryString.ContainsKey("DCTO"))
+            {
+                WHDOCO.Text = Master.QueryString["DOCO"];
+                WHDCTO.Text = Master.QueryString["DCTO"];
+                mode.Text = "edit";
+            }
+            else
+            {
+                mode.Text = "add";
+            }
         }
 
+        #endregion
+
+        #region Object
         public Grid Grid
         {
             get

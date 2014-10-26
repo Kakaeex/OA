@@ -70,16 +70,16 @@ namespace OAContext
         public string ABCLASS08 { get; set; }
         public string ABCLASS09 { get; set; }
         public string ABCLASS10 { get; set; }
-        public Nullable<int> ABPRP1 { get; set; }
-        public Nullable<int> ABPRP2 { get; set; }
-        public Nullable<int> ABPRP3 { get; set; }
-        public Nullable<int> ABPRP4 { get; set; }
-        public Nullable<int> ABPRP5 { get; set; }
-        public Nullable<int> ABPRP6 { get; set; }
-        public Nullable<int> ABPRP7 { get; set; }
-        public Nullable<int> ABPRP8 { get; set; }
-        public Nullable<int> ABPRP9 { get; set; }
-        public Nullable<int> ABPRP0 { get; set; }
+        public int ABPRP1 { get; set; }
+        public int ABPRP2 { get; set; }
+        public int ABPRP3 { get; set; }
+        public int ABPRP4 { get; set; }
+        public int ABPRP5 { get; set; }
+        public int ABPRP6 { get; set; }
+        public int ABPRP7 { get; set; }
+        public int ABPRP8 { get; set; }
+        public int ABPRP9 { get; set; }
+        public int ABPRP0 { get; set; }
         public string ABUSER { get; set; }
         public string ABPID { get; set; }
         public System.DateTime ABDATE { get; set; }

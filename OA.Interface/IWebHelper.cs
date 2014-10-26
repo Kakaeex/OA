@@ -14,5 +14,7 @@ namespace OA.Interface
         string SetQueryString(Dictionary<string, string> _value);
 
         Dictionary<string, string> GetQueryString(NameValueCollection QueryString);
+
+        string GetHostUri(string url);
     }
 }

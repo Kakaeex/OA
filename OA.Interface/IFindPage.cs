@@ -35,6 +35,12 @@ namespace OA.Interface
         void BindGrid();
 
         /// <summary>
+        /// 打印页面
+        /// </summary>
+        void Print();
+
+
+        /// <summary>
         /// 删除选中的行数据
         /// </summary>
         void DeleteSelectedRows();

@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAccount.cs" />
+    <Compile Include="IBlankPage.cs" />
     <Compile Include="IEditPage.cs" />
     <Compile Include="IFindPage.cs" />
     <Compile Include="IMessage.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="IUserAuthorization.cs" />
     <Compile Include="IUserDefineCode.cs" />
     <Compile Include="IWebHelper.cs" />
+    <Compile Include="IWindowsEditPage.cs" />
     <Compile Include="IWorkflow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

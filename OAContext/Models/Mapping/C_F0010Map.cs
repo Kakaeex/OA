@@ -16,63 +16,83 @@ namespace OAContext
                 .HasMaxLength(10);
 
             this.Property(t => t.CCNAME)
+                .IsRequired()
                 .HasMaxLength(25);
 
             this.Property(t => t.CCDSC1)
+                .IsRequired()
                 .HasMaxLength(25);
 
             this.Property(t => t.CCDSC2)
+                .IsRequired()
                 .HasMaxLength(25);
 
             this.Property(t => t.CCCRCD)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCADDZ)
+                .IsRequired()
                 .HasMaxLength(12);
 
             this.Property(t => t.CCCTY1)
+                .IsRequired()
                 .HasMaxLength(25);
 
             this.Property(t => t.CCCOUN)
+                .IsRequired()
                 .HasMaxLength(25);
 
             this.Property(t => t.CCADDS)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.CCSRP1)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCSRP2)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCSRP3)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCSRP4)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCSRP5)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCSRP6)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCSRP7)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCSRP8)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCSRP9)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCSRP0)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CCUSER)
+                .IsRequired()
                 .HasMaxLength(20);
 
             this.Property(t => t.CCPID)
+                .IsRequired()
                 .HasMaxLength(50);
 
             // Table & Column Mappings

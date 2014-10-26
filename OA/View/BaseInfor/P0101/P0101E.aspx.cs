@@ -14,13 +14,25 @@ namespace OA.View.BaseInfor.P0101
 {
     public partial class P0101E : PagedBase, IEditPage
     {
+        #region Event
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+        protected void TriggerClick(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._UDC.GetSelectionView(tBox.ID);
+            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
+            windows.Hidden = false;
+        }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
 
-        #region BindGrid
+        }
+        #endregion
 
+        #region Methods
         public void BindGrid()
         {
             var query = Master._DBHelper.GetQueryable<C_F0101>(p => 1 == 1);
@@ -32,15 +44,18 @@ namespace OA.View.BaseInfor.P0101
 
         }
 
-        #endregion
-
-
         public void DeleteRow()
         {
 
         }
 
-        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
+        public dynamic OnValidate<T>(string type, T obj) where T : ModelBase
+        {
+            return "Y";
+        }
+
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, 
+            object[] values = null, int deletedRows = -1)
         {
             C_F0101 obj = new C_F0101(1);
             if (rowDict != null)
@@ -134,6 +149,7 @@ namespace OA.View.BaseInfor.P0101
                 return obj;
             }
         }
+
         public void Save()
         {
             Master.SaveRecord<C_F0101>(Grid1.GetDeletedList(), Grid1.GetModifiedDict(), Grid1.GetNewAddedList(), GetGridRowData);
@@ -144,12 +160,14 @@ namespace OA.View.BaseInfor.P0101
             //return "Windows";
             return "Tab";
         }
-
-        #region 实例
-        public void AfterEdit(GridAfterEditEventArgs e)
+        public void Print()
         {
-
+            PageContext.RegisterStartupScript("Print();");
         }
+        #endregion
+
+        #region Object
+       
         public Grid Grid
         {
             get
@@ -173,6 +191,7 @@ namespace OA.View.BaseInfor.P0101
                 return toolBar;
             }
         }
+
         public string[] Forms
         {
             get
@@ -182,13 +201,5 @@ namespace OA.View.BaseInfor.P0101
             }
         }
         #endregion
-
-        protected void TriggerClick(object sender, EventArgs e)
-        {
-            TriggerBox tBox = sender as TriggerBox;
-            string URL = Master._UDC.GetSelectionView(tBox.ID);
-            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
-            windows.Hidden = false;
-        }
     }
 }

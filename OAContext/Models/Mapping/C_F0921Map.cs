@@ -21,56 +21,76 @@ namespace OAContext
             this.Property(t => t.FDLNID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
+            this.Property(t => t.FDKCOO)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            this.Property(t => t.FDMCU)
+                .IsRequired()
+                .HasMaxLength(12);
+
             this.Property(t => t.FDAID)
                 .IsRequired()
                 .HasMaxLength(8);
 
-            this.Property(t => t.FDMCU)
-                .HasMaxLength(12);
-
             this.Property(t => t.FDOBJ)
+                .IsRequired()
                 .HasMaxLength(6);
 
             this.Property(t => t.FDSUB)
+                .IsRequired()
                 .HasMaxLength(8);
 
             this.Property(t => t.FDNAME)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.FDDSC1)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.FDDSC2)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.FDLTTR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FDNXTR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FDSRP1)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FDSRP2)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FDSRP3)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FDSRP4)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FDSRP5)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FDTROG)
+                .IsRequired()
                 .HasMaxLength(20);
 
             this.Property(t => t.FDUSER)
+                .IsRequired()
                 .HasMaxLength(20);
 
             this.Property(t => t.FDPID)
+                .IsRequired()
                 .HasMaxLength(50);
 
             // Table & Column Mappings
@@ -78,8 +98,9 @@ namespace OAContext
             this.Property(t => t.FDDOCO).HasColumnName("FDDOCO");
             this.Property(t => t.FDDCTO).HasColumnName("FDDCTO");
             this.Property(t => t.FDLNID).HasColumnName("FDLNID");
-            this.Property(t => t.FDAID).HasColumnName("FDAID");
+            this.Property(t => t.FDKCOO).HasColumnName("FDKCOO");
             this.Property(t => t.FDMCU).HasColumnName("FDMCU");
+            this.Property(t => t.FDAID).HasColumnName("FDAID");
             this.Property(t => t.FDOBJ).HasColumnName("FDOBJ");
             this.Property(t => t.FDSUB).HasColumnName("FDSUB");
             this.Property(t => t.FDYAER).HasColumnName("FDYAER");

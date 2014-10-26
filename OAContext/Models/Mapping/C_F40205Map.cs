@@ -16,69 +16,91 @@ namespace OAContext
                 .HasMaxLength(2);
 
             this.Property(t => t.LFLNDS)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.LFLND2)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.LFSRP1)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFSRP2)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFSRP3)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFSRP4)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFSRP5)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFSRP6)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFSRP7)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFSRP8)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFSRP9)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFSRP0)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFCLASS01)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.LFCLASS02)
+                .IsRequired()
                 .HasMaxLength(4);
 
             this.Property(t => t.LFCLASS03)
+                .IsRequired()
                 .HasMaxLength(5);
 
             this.Property(t => t.LFCLASS04)
+                .IsRequired()
                 .HasMaxLength(6);
 
             this.Property(t => t.LFCLASS05)
+                .IsRequired()
                 .HasMaxLength(7);
 
             this.Property(t => t.LFCLASS06)
+                .IsRequired()
                 .HasMaxLength(8);
 
             this.Property(t => t.LFCLASS07)
+                .IsRequired()
                 .HasMaxLength(9);
 
             this.Property(t => t.LFCLASS08)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.LFCLASS09)
+                .IsRequired()
                 .HasMaxLength(11);
 
             this.Property(t => t.LFCLASS10)
+                .IsRequired()
                 .HasMaxLength(12);
 
             this.Property(t => t.LFUSER)

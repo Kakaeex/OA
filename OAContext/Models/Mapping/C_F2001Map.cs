@@ -26,33 +26,43 @@ namespace OAContext
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
             this.Property(t => t.WDDSC1)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.WDDSC2)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.WDDCT)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WDVR01)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.WDVR02)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.WDSRP1)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WDSRP2)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WDSRP3)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WDSRP4)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WDSRP5)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WDUSER)

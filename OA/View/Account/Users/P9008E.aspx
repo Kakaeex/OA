@@ -154,14 +154,15 @@
                 EnableMaximize="false" EnableResize="false" Target="Self"
                 IsModal="True" Width="750px" Height="550px">
             </f:Window>
+            <f:HiddenField ID="mode" runat="server"></f:HiddenField>
         </Items>
     </f:Panel>
     <script type="text/javascript">
-        function closeActiveTab() {
-            parent.removeActiveTab();
-        }
-        function newActiveTab() {
-        };
+        //function closeActiveTab() {
+        //    parent.removeActiveTab();
+        //}
+        //function newActiveTab() {
+        //};
     </script>
 </asp:Content>
 

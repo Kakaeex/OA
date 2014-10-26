@@ -23,33 +23,43 @@ namespace OAContext
                 .HasMaxLength(10);
 
             this.Property(t => t.WHDSC1)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.WHDSC2)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.WHDCT)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WHVR01)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.WHVR02)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.WHSRP1)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WHSRP2)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WHSRP3)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WHSRP4)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WHSRP5)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.WHUSER)

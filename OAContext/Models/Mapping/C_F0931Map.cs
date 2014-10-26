@@ -8,7 +8,7 @@ namespace OAContext
         public C_F0931Map()
         {
             // Primary Key
-            this.HasKey(t => new { t.CDKCOO, t.CDDOCO });
+            this.HasKey(t => new { t.CDKCOO, t.CDDOCO, t.CDDCTO, t.CDDLNID });
 
             // Properties
             this.Property(t => t.CDKCOO)
@@ -22,65 +22,87 @@ namespace OAContext
                 .IsRequired()
                 .HasMaxLength(10);
 
+            this.Property(t => t.CDDLNID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
             this.Property(t => t.CDDCT)
                 .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CDDSC1)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.CDDSC2)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.CDMAID)
+                .IsRequired()
                 .HasMaxLength(8);
 
             this.Property(t => t.CDMMCU)
+                .IsRequired()
                 .HasMaxLength(12);
 
             this.Property(t => t.CDMOBJ)
+                .IsRequired()
                 .HasMaxLength(6);
 
             this.Property(t => t.CDMSUB)
+                .IsRequired()
                 .HasMaxLength(8);
 
             this.Property(t => t.CDDEL1)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.CDFAID)
+                .IsRequired()
                 .HasMaxLength(8);
 
             this.Property(t => t.CDFMCU)
+                .IsRequired()
                 .HasMaxLength(12);
 
             this.Property(t => t.CDFOBJ)
+                .IsRequired()
                 .HasMaxLength(6);
 
             this.Property(t => t.CDFSUB)
+                .IsRequired()
                 .HasMaxLength(8);
 
             this.Property(t => t.CDDEL2)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.CDVR01)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.CDVR02)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.CDSRP1)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CDSRP2)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CDSRP3)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CDSRP4)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CDSRP5)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CDUSER)

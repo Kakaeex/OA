@@ -11,7 +11,7 @@
     <form id="FORM1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
         <f:Panel ID="Panel1" runat="server" BodyPadding="3px" ShowBorder="True" ShowHeader="false"
-        Layout="Anchor" AnchorValue="100%">
+            Layout="Anchor" AnchorValue="100%">
             <Items>
                 <f:CPHConnector runat="server">
                     <asp:ContentPlaceHolder ID="findMainMaster" runat="server">
@@ -25,5 +25,18 @@
             IsModal="True" Width="850px" Height="450px">
         </f:Window>
     </form>
+    <script type="text/javascript">
+        var basePath = '<%= ResolveUrl("~/") %>';
+        function closeActiveTab() {
+            parent.removeActiveTab();
+        }
+        function AddActiveTab(url, title) {
+            parent.newActiveTab.apply(null, ['', basePath + url, title, null, true]);
+        }
+
+        function Print() {
+            window.print();
+        }
+    </script>
 </body>
 </html>

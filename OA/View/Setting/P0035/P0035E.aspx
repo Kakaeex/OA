@@ -32,7 +32,6 @@
                 <Columns>
                     <f:RenderField Width="100px" DataField="MSKCOO" ColumnID="MSKCOO" FieldType="String"
                         HeaderText="公司">
-
                         <Editor>
                             <f:TextBox ID="MSKCOO" Required="true" runat="server">
                             </f:TextBox>

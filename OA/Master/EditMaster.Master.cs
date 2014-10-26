@@ -26,7 +26,7 @@ namespace OA.Master
         }
         public string progammeID
         {
-            get { return System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath).ToUpper().Replace(".ASPX",""); }
+            get { return System.IO.Path.GetFileName(System.Web.HttpContext.Current.Request.PhysicalPath).ToUpper().Replace(".ASPX", ""); }
         }
         public string userID
         {
@@ -58,7 +58,11 @@ namespace OA.Master
                 return _QueryString;
             }
         }
-
+        public List<dynamic> messageList
+        {
+            get { return ViewState["messageList"] as List<dynamic>; }
+            set { ViewState["messageList"] = value; }
+        }
         private new IEditPage Page
         {
             get
@@ -66,14 +70,14 @@ namespace OA.Master
                 return (IEditPage)base.Page;
             }
         }
-        #endregion
-
         //public IDataRepository _DBHelper { get; set; }
         public OAContext.OAContext _DBHelper { get; set; }
         public IUserAuthorization _UserAuthorization { get; set; }
         public IUserDefineCode _UDC { get; set; }
         public IOrder _Order { get; set; }
         public IWebHelper _WebHelper { get; set; }
+        public IMessage _Message { get; set; }
+        #endregion
 
         #region Page_Event
 
@@ -116,7 +120,9 @@ namespace OA.Master
         protected void New_Click(object sender, EventArgs e)
         {
             //Newtonsoft.Json.Linq.JObject jObject = (Newtonsoft.Json.Linq.JObject)JsonConvert.DeserializeObject(JsonConvert.SerializeObject(Page.GetGridRowData()));
-            Newtonsoft.Json.Linq.JObject jObject = Newtonsoft.Json.Linq.JObject.FromObject(Page.GetGridRowData());
+            var e_date = Page.GetGridRowData();
+            if (e_date == null) return;
+            Newtonsoft.Json.Linq.JObject jObject = Newtonsoft.Json.Linq.JObject.FromObject(e_date);
             Page.Grid.AddNewRecord(jObject);
         }
 
@@ -136,9 +142,9 @@ namespace OA.Master
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void SaveAndClose_Click(object sender, EventArgs e)
+        protected void Print_Click(object sender, EventArgs e)
         {
-
+            Page.Print();
         }
 
         /// <summary>
@@ -158,7 +164,7 @@ namespace OA.Master
         /// <param name="e"></param>
         protected void Delete_Click(object sender, EventArgs e)
         {
-
+            Page.DeleteRow();
         }
 
         /// <summary>
@@ -274,6 +280,7 @@ namespace OA.Master
             toolBarNew.Text = "新增";
             toolBarNew.Icon = Icon.Add;
             toolBarNew.EnablePostBack = true;
+            toolBarNew.ValidateForms = Page.Forms;
 
             Button toolSave = new Button();
             toolSave.ID = "toolSave";
@@ -282,12 +289,12 @@ namespace OA.Master
             toolSave.EnablePostBack = true;
             toolSave.ValidateForms = Page.Forms;
 
-            Button toolSaveAndClose = new Button();
-            toolSaveAndClose.ID = "toolSaveAndClose";
-            toolSaveAndClose.Text = "保存并关闭";
-            toolSaveAndClose.Icon = Icon.SystemSaveClose;
-            toolSaveAndClose.EnablePostBack = true;
-            toolSaveAndClose.ValidateForms = Page.Forms;
+            Button toolPrint = new Button();
+            toolPrint.ID = "toolPrint";
+            toolPrint.Text = "打印";
+            toolPrint.Icon = Icon.Printer;
+            toolPrint.EnablePostBack = true;
+            toolPrint.ValidateForms = Page.Forms;
 
             Button toolBarSelect = new Button();
             toolBarSelect.ID = "toolBarSelect";
@@ -315,7 +322,7 @@ namespace OA.Master
 
             toolBarNew.Click += New_Click;
             toolSave.Click += Save_Click;
-            toolSaveAndClose.Click += SaveAndClose_Click;
+            toolPrint.Click += Print_Click;
             toolBarSelect.Click += Select_Click;
             toolBarDelete.OnClientClick += Page.Grid.GetNoSelectionAlertReference("请至少选择一项！") +
                 Confirm.GetShowReference("删除选中行？", String.Empty, MessageBoxIcon.Question, Page.Grid.GetDeleteSelectedReference(), String.Empty);
@@ -324,7 +331,7 @@ namespace OA.Master
 
             Page.Toolbar.Items.Insert(0, toolBarNew);
             Page.Toolbar.Items.Insert(0, toolSave);
-            Page.Toolbar.Items.Insert(0, toolSaveAndClose);
+            Page.Toolbar.Items.Insert(0, toolPrint);
             Page.Toolbar.Items.Insert(0, toolBarSelect);
             Page.Toolbar.Items.Insert(0, toolBarDelete);
             Page.Toolbar.Items.Insert(0, toolBarClose);
@@ -333,35 +340,41 @@ namespace OA.Master
         }
         protected void getInfor()
         {
-            
+
         }
-        public dynamic SaveRecord<T>(List<int> deletedRows, Dictionary<int, Dictionary<string, object>> modifiedDict,
+        public virtual dynamic SaveRecord<T>(List<int> deletedRows, Dictionary<int, Dictionary<string, object>> modifiedDict,
             List<Dictionary<string, object>> newAddedList, Func<Dictionary<string, object>, object[], int, dynamic> GetGridRowData) where T : ModelBase
         {
             // 删除的现有数据
             List<T> lobj = new List<T>();
-            foreach (int rowIndex in deletedRows)
+            if (deletedRows != null)
             {
-                lobj.Add(GetGridRowData(null, null, rowIndex));
+                foreach (int rowIndex in deletedRows)
+                {
+                    lobj.Add(GetGridRowData(null, null, rowIndex));
+                }
+                if (lobj.Count > 0)
+                {
+                    _DBHelper.DeleteList<T>(lobj);
+                }
             }
-            if (lobj.Count > 0)
-            {
-                _DBHelper.DeleteList<T>(lobj);
-            }
-
             // 修改的现有数据
             lobj = new List<T>();
-            foreach (int rowIndex in modifiedDict.Keys)
+            if (modifiedDict != null)
             {
-                lobj.Add(GetGridRowData(null, Page.Grid.Rows[rowIndex].Values, 0));
+                foreach (int rowIndex in modifiedDict.Keys)
+                {
+                    lobj.Add(GetGridRowData(null, Page.Grid.Rows[rowIndex].Values, 0));
+                }
             }
-
-            // 新增数据
-            for (int i = newAddedList.Count - 1; i >= 0; i--)
+            if (newAddedList != null)
             {
-                lobj.Add(GetGridRowData(newAddedList[i], null, 0));
+                // 新增数据
+                for (int i = newAddedList.Count - 1; i >= 0; i--)
+                {
+                    lobj.Add(GetGridRowData(newAddedList[i], null, 0));
+                }
             }
-
             if (lobj.Count > 0)
             {
                 _DBHelper.AddorUpdateList<T>(lobj);
@@ -371,17 +384,55 @@ namespace OA.Master
         }
         public void bind<T, F>(Expression<Func<T, bool>> findConditions, Expression<Func<T, F>> orderBy) where T : ModelBase
         {
-            PagedList<T> list = _DBHelper.FindAllByPage<T, F>(findConditions, orderBy, Page.Grid.PageSize, Page.Grid.PageIndex);
+            PagedList<T> list = _DBHelper.FindAllByPage<T, F>
+                (findConditions, orderBy, Page.Grid.PageSize, Page.Grid.PageIndex + 1);
             Page.Grid.RecordCount = list.TotalItemCount;
             Page.Grid.DataSource = list;
             Page.Grid.DataBind();
         }
         public void bind<T, F>(IQueryable<T> findConditions, Expression<Func<T, F>> orderBy) where T : ModelBase
         {
-            PagedList<T> list = _DBHelper.FindQueryByPage<T, F>(findConditions, orderBy, Page.Grid.PageSize, Page.Grid.PageIndex);
+            PagedList<T> list = _DBHelper.FindQueryByPage<T, F>
+                (findConditions, orderBy, Page.Grid.PageSize, Page.Grid.PageIndex + 1);
             Page.Grid.RecordCount = list.TotalItemCount;
             Page.Grid.DataSource = list;
             Page.Grid.DataBind();
+        }
+        public dynamic ValidateRecord<T>(List<int> deletedRows, Dictionary<int, Dictionary<string, object>> modifiedDict,
+            List<Dictionary<string, object>> newAddedList, Func<Dictionary<string, object>, object[], int, dynamic> GetGridRowData) where T : ModelBase
+        {
+            string _value = "Success";
+            // 删除的现有数据
+
+            foreach (int rowIndex in deletedRows)
+            {
+                Page.OnValidate<T>("delete", GetGridRowData(null, null, rowIndex));
+            }
+
+            // 修改的现有数据
+
+            foreach (int rowIndex in modifiedDict.Keys)
+            {
+                Page.OnValidate<T>("modified", GetGridRowData(null, Page.Grid.Rows[rowIndex].Values, 0));
+            }
+
+            // 新增数据
+            for (int i = newAddedList.Count - 1; i >= 0; i--)
+            {
+                Page.OnValidate<T>("newAdded", GetGridRowData(newAddedList[i], null, 0));
+            }
+
+            return _value;
+        }
+        public void AddMessage(string _message)
+        {
+            if (_message == "") return;
+            messageList.Add(_message);
+        }
+
+        public void ClearMessage()
+        {
+            messageList = new List<dynamic>();
         }
 
         #endregion

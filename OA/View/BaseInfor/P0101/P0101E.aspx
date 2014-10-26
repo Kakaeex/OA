@@ -271,11 +271,11 @@
         </Items>
     </f:Panel>
     <script type="text/javascript">
-        function closeActiveTab() {
-            parent.removeActiveTab();
-        }
-        function newActiveTab() {
-        };
+        //function closeActiveTab() {
+        //    parent.removeActiveTab();
+        //}
+        //function newActiveTab() {
+        //};
     </script>
 </asp:Content>
 

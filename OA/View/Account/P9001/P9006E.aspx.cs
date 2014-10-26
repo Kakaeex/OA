@@ -15,11 +15,31 @@ namespace OA.View.Account.P9001
 {
     public partial class P9006E : PagedBase, IEditPage
     {
+        #region Event
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+        protected void TriggerClick(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._UDC.GetSelectionView(tBox.ID);
+            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
+            windows.Hidden = false;
+        }
+        protected void Trigger_Blur(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._UDC.GetSelectionView(tBox.ID);
+        }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
 
+        }
+       
+        #endregion
+        
+        #region Methods
         public void BindGrid()
         {
             int an8 = ValueConvert.toInt(AN8);
@@ -30,7 +50,10 @@ namespace OA.View.Account.P9001
         {
 
         }
-
+        public dynamic OnValidate<T>(string type, T obj) where T : ModelBase
+        {
+            return "Y";
+        }
         public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F9006 obj = new C_F9006(1);
@@ -115,27 +138,18 @@ namespace OA.View.Account.P9001
             return "Tab";
         }
 
-        #region
-        protected void TriggerClick(object sender, EventArgs e)
-        {
-            TriggerBox tBox = sender as TriggerBox;
-            string URL = Master._UDC.GetSelectionView(tBox.ID);
-            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
-            windows.Hidden = false;
-        }
-        protected void Trigger_Blur(object sender, EventArgs e)
-        {
-            TriggerBox tBox = sender as TriggerBox;
-            string URL = Master._UDC.GetSelectionView(tBox.ID);
-        }
-        public void AfterEdit(GridAfterEditEventArgs e)
-        {
-
-        }
         public void DeleteRow()
         {
 
         }
+        public void Print()
+        {
+            PageContext.RegisterStartupScript("Print();");
+        }
+
+        #endregion
+
+        #region Object
 
         public Grid Grid
         {

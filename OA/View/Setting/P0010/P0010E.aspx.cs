@@ -14,11 +14,7 @@ namespace OA.View.Setting.P0010
 {
     public partial class P0010E : PagedBase, IEditPage
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        #region Methods
         public void BindGrid()
         {
             var query = Master._DBHelper.GetQueryable<C_F0010>(p => 1 == 1);
@@ -30,6 +26,10 @@ namespace OA.View.Setting.P0010
 
         }
 
+        public dynamic OnValidate<T>(string type, T obj) where T : ModelBase
+        {
+            return "Y";
+        }
         public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F0010 obj = new C_F0010(1);
@@ -134,14 +134,27 @@ namespace OA.View.Setting.P0010
         {
             Master.SaveRecord<C_F0010>(Grid1.GetDeletedList(), Grid1.GetModifiedDict(), Grid1.GetNewAddedList(), GetGridRowData);
         }
+        public void DeleteRow()
+        {
+
+        }
 
         public string GetFromMode()
         {
             //return "Windows";
             return "Tab";
         }
+        public void Print()
+        {
+            PageContext.RegisterStartupScript("Print();");
+        }
+        #endregion
 
-        #region 
+        #region Event
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
         protected void TriggerClick(object sender, EventArgs e)
         {
             TriggerBox tBox = sender as TriggerBox;
@@ -153,11 +166,9 @@ namespace OA.View.Setting.P0010
         {
 
         }
-        public void DeleteRow()
-        {
+        #endregion
 
-        }
-
+        #region Object
         public Grid Grid
         {
             get

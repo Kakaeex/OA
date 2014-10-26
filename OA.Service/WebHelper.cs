@@ -26,5 +26,11 @@ namespace OA.Service
             }
             return _queryString;
         }
+
+        public string GetHostUri(string url)
+        {
+            return "http://" + System.Web.HttpContext.Current.Request.Url.Host + ":" 
+                + System.Web.HttpContext.Current.Request.Url.Port + "/" + url;
+        }
     }
 }

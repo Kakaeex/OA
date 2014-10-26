@@ -32,7 +32,7 @@ namespace OA.View.Finance.P0902
 
         public string GetNewUrl()
         {
-            return Master._UserAuthorization.GetApplication(Master.kcoo, "P2000E").Replace("~/", "");
+            return Master._UserAuthorization.GetApplication(Master.kcoo, "P2000E").Replace("~/", "") + ",用户修订"; 
         }
 
         /// <summary>
@@ -48,9 +48,12 @@ namespace OA.View.Finance.P0902
             dic.Add("DOCO", keys[1].ToString());
             dic.Add("DCTO", keys[2].ToString());
             return String.Format
-                (Master._UserAuthorization.GetApplication(Master.kcoo, "P2000E").Replace("~/", "") + Master._WebHelper.SetQueryString(dic));
+                (Master._UserAuthorization.GetApplication(Master.kcoo, "P2000E").Replace("~/", "") + Master._WebHelper.SetQueryString(dic)) + ",用户修订";
         }
-
+        public void Print()
+        {
+            PageContext.RegisterStartupScript("Print();");
+        }
         public string GetFromMode()
         {
             //return "Windows";

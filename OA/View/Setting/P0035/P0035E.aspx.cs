@@ -13,12 +13,7 @@ namespace OA.View.Setting.P0035
 {
     public partial class P0035E : PagedBase, IEditPage
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        #region BindGrid
+        #region Methods
 
         public void BindGrid()
         {
@@ -31,9 +26,11 @@ namespace OA.View.Setting.P0035
 
         }
 
-        #endregion
-
-
+        public dynamic OnValidate<T>(string type, T obj) where T : ModelBase
+        {
+            return "Y";
+        }
+        
         public void DeleteRow()
         {
 
@@ -119,12 +116,14 @@ namespace OA.View.Setting.P0035
             //return "Windows";
             return "Tab";
         }
-
-        #region 实例
-        public void AfterEdit(GridAfterEditEventArgs e)
-        { 
-        
+        public void Print()
+        {
+            PageContext.RegisterStartupScript("Print();");
         }
+        #endregion
+
+        #region object
+       
         public Grid Grid
         {
             get
@@ -148,8 +147,25 @@ namespace OA.View.Setting.P0035
                 return toolBar;
             }
         }
+        public string[] Forms
+        {
+            get
+            {
+                string[] _forms = { FORM1.ID };
+                return _forms;
+            }
+        }
         #endregion
 
+        #region event
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
+
+        }
         protected void TriggerClick(object sender, EventArgs e)
         {
             TriggerBox tBox = sender as TriggerBox;
@@ -157,13 +173,6 @@ namespace OA.View.Setting.P0035
             PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
             windows.Hidden = false;
         }
-        public string[] Forms
-        {
-            get
-            {
-                string[] _forms =  { FORM1.ID };
-                return _forms;
-            }
-        }
+        #endregion
     }
 }

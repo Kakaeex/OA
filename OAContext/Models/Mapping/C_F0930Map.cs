@@ -22,38 +22,58 @@ namespace OAContext
                 .IsRequired()
                 .HasMaxLength(10);
 
+            this.Property(t => t.CHNXTR)
+                .IsRequired()
+                .HasMaxLength(3);
+
+            this.Property(t => t.CHLTTR)
+                .IsRequired()
+                .HasMaxLength(3);
+
             this.Property(t => t.CHDCT)
                 .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CHDSC1)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.CHDSC2)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.CHMCU)
+                .IsRequired()
                 .HasMaxLength(12);
 
+            this.Property(t => t.CHTORG)
+                .IsRequired()
+                .HasMaxLength(50);
+
             this.Property(t => t.CHVR01)
-                .HasMaxLength(30);
+                .IsRequired();
 
             this.Property(t => t.CHVR02)
-                .HasMaxLength(30);
+                .IsRequired();
 
             this.Property(t => t.CHSRP1)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CHSRP2)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CHSRP3)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CHSRP4)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CHSRP5)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.CHUSER)
@@ -69,6 +89,8 @@ namespace OAContext
             this.Property(t => t.CHKCOO).HasColumnName("CHKCOO");
             this.Property(t => t.CHDOCO).HasColumnName("CHDOCO");
             this.Property(t => t.CHDCTO).HasColumnName("CHDCTO");
+            this.Property(t => t.CHNXTR).HasColumnName("CHNXTR");
+            this.Property(t => t.CHLTTR).HasColumnName("CHLTTR");
             this.Property(t => t.CHDOC).HasColumnName("CHDOC");
             this.Property(t => t.CHDCT).HasColumnName("CHDCT");
             this.Property(t => t.CHDSC1).HasColumnName("CHDSC1");
@@ -85,6 +107,7 @@ namespace OAContext
             this.Property(t => t.CHECST).HasColumnName("CHECST");
             this.Property(t => t.CHSOQS).HasColumnName("CHSOQS");
             this.Property(t => t.CHUORG).HasColumnName("CHUORG");
+            this.Property(t => t.CHTORG).HasColumnName("CHTORG");
             this.Property(t => t.CHVR01).HasColumnName("CHVR01");
             this.Property(t => t.CHVR02).HasColumnName("CHVR02");
             this.Property(t => t.CHSRP1).HasColumnName("CHSRP1");

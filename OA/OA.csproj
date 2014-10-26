@@ -1924,6 +1924,7 @@
     <Content Include="Master\BlankMaster.Master" />
     <Content Include="Master\EditMaster.Master" />
     <Content Include="Master\SelectionMaster.Master" />
+    <Content Include="Master\WindowsEditMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1933,6 +1934,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="REPORT\R0930A.aspx" />
+    <Content Include="REPORT\R2012A.aspx" />
     <Content Include="res\icon\accept.png" />
     <Content Include="res\icon\add.png" />
     <Content Include="res\icon\anchor.png" />
@@ -3657,16 +3660,23 @@
     <Content Include="View\Account\P9001\P9006E.aspx" />
     <Content Include="View\Account\P9005\P9005E.aspx" />
     <Content Include="View\Account\Users\P9008E.aspx" />
+    <Content Include="View\Account\Users\P9008EA.aspx" />
     <Content Include="View\Account\Users\UserInfor.aspx" />
     <Content Include="View\Account\Users\UserList.aspx" />
     <Content Include="View\BaseInfor\P0101\P0101E.aspx" />
+    <Content Include="View\Finance\P0901\P0903E.aspx" />
     <Content Include="View\Finance\P0902\P0902E.aspx" />
     <Content Include="View\Finance\P0902\P0902H.aspx" />
     <Content Include="View\Finance\P0920\P0920E.aspx" />
     <Content Include="View\Finance\P0920\P0920H.aspx" />
+    <Content Include="View\Finance\P0930\P0930E.aspx" />
+    <Content Include="View\Finance\P0930\P0930H.aspx" />
+    <Content Include="View\Selection\SelectAID.aspx" />
+    <Content Include="View\Selection\SelectAIDRelation.aspx" />
     <Content Include="View\Selection\SelectAN8.aspx" />
     <Content Include="View\Selection\SelectApplication.aspx" />
     <Content Include="View\Selection\SelectCO.aspx" />
+    <Content Include="View\Selection\SelectCostProjectAID.aspx" />
     <Content Include="View\Selection\SelectMCU.aspx" />
     <Content Include="View\Selection\SelectRoles.aspx" />
     <Content Include="View\Selection\SelectUDC.aspx" />
@@ -3677,6 +3687,8 @@
     <Content Include="View\Setting\P0035\P0035E.aspx" />
     <Content Include="View\Workflow\P2000\P2000E.aspx" />
     <Content Include="View\Workflow\P2000\P2000H.aspx" />
+    <Content Include="View\Workflow\P2010\P2012E.aspx" />
+    <Content Include="View\Workflow\P2010\P2012H.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -3730,7 +3742,28 @@
     <Compile Include="Master\SelectionMaster.Master.designer.cs">
       <DependentUpon>SelectionMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="Master\WindowsEditMaster.Master.cs">
+      <DependentUpon>WindowsEditMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\WindowsEditMaster.Master.designer.cs">
+      <DependentUpon>WindowsEditMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REPORT\R0930A.aspx.cs">
+      <DependentUpon>R0930A.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="REPORT\R0930A.aspx.designer.cs">
+      <DependentUpon>R0930A.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="REPORT\R2012A.aspx.cs">
+      <DependentUpon>R2012A.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="REPORT\R2012A.aspx.designer.cs">
+      <DependentUpon>R2012A.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Account\P9001\P9001E.aspx.cs">
       <DependentUpon>P9001E.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3766,6 +3799,13 @@
     <Compile Include="View\Account\Users\P9008E.aspx.designer.cs">
       <DependentUpon>P9008E.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Account\Users\P9008EA.aspx.cs">
+      <DependentUpon>P9008EA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Account\Users\P9008EA.aspx.designer.cs">
+      <DependentUpon>P9008EA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Account\Users\UserInfor.aspx.cs">
       <DependentUpon>UserInfor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3786,6 +3826,13 @@
     </Compile>
     <Compile Include="View\BaseInfor\P0101\P0101E.aspx.designer.cs">
       <DependentUpon>P0101E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Finance\P0901\P0903E.aspx.cs">
+      <DependentUpon>P0903E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Finance\P0901\P0903E.aspx.designer.cs">
+      <DependentUpon>P0903E.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Finance\P0902\P0902E.aspx.cs">
       <DependentUpon>P0902E.aspx</DependentUpon>
@@ -3815,6 +3862,34 @@
     <Compile Include="View\Finance\P0920\P0920H.aspx.designer.cs">
       <DependentUpon>P0920H.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Finance\P0930\P0930E.aspx.cs">
+      <DependentUpon>P0930E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Finance\P0930\P0930E.aspx.designer.cs">
+      <DependentUpon>P0930E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Finance\P0930\P0930H.aspx.cs">
+      <DependentUpon>P0930H.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Finance\P0930\P0930H.aspx.designer.cs">
+      <DependentUpon>P0930H.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selection\SelectAID.aspx.cs">
+      <DependentUpon>SelectAID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Selection\SelectAID.aspx.designer.cs">
+      <DependentUpon>SelectAID.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selection\SelectAIDRelation.aspx.cs">
+      <DependentUpon>SelectAIDRelation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Selection\SelectAIDRelation.aspx.designer.cs">
+      <DependentUpon>SelectAIDRelation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Selection\SelectAN8.aspx.cs">
       <DependentUpon>SelectAN8.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3835,6 +3910,13 @@
     </Compile>
     <Compile Include="View\Selection\SelectCO.aspx.designer.cs">
       <DependentUpon>SelectCO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selection\SelectCostProjectAID.aspx.cs">
+      <DependentUpon>SelectCostProjectAID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Selection\SelectCostProjectAID.aspx.designer.cs">
+      <DependentUpon>SelectCostProjectAID.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Selection\SelectMCU.aspx.cs">
       <DependentUpon>SelectMCU.aspx</DependentUpon>
@@ -3906,15 +3988,26 @@
     <Compile Include="View\Workflow\P2000\P2000H.aspx.designer.cs">
       <DependentUpon>P2000H.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Workflow\P2010\P2012E.aspx.cs">
+      <DependentUpon>P2012E.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Workflow\P2010\P2012E.aspx.designer.cs">
+      <DependentUpon>P2012E.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Workflow\P2010\P2012H.aspx.cs">
+      <DependentUpon>P2012H.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Workflow\P2010\P2012H.aspx.designer.cs">
+      <DependentUpon>P2012H.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="extjs\src\" />
-    <Folder Include="View\Finance\P0901\" />
     <Folder Include="View\Finance\P0911\" />
-    <Folder Include="View\Finance\P0930\" />
     <Folder Include="View\Setting\P40203\" />
-    <Folder Include="View\Workflow\P2010\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBContextHelper\DBContextHelper\DBContextHelper.csproj">

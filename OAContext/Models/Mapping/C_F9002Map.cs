@@ -63,6 +63,7 @@ namespace OAContext
             this.Property(t => t.RPBARDELETE).HasColumnName("RPBARDELETE");
             this.Property(t => t.RPBARCLOSE).HasColumnName("RPBARCLOSE");
             this.Property(t => t.RPBARFIND).HasColumnName("RPBARFIND");
+            this.Property(t => t.RPBARPRINT).HasColumnName("RPBARPRINT");
             this.Property(t => t.RPBARSAVEAS).HasColumnName("RPBARSAVEAS");
             this.Property(t => t.RPSRP1).HasColumnName("RPSRP1");
             this.Property(t => t.RPSRP2).HasColumnName("RPSRP2");

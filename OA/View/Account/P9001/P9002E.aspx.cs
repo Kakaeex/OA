@@ -14,11 +14,31 @@ namespace OA.View.Account.P9001
 {
     public partial class P9002E : PagedBase, IEditPage
     {
+        #region Event
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+        protected void TriggerClick(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._UDC.GetSelectionView(tBox.ID);
+            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
+            windows.Hidden = false;
+        }
 
+        protected void Trigger_Blur(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._UDC.GetSelectionView(tBox.ID);
+        }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region Methods
         public void BindGrid()
         {
             var query = Master._DBHelper.GetQueryable<C_F9002>(p => 1 == 1);
@@ -30,7 +50,10 @@ namespace OA.View.Account.P9001
         {
 
         }
-
+        public dynamic OnValidate<T>(string type, T obj) where T : ModelBase
+        {
+            return "Y";
+        }
         public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
             C_F9002 obj = new C_F9002(1);
@@ -49,6 +72,7 @@ namespace OA.View.Account.P9001
                 obj.RPBARCLOSE = ValueConvert.toInt(rowDict["RPBARCLOSE"]);
                 obj.RPBARFIND = ValueConvert.toInt(rowDict["RPBARFIND"]);
                 obj.RPBARSAVEAS = ValueConvert.toInt(rowDict["RPBARSAVEAS"]);
+                obj.RPBARPRINT = ValueConvert.toInt(rowDict["RPBARPRINT"]);
                 obj.RPSRP1 = rowDict["RPSRP1"].ToString();
                 obj.RPSRP2 = rowDict["RPSRP2"].ToString();
                 obj.RPSRP3 = rowDict["RPSRP3"].ToString();
@@ -81,16 +105,17 @@ namespace OA.View.Account.P9001
                 obj.RPBARCLOSE = ValueConvert.toInt(values[6]);
                 obj.RPBARFIND = ValueConvert.toInt(values[7]);
                 obj.RPBARSAVEAS = ValueConvert.toInt(values[8]);
-                obj.RPSRP1 = values[9].ToString();
-                obj.RPSRP2 = values[10].ToString();
-                obj.RPSRP3 = values[11].ToString();
-                obj.RPSRP4 = values[12].ToString();
-                obj.RPSRP5 = values[13].ToString();
-                obj.RPPRP1 = ValueConvert.toInt(values[14]);
-                obj.RPPRP2 = ValueConvert.toInt(values[15]);
-                obj.RPPRP3 = ValueConvert.toInt(values[16]);
-                obj.RPPRP4 = ValueConvert.toInt(values[17]);
-                obj.RPPRP5 = ValueConvert.toInt(values[18]);
+                obj.RPBARPRINT = ValueConvert.toInt(values[9]);
+                obj.RPSRP1 = values[10].ToString();
+                obj.RPSRP2 = values[11].ToString();
+                obj.RPSRP3 = values[12].ToString();
+                obj.RPSRP4 = values[13].ToString();
+                obj.RPSRP5 = Master._DBHelper.Find<C_F9005>(p => p.APID == obj.RPAPID).APDEL1;//rowDict["RPSRP5"].ToString();
+                obj.RPPRP1 = ValueConvert.toInt(values[15]);
+                obj.RPPRP2 = ValueConvert.toInt(values[16]);
+                obj.RPPRP3 = ValueConvert.toInt(values[17]);
+                obj.RPPRP4 = ValueConvert.toInt(values[18]);
+                obj.RPPRP5 = ValueConvert.toInt(values[19]);
                 obj.RPUSER = Master.userID;
                 obj.RPPID = Master.progammeID;
                 obj.RPDATE = Master.now;
@@ -123,29 +148,17 @@ namespace OA.View.Account.P9001
             return "Tab";
         }
 
-        #region
-        protected void TriggerClick(object sender, EventArgs e)
-        {
-            TriggerBox tBox = sender as TriggerBox;
-            string URL = Master._UDC.GetSelectionView(tBox.ID);
-            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
-            windows.Hidden = false;
-        }
-
-        protected void Trigger_Blur(object sender, EventArgs e)
-        {
-            TriggerBox tBox = sender as TriggerBox;
-            string URL = Master._UDC.GetSelectionView(tBox.ID);
-        }
-        public void AfterEdit(GridAfterEditEventArgs e)
-        {
-
-        }
         public void DeleteRow()
         {
 
         }
+        public void Print()
+        {
+            PageContext.RegisterStartupScript("Print();");
+        }
+        #endregion
 
+        #region Object
         public Grid Grid
         {
             get

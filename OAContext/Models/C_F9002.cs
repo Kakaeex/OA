@@ -23,6 +23,7 @@ namespace OAContext
                 RPBARDELETE = 0 ;
                 RPBARCLOSE = 0 ;
                 RPBARFIND = 0 ;
+                RPBARPRINT = 0 ;
                 RPBARSAVEAS = 0 ;
                 RPSRP1 = "" ;
                 RPSRP2 = "" ;
@@ -51,6 +52,7 @@ namespace OAContext
         public int RPBARDELETE { get; set; }
         public int RPBARCLOSE { get; set; }
         public int RPBARFIND { get; set; }
+        public int RPBARPRINT { get; set; }
         public int RPBARSAVEAS { get; set; }
         public string RPSRP1 { get; set; }
         public string RPSRP2 { get; set; }

@@ -55,17 +55,17 @@ namespace OAContext
         public string WDDSC1 { get; set; }
         public string WDDSC2 { get; set; }
         public string WDDCT { get; set; }
-        public Nullable<System.DateTime> WDTRDJ { get; set; }
-        public Nullable<System.DateTime> WDDRQJ { get; set; }
-        public Nullable<System.DateTime> WDPDDJ { get; set; }
-        public Nullable<System.DateTime> WDADDJ { get; set; }
-        public Nullable<System.DateTime> WDCNDJ { get; set; }
-        public Nullable<decimal> WDUPRC { get; set; }
-        public Nullable<decimal> WDAEXP { get; set; }
-        public Nullable<decimal> WDUNCS { get; set; }
-        public Nullable<decimal> WDECST { get; set; }
-        public Nullable<decimal> WDSOQS { get; set; }
-        public Nullable<decimal> WDUORG { get; set; }
+        public System.DateTime WDTRDJ { get; set; }
+        public System.DateTime WDDRQJ { get; set; }
+        public System.DateTime WDPDDJ { get; set; }
+        public System.DateTime WDADDJ { get; set; }
+        public System.DateTime WDCNDJ { get; set; }
+        public decimal WDUPRC { get; set; }
+        public decimal WDAEXP { get; set; }
+        public decimal WDUNCS { get; set; }
+        public decimal WDECST { get; set; }
+        public decimal WDSOQS { get; set; }
+        public decimal WDUORG { get; set; }
         public string WDVR01 { get; set; }
         public string WDVR02 { get; set; }
         public string WDSRP1 { get; set; }
@@ -73,11 +73,11 @@ namespace OAContext
         public string WDSRP3 { get; set; }
         public string WDSRP4 { get; set; }
         public string WDSRP5 { get; set; }
-        public Nullable<int> WDPRP1 { get; set; }
-        public Nullable<int> WDPRP2 { get; set; }
-        public Nullable<int> WDPRP3 { get; set; }
-        public Nullable<int> WDPRP4 { get; set; }
-        public Nullable<int> WDPRP5 { get; set; }
+        public int WDPRP1 { get; set; }
+        public int WDPRP2 { get; set; }
+        public int WDPRP3 { get; set; }
+        public int WDPRP4 { get; set; }
+        public int WDPRP5 { get; set; }
         public string WDUSER { get; set; }
         public string WDPID { get; set; }
         public System.DateTime WDDATE { get; set; }

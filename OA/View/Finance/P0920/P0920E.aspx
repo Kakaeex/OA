@@ -26,6 +26,7 @@
                             <f:TriggerBox ID="FHMCU" EnableEdit="true" Text="" Label="部门BU"
                                 TriggerIcon="Search" runat="server" OnTriggerClick="TriggerClick" Required="true" ShowRedStar="true">
                             </f:TriggerBox>
+                             <f:TextBox ID="FHKCOO" runat="server" Label="公司" Required="true" ShowRedStar="true" Readonly="true" />
                         </Items>
                     </f:FormRow>
                     <f:FormRow>
@@ -56,7 +57,7 @@
         <Items>
             <f:Grid ID="Grid1" runat="server" ShowHeader="false" DataKeyNames="FDLNID"
                 AllowCellEditing="true" ClicksToEdit="1" EnableMultiSelect="false" EnableCheckBoxSelect="false"
-                IsDatabasePaging="false" AllowPaging="false" AutoScroll="true" Height="500px">
+                IsDatabasePaging="false" AllowPaging="false" AutoScroll="true" Height="500px" OnPreRowDataBound="Grid1_PreRowDataBound">
                 <Columns>
                     <f:RenderField Width="80px" DataField="FDLNID" ColumnID="FDLNID" FieldType="Int"
                         HeaderText="行号">
@@ -65,44 +66,44 @@
                             </f:TextBox>
                         </Editor>
                     </f:RenderField>
-                    <f:RenderField Width="300px" DataField="FDAID" ColumnID="FDAID" FieldType="String"
+                    <f:RenderField Width="150px" DataField="FDAID" ColumnID="FDAID" FieldType="String"
                         HeaderText="BU下费用类别">
                         <Editor>
-                            <f:TriggerBox ID="FDAID" EnableEdit="true" Text="" Width="300px"
+                            <f:TriggerBox ID="FDAID" EnableEdit="false" Text="" Width="300px"
                                 TriggerIcon="Search" runat="server" OnTriggerClick="TriggerClick">
                             </f:TriggerBox>
                         </Editor>
                     </f:RenderField>
-                    <f:RenderField Width="80px" DataField="FDDSC1" ColumnID="FDDSC1" FieldType="String"
+                    <f:RenderField Width="300px" DataField="FDDSC1" ColumnID="FDDSC1" FieldType="String"
                         HeaderText="类别说明">
                         <Editor>
                             <f:TextBox ID="FDDSC1" runat="server" Readonly="true">
                             </f:TextBox>
                         </Editor>
                     </f:RenderField>
-                    <f:RenderField Width="300px" DataField="FDUPRC" ColumnID="FDUPRC" FieldType="Int"
+                    <f:RenderField Width="80px" DataField="FDUPRC" ColumnID="FDUPRC" FieldType="Float"
                         HeaderText="划入金额">
                         <Editor>
                             <f:TextBox ID="FDUPRC" runat="server">
                             </f:TextBox>
                         </Editor>
                     </f:RenderField>
-                    <f:RenderField Width="200px" DataField="FDAPYN" ColumnID="FDAPYN" FieldType="Int"
+                    <f:RenderField Width="80px" DataField="FDAPYN" ColumnID="FDAPYN" FieldType="Float"
                         HeaderText="占用金额">
                         <Editor>
                             <f:TextBox ID="FDAPYN" runat="server" Readonly="true">
                             </f:TextBox>
                         </Editor>
                     </f:RenderField>
-                    <f:RenderField Width="200px" DataField="FDAWTD" ColumnID="FDAWTD" FieldType="Int"
+                    <f:RenderField Width="80px" DataField="FDAWTD" ColumnID="FDAWTD" FieldType="Int"
                         HeaderText="发生金额">
                         <Editor>
                             <f:TextBox ID="FDAWTD" runat="server" Readonly="true">
                             </f:TextBox>
                         </Editor>
                     </f:RenderField>
-                    <f:RenderField Width="200px" DataField="KYJE" ColumnID="KYJE" FieldType="Int"
-                        HeaderText="可用金额">
+                    <f:RenderField Width="80px" DataField="KYJE" ColumnID="KYJE" FieldType="Float"
+                        HeaderText="可用金额" Hidden="true">
                         <Editor>
                             <f:TextBox ID="KYJE" runat="server" Readonly="true">
                             </f:TextBox>
@@ -119,10 +120,10 @@
         </Items>
     </f:Panel>
     <script type="text/javascript">
-        function closeActiveTab() {
-            parent.removeActiveTab();
-        }
-        function newActiveTab() {
-        };
+        //function closeActiveTab() {
+        //    parent.removeActiveTab();
+        //}
+        //function newActiveTab() {
+        //};
     </script>
 </asp:Content>

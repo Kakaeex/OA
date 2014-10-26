@@ -77,17 +77,17 @@ namespace OAContext
         public string CDFOBJ { get; set; }
         public string CDFSUB { get; set; }
         public string CDDEL2 { get; set; }
-        public Nullable<System.DateTime> CDTRDJ { get; set; }
-        public Nullable<System.DateTime> CDDRQJ { get; set; }
-        public Nullable<System.DateTime> CDPDDJ { get; set; }
-        public Nullable<System.DateTime> CDADDJ { get; set; }
-        public Nullable<System.DateTime> CDCNDJ { get; set; }
-        public Nullable<decimal> CDUPRC { get; set; }
-        public Nullable<decimal> CDAEXP { get; set; }
-        public Nullable<decimal> CDUNCS { get; set; }
-        public Nullable<decimal> CDECST { get; set; }
-        public Nullable<decimal> CDSOQS { get; set; }
-        public Nullable<decimal> CDUORG { get; set; }
+        public System.DateTime CDTRDJ { get; set; }
+        public System.DateTime CDDRQJ { get; set; }
+        public System.DateTime CDPDDJ { get; set; }
+        public System.DateTime CDADDJ { get; set; }
+        public System.DateTime CDCNDJ { get; set; }
+        public decimal CDUPRC { get; set; }
+        public decimal CDAEXP { get; set; }
+        public decimal CDUNCS { get; set; }
+        public decimal CDECST { get; set; }
+        public decimal CDSOQS { get; set; }
+        public decimal CDUORG { get; set; }
         public string CDVR01 { get; set; }
         public string CDVR02 { get; set; }
         public string CDSRP1 { get; set; }
@@ -95,11 +95,11 @@ namespace OAContext
         public string CDSRP3 { get; set; }
         public string CDSRP4 { get; set; }
         public string CDSRP5 { get; set; }
-        public Nullable<int> CDPRP1 { get; set; }
-        public Nullable<int> CDPRP2 { get; set; }
-        public Nullable<int> CDPRP3 { get; set; }
-        public Nullable<int> CDPRP4 { get; set; }
-        public Nullable<int> CDPRP5 { get; set; }
+        public int CDPRP1 { get; set; }
+        public int CDPRP2 { get; set; }
+        public int CDPRP3 { get; set; }
+        public int CDPRP4 { get; set; }
+        public int CDPRP5 { get; set; }
         public string CDUSER { get; set; }
         public string CDPID { get; set; }
         public System.DateTime CDDATE { get; set; }

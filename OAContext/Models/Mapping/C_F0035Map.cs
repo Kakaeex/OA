@@ -36,49 +36,61 @@ namespace OAContext
                 .HasMaxLength(30);
 
             this.Property(t => t.MSSRP1)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSSRP2)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSSRP3)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSSRP4)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSSRP5)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSPRP1)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSPRP2)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSPRP3)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSPRP4)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSPRP5)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 
             this.Property(t => t.MSUSER)
+                .IsRequired()
                 .HasMaxLength(20);
 
             this.Property(t => t.MSPID)
+                .IsRequired()
                 .HasMaxLength(50);
 
             // Table & Column Mappings

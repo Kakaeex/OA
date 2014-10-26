@@ -76,7 +76,7 @@
                         </Editor>
                     </f:RenderField>
                     <f:RenderField Width="200px" DataField="WDSRP2" ColumnID="WDSRP2" FieldType="String"
-                        HeaderText="下一节点">
+                        HeaderText="下一状态">
                         <Editor>
                              <f:TextBox ID="WDSRP2" runat="server">
                             </f:TextBox>
@@ -92,11 +92,7 @@
         </Items>
     </f:Panel>
     <script type="text/javascript">
-        function closeActiveTab() {
-            parent.removeActiveTab();
-        }
-        function newActiveTab() {
-        };
+
     </script>
 </asp:Content>
 

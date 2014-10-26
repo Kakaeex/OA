@@ -52,12 +52,12 @@
         </Items>
     </f:Panel>
     <script type="text/javascript">
-        var basePath = '<%= ResolveUrl("~/") %>';
+      <%--  var basePath = '<%= ResolveUrl("~/") %>';
         function closeActiveTab() {
             parent.removeActiveTab();
         }
         function AddActiveTab(url) {
             parent.newActiveTab.apply(null, ['', basePath + url, '用户修订', null, true]);
-        }
+        }--%>
     </script>
 </asp:Content>

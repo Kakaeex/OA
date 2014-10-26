@@ -18,67 +18,91 @@ namespace OAContext
                 .IsRequired()
                 .HasMaxLength(10);
 
+            this.Property(t => t.FHKCOO)
+                .IsRequired()
+                .HasMaxLength(10);
+
             this.Property(t => t.FHMCU)
+                .IsRequired()
                 .HasMaxLength(12);
 
             this.Property(t => t.FHNAME)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.FHDSC1)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.FHDSC2)
+                .IsRequired()
                 .HasMaxLength(30);
 
             this.Property(t => t.FHLTTR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FHNXTR)
+                .IsRequired()
                 .HasMaxLength(3);
 
             this.Property(t => t.FHSRP1)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHSRP2)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHSRP3)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHSRP4)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHSRP5)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHSRP6)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHSRP7)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHSRP8)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHSRP9)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHSRP0)
+                .IsRequired()
                 .HasMaxLength(10);
 
             this.Property(t => t.FHTROG)
+                .IsRequired()
                 .HasMaxLength(20);
 
             this.Property(t => t.FHUSER)
+                .IsRequired()
                 .HasMaxLength(20);
 
             this.Property(t => t.FHPID)
+                .IsRequired()
                 .HasMaxLength(50);
 
             // Table & Column Mappings
             this.ToTable("C_F0920");
             this.Property(t => t.FHDOCO).HasColumnName("FHDOCO");
             this.Property(t => t.FHDCTO).HasColumnName("FHDCTO");
+            this.Property(t => t.FHKCOO).HasColumnName("FHKCOO");
             this.Property(t => t.FHMCU).HasColumnName("FHMCU");
             this.Property(t => t.FHYAER).HasColumnName("FHYAER");
             this.Property(t => t.FHEFTJ).HasColumnName("FHEFTJ");

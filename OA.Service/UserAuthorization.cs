@@ -291,7 +291,8 @@ namespace OA.Service
                         for (int i = 0; i < toolbar.Items.Count; i++)
                         {
                             if (toolbar.Items[i].ID == "toolBarNew") toolbar.Items[i].Hidden = f9002.RPBARNEW == 0;
-                            if (toolbar.Items[i].ID == "toolSave" || toolbar.Items[i].ID == "toolSaveAndClose") toolbar.Items[i].Hidden = f9002.RPBARSAVE == 0;
+                            if (toolbar.Items[i].ID == "toolSave") toolbar.Items[i].Hidden = f9002.RPBARSAVE == 0;
+                            if (toolbar.Items[i].ID == "toolPrint") toolbar.Items[i].Hidden = f9002.RPBARPRINT == 0;
                             if (toolbar.Items[i].ID == "toolBarSelect") toolbar.Items[i].Hidden = f9002.RPBARSELECT == 0;
                             if (toolbar.Items[i].ID == "toolBarDelete") toolbar.Items[i].Hidden = f9002.RPBARDELETE == 0;
                             if (toolbar.Items[i].ID == "toolBarClose") toolbar.Items[i].Hidden = f9002.RPBARCLOSE == 0;

@@ -131,6 +131,14 @@
                             </f:TextBox>
                         </Editor>
                     </f:RenderField>
+                    <f:RenderField Width="100px" DataField="RPBARPRINT" ColumnID="RPBARPRINT" FieldType="Int"
+                        HeaderText="打印">
+
+                        <Editor>
+                            <f:TextBox ID="RPBARPRINT" Required="true" runat="server">
+                            </f:TextBox>
+                        </Editor>
+                    </f:RenderField>
                     <f:RenderField Width="100px" DataField="RPSRP1" ColumnID="RPSRP1" FieldType="String"
                         HeaderText="销售码1">
 
@@ -220,11 +228,11 @@
         </Items>
     </f:Panel>
     <script type="text/javascript">
-        function closeActiveTab() {
-            parent.removeActiveTab();
-        }
-        function newActiveTab() {
-        };
+        //function closeActiveTab() {
+        //    parent.removeActiveTab();
+        //}
+        //function newActiveTab() {
+        //};
     </script>
 </asp:Content>
 

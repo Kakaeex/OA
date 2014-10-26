@@ -74,16 +74,16 @@ namespace OAContext
         public string LFCLASS08 { get; set; }
         public string LFCLASS09 { get; set; }
         public string LFCLASS10 { get; set; }
-        public Nullable<int> LFPRP1 { get; set; }
-        public Nullable<int> LFPRP2 { get; set; }
-        public Nullable<int> LFPRP3 { get; set; }
-        public Nullable<int> LFPRP4 { get; set; }
-        public Nullable<int> LFPRP5 { get; set; }
-        public Nullable<int> LFPRP6 { get; set; }
-        public Nullable<int> LFPRP7 { get; set; }
-        public Nullable<int> LFPRP8 { get; set; }
-        public Nullable<int> LFPRP9 { get; set; }
-        public Nullable<int> LFPRP0 { get; set; }
+        public int LFPRP1 { get; set; }
+        public int LFPRP2 { get; set; }
+        public int LFPRP3 { get; set; }
+        public int LFPRP4 { get; set; }
+        public int LFPRP5 { get; set; }
+        public int LFPRP6 { get; set; }
+        public int LFPRP7 { get; set; }
+        public int LFPRP8 { get; set; }
+        public int LFPRP9 { get; set; }
+        public int LFPRP0 { get; set; }
         public string LFUSER { get; set; }
         public string LFPID { get; set; }
         public System.DateTime LFDATE { get; set; }

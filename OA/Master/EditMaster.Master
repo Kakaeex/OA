@@ -26,5 +26,18 @@
             IsModal="True" Width="850px" Height="450px">
         </f:Window>
     </form>
+    <script type="text/javascript">
+        var basePath = '<%= ResolveUrl("~/") %>';
+        function closeActiveTab() {
+            parent.removeActiveTab();
+        }
+        function AddActiveTab(url, title) {
+            parent.newActiveTab.apply(null, ['', basePath + url, title, null, true]);
+        }
+
+        function Print() {
+            window.print();
+        }
+    </script>
 </body>
 </html>

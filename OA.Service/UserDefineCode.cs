@@ -30,6 +30,13 @@ namespace OA.Service
             return obj.FindAll(p => p.DRSY == sy & p.DRRT == rt);
         }
 
+        public List<C_F0005> GetUDCList(string dd)
+        {
+            List<C_F0005> obj = GetUDCCache();
+            var F0005 = obj.Find(p => p.DRSY == "SY" & p.DRRT == "DD" & p.DRKY == dd);
+            return obj.FindAll(p => p.DRSY == F0005.DRSRP1 & p.DRRT == F0005.DRSRP2);
+        }
+
         public C_F0005 GetUDC(string sy, string rt, string ky)
         {
             List<C_F0005> obj = GetUDCCache();

@@ -47,7 +47,7 @@ namespace OAContext
         public string FSA4TR { get; set; }
         public string FSA5TR { get; set; }
         public string FSWRTH { get; set; }
-        public Nullable<int> FSORNN { get; set; }
+        public int FSORNN { get; set; }
         public string FSUSER { get; set; }
         public string FSPID { get; set; }
         public System.DateTime FSDATE { get; set; }

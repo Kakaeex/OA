@@ -14,23 +14,53 @@ namespace OA.View.Account.Users
 {
     public partial class P9008E : PagedBase, IEditPage
     {
+        #region Event
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Master.QueryString.ContainsKey("STYL"))
+            {
+                mode.Text = Master.QueryString["STYL"];
+            }
+            else
+            {
+                mode.Text = "BU";
+            }
         }
+        protected void TriggerClick(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._UDC.GetSelectionView(tBox.ID);
+            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
+            windows.Hidden = false;
+        }
+        protected void Trigger_Blur(object sender, EventArgs e)
+        {
+            //TriggerBox tBox = sender as TriggerBox;
+        }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
+            //Grid1. Rows[e.RowIndex].Values[0] = "00068";
+        }
+        #endregion
 
+        #region Methods
         public void BindGrid()
         {
             int an8 = ValueConvert.toInt(AN8);
-            Master.bind<C_F9008, int>(p => p.AUAN8 == an8, p => p.AUAN8);
+            Master.bind<C_F9008, int>(p => p.AUAN8 == an8 & p.AUSRP1 == mode.Text, p => p.AUAN8);
         }
 
         public void Bind()
         {
 
         }
+        public dynamic OnValidate<T>(string type, T obj) where T : ModelBase
+        {
+            return "Y";
+        }
 
-        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
+        public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, 
+            object[] values = null, int deletedRows = -1)
         {
             C_F9008 obj = new C_F9008(1);
             if (rowDict != null)
@@ -97,9 +127,11 @@ namespace OA.View.Account.Users
             }
             else
             {
+                obj.AUSRP1 = mode.Text;
                 return obj;
             }
         }
+
         public void Save()
         {
             Master.SaveRecord<C_F9008>(Grid1.GetDeletedList(), Grid1.GetModifiedDict(), Grid1.GetNewAddedList(), GetGridRowData);
@@ -111,28 +143,17 @@ namespace OA.View.Account.Users
             return "Tab";
         }
 
-        #region
-        protected void TriggerClick(object sender, EventArgs e)
-        {
-            TriggerBox tBox = sender as TriggerBox;
-            string URL = Master._UDC.GetSelectionView(tBox.ID);
-            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
-            windows.Hidden = false;
-        }
-
-        protected void Trigger_Blur(object sender, EventArgs e)
-        {
-            //TriggerBox tBox = sender as TriggerBox;
-        }
-        public void AfterEdit(GridAfterEditEventArgs e)
-        {
-            //Grid1. Rows[e.RowIndex].Values[0] = "00068";
-        }
         public void DeleteRow()
         {
 
         }
+        public void Print()
+        {
+            PageContext.RegisterStartupScript("Print();");
+        }
+        #endregion
 
+        #region
         public Grid Grid
         {
             get
@@ -156,6 +177,7 @@ namespace OA.View.Account.Users
                 return toolBar;
             }
         }
+
         public string[] Forms
         {
             get

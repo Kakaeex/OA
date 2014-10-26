@@ -65,7 +65,6 @@ namespace OA.Master
         public IWebHelper _WebHelper { get; set; }
         #endregion
 
-
         #region Page_Init
 
         protected void Page_Init(object sender, EventArgs e)
@@ -267,7 +266,16 @@ namespace OA.Master
                     }
                     _values[0] = _values[0].ToString().TrimEnd(';');
                     break;
-                case "4": //x1,y1
+                case "4": //x1,x2
+                    _values = new string[cloumes.Count()];
+                    i = 0;
+                    foreach (int row in cloumes)
+                    {
+                        _values[i] = Page.Grid.Rows[Page.Grid.SelectedRowIndex].Values[cloumes[i]].ToString();
+                        i++;
+                    }
+                    break;
+                case "5": //x1,y1
                     _values = new string[Page.Grid.SelectedRowIndexArray.Count()];
                     i = 0;
                     foreach (int row in Page.Grid.SelectedRowIndexArray)

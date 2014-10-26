@@ -26,9 +26,9 @@
                     <f:Panel ID="Panel1" ShowHeader="false" ShowBorder="false" Layout="Column"
                         runat="server">
                         <Items>
-                            <f:TextBox runat="server" ID="DRKY" Label="值" Width="250px"></f:TextBox>
+                            <f:TextBox runat="server" ID="DRKY" Label="值" Width="100px"></f:TextBox>
                             <f:TextBox runat="server" ID="DRDEL1" Label="说明1" Width="250px"></f:TextBox>
-                            <f:TextBox runat="server" ID="DRDEL2" Label="说明2" Width="250px"></f:TextBox>
+                            <f:TextBox runat="server" ID="DRDEL2" Label="说明2" Width="2500px"></f:TextBox>
                         </Items>
                     </f:Panel>
                 </Items>
@@ -39,8 +39,8 @@
                 EnableMultiSelect="false" AutoScroll="true" Height="300px">
                 <Columns>
                     <f:BoundField Width="100px" DataField="DRKY" DataFormatString="{0}" HeaderText="值" ColumnID="DRKY" />
-                    <f:BoundField Width="100px" DataField="DRDEL1" DataFormatString="{0}" HeaderText="说明1" ColumnID="DRDEL1" />
-                    <f:BoundField Width="100px" DataField="DRDEL2" DataFormatString="{0}" HeaderText="说明2" ColumnID="DRDEL2" />
+                    <f:BoundField Width="300px" DataField="DRDEL1" DataFormatString="{0}" HeaderText="说明1" ColumnID="DRDEL1" />
+                    <f:BoundField Width="300px" DataField="DRDEL2" DataFormatString="{0}" HeaderText="说明2" ColumnID="DRDEL2" />
                 </Columns>
             </f:Grid>
             <f:HiddenField ID="mode" runat="server"></f:HiddenField>

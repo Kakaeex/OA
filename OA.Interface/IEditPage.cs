@@ -53,6 +53,12 @@ namespace OA.Interface
         /// <returns></returns>
         void Save();
 
+        /// <summary>
+        /// 打印页面
+        /// </summary>
+        /// <returns></returns>
+        void Print();
+
 
         /// <summary>
         /// 获取编辑地址
@@ -62,5 +68,6 @@ namespace OA.Interface
 
         void AfterEdit(GridAfterEditEventArgs e);
 
+        dynamic OnValidate<T>(string type, T obj) where T : ModelBase;
     }
 }

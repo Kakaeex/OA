@@ -54,10 +54,10 @@ namespace OAContext
         public string CCNAME { get; set; }
         public string CCDSC1 { get; set; }
         public string CCDSC2 { get; set; }
-        public Nullable<int> CCCTRY { get; set; }
-        public Nullable<int> CCFY { get; set; }
+        public int CCCTRY { get; set; }
+        public int CCFY { get; set; }
         public string CCCRCD { get; set; }
-        public Nullable<int> CCAN8 { get; set; }
+        public int CCAN8 { get; set; }
         public string CCADDZ { get; set; }
         public string CCCTY1 { get; set; }
         public string CCCOUN { get; set; }
@@ -72,16 +72,16 @@ namespace OAContext
         public string CCSRP8 { get; set; }
         public string CCSRP9 { get; set; }
         public string CCSRP0 { get; set; }
-        public Nullable<int> CCPRP1 { get; set; }
-        public Nullable<int> CCPRP2 { get; set; }
-        public Nullable<int> CCPRP3 { get; set; }
-        public Nullable<int> CCPRP4 { get; set; }
-        public Nullable<int> CCPRP5 { get; set; }
-        public Nullable<int> CCPRP6 { get; set; }
-        public Nullable<int> CCPRP7 { get; set; }
-        public Nullable<int> CCPRP8 { get; set; }
-        public Nullable<int> CCPRP9 { get; set; }
-        public Nullable<int> CCPRP0 { get; set; }
+        public int CCPRP1 { get; set; }
+        public int CCPRP2 { get; set; }
+        public int CCPRP3 { get; set; }
+        public int CCPRP4 { get; set; }
+        public int CCPRP5 { get; set; }
+        public int CCPRP6 { get; set; }
+        public int CCPRP7 { get; set; }
+        public int CCPRP8 { get; set; }
+        public int CCPRP9 { get; set; }
+        public int CCPRP0 { get; set; }
         public string CCUSER { get; set; }
         public string CCPID { get; set; }
         public System.DateTime CCDATE { get; set; }

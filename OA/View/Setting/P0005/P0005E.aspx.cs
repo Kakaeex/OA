@@ -14,6 +14,7 @@ namespace OA.View.Setting.P0005
 {
     public partial class P0005E : PagedBase, IEditPage
     {
+        #region Event
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Master.QueryString.ContainsKey("SY") & Master.QueryString.ContainsKey("RT"))
@@ -26,9 +27,20 @@ namespace OA.View.Setting.P0005
 
             }
         }
+        protected void TriggerClick(object sender, EventArgs e)
+        {
+            TriggerBox tBox = sender as TriggerBox;
+            string URL = Master._UDC.GetSelectionView(tBox.ID);
+            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
+            windows.Hidden = false;
+        }
+        public void AfterEdit(GridAfterEditEventArgs e)
+        {
 
-        #region BindGrid
+        }
+        #endregion
 
+        #region Methods
         public void BindGrid()
         {
             var query = Master._DBHelper.GetQueryable<C_F0005>(p => 1 == 1);
@@ -37,20 +49,18 @@ namespace OA.View.Setting.P0005
             query = DRDEL1.Text.Trim().Equals("") ? query : query.Where(c => c.DRDEL1.Contains(DRDEL1.Text.Trim()));
             Master.bind<C_F0005, string>(query, p => p.DRSY);
         }
-
         public void Bind()
         {
 
         }
-
-        #endregion
-
-
         public void DeleteRow()
         {
             
         }
-
+        public dynamic OnValidate<T>(string type, T obj) where T : ModelBase
+        {
+            return "Y";
+        }
         public dynamic GetGridRowData(Dictionary<string, object> rowDict = null, object[] values = null, int deletedRows = -1)
         {
              C_F0005 obj = new C_F0005(1);
@@ -126,26 +136,27 @@ namespace OA.View.Setting.P0005
         {
             Master.SaveRecord<C_F0005>(Grid1.GetDeletedList(), Grid1.GetModifiedDict(), Grid1.GetNewAddedList(), GetGridRowData);
         }
-
         public string GetFromMode()
         {
             //return "Windows";
             return "Tab";
         }
-
-        #region 实例
-        public void AfterEdit(GridAfterEditEventArgs e)
+        public void Print()
         {
-
+            PageContext.RegisterStartupScript("Print();");
         }
+        #endregion
+
+        #region Object
+     
         public Grid Grid
         {
             get
             {
+                Grid1.PageSize = 100000;
                 return Grid1;
             }
         }
-
         public Label Label
         {
             get
@@ -153,7 +164,6 @@ namespace OA.View.Setting.P0005
                 return PageMessage;
             }
         }
-
         public Toolbar Toolbar
         {
             get
@@ -170,13 +180,5 @@ namespace OA.View.Setting.P0005
             }
         }
         #endregion
-
-        protected void TriggerClick(object sender, EventArgs e)
-        {
-            TriggerBox tBox = sender as TriggerBox;
-            string URL = Master._UDC.GetSelectionView(tBox.ID);
-            PageContext.RegisterStartupScript(windows.GetSaveStateReference(tBox.ClientID) + windows.GetShowReference(URL));
-            windows.Hidden = false;
-        }
     }
 }

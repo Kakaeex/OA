@@ -53,17 +53,17 @@ namespace OAContext
         public string WHDSC1 { get; set; }
         public string WHDSC2 { get; set; }
         public string WHDCT { get; set; }
-        public Nullable<System.DateTime> WHTRDJ { get; set; }
-        public Nullable<System.DateTime> WHDRQJ { get; set; }
-        public Nullable<System.DateTime> WHPDDJ { get; set; }
-        public Nullable<System.DateTime> WHADDJ { get; set; }
-        public Nullable<System.DateTime> WHCNDJ { get; set; }
-        public Nullable<decimal> WHUPRC { get; set; }
-        public Nullable<decimal> WHAEXP { get; set; }
-        public Nullable<decimal> WHUNCS { get; set; }
-        public Nullable<decimal> WHECST { get; set; }
-        public Nullable<decimal> WHSOQS { get; set; }
-        public Nullable<decimal> WHUORG { get; set; }
+        public System.DateTime WHTRDJ { get; set; }
+        public System.DateTime WHDRQJ { get; set; }
+        public System.DateTime WHPDDJ { get; set; }
+        public System.DateTime WHADDJ { get; set; }
+        public System.DateTime WHCNDJ { get; set; }
+        public decimal WHUPRC { get; set; }
+        public decimal WHAEXP { get; set; }
+        public decimal WHUNCS { get; set; }
+        public decimal WHECST { get; set; }
+        public decimal WHSOQS { get; set; }
+        public decimal WHUORG { get; set; }
         public string WHVR01 { get; set; }
         public string WHVR02 { get; set; }
         public string WHSRP1 { get; set; }
@@ -71,11 +71,11 @@ namespace OAContext
         public string WHSRP3 { get; set; }
         public string WHSRP4 { get; set; }
         public string WHSRP5 { get; set; }
-        public Nullable<int> WHPRP1 { get; set; }
-        public Nullable<int> WHPRP2 { get; set; }
-        public Nullable<int> WHPRP3 { get; set; }
-        public Nullable<int> WHPRP4 { get; set; }
-        public Nullable<int> WHPRP5 { get; set; }
+        public int WHPRP1 { get; set; }
+        public int WHPRP2 { get; set; }
+        public int WHPRP3 { get; set; }
+        public int WHPRP4 { get; set; }
+        public int WHPRP5 { get; set; }
         public string WHUSER { get; set; }
         public string WHPID { get; set; }
         public System.DateTime WHDATE { get; set; }

@@ -32,9 +32,12 @@ namespace OA.View.Workflow.P2000
 
         public string GetNewUrl()
         {
-            return Master._UserAuthorization.GetApplication(Master.kcoo, "P2000E").Replace("~/", "");
+            return Master._UserAuthorization.GetApplication(Master.kcoo, "P2000E").Replace("~/", "") + ",新增工作流";
         }
-
+        public void Print()
+        {
+            PageContext.RegisterStartupScript("Print();");
+        }
         /// <summary>
         /// [ISingleGridPage]获取编辑地址
         /// </summary>
@@ -48,7 +51,7 @@ namespace OA.View.Workflow.P2000
             dic.Add("DOCO", keys[1].ToString());
             dic.Add("DCTO", keys[2].ToString());
             return String.Format
-                (Master._UserAuthorization.GetApplication(Master.kcoo, "P2000E").Replace("~/", "") + Master._WebHelper.SetQueryString(dic));
+                (Master._UserAuthorization.GetApplication(Master.kcoo, "P2000E").Replace("~/", "") + Master._WebHelper.SetQueryString(dic)) + ",工作流修订";
         }
 
         public string GetFromMode()
